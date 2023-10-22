@@ -4,5 +4,7 @@ from django.views.generic import TemplateView
 
 # Create your views here.
 
-def Index(request):
-    return HttpResponse("Synth lovers rejoice! You've reached nirvana!")
+class Index(TemplateView):
+    '''Class used to display the index page '''
+
+    template_name = 'core/index.html'
