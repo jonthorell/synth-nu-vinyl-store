@@ -5,4 +5,4 @@ from django.views.generic import TemplateView
 # Create your views here.
 
 def Index(request):
-    return HttpResponse("Hello, world. ")
+    return HttpResponse("Synth lovers rejoice! You've reached nirvana!")
