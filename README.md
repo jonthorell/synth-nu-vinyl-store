@@ -6,3 +6,5 @@ Bug: Don't know if I imagined it since I can't find the reference again, but I w
 the same way as the heroku-app. Turns out that was a bad idea...when the bucket has a .com or another TLD component in the name, the deployed site complains about
 the certificate not being valid and the site refuses to load say css-files or images stored in the bucket. Creating a duplicate bucket with another name solved
 the issue.
+
+Removed .vscode and sqlitebb
