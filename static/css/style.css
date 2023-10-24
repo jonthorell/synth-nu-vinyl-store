@@ -1,3 +1,4 @@
+
 /* import google fonts */
 
 @import url('https://fonts.googleapis.com/css?family=EB+Garamond|Roboto|Tangerine|Source Sans 3:bold&display=swap');
@@ -39,5 +40,19 @@ body {
     display: flex;
     flex-direction: column;
     font-family: var(--main-font);
+}
+
+main {
+    /* appply to the main section. I.e. the part of the page that is not a part of base.html 
+        Background should always be grey
+    */
+    flex: 1 0 auto;
+    background-image: url("/static/images/vinyl.jpg");
+    background-color: var(--grey);
+}
+
+#disclaimer-bar {
+    /* the bar at the top should be red to stick out */
+    background-color: var(--red);
 }
 
