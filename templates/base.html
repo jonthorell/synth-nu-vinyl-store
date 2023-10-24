@@ -1,0 +1,67 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="A haven for synth-music vinyl afficionados">
+    <meta name="keywords" content="synth vinyl music ebm electro">
+    <meta name="author" content="Jonas Thorell">
+    {% block extra_css %}
+
+    <!-- font awsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- materialize bootstrp -->
+    <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" type="text/css">
+    <!-- summernote  -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.css" rel="stylesheet">
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+
+    <link rel='shortcut icon' type='image/x-icon' href="{% static 'icons/favicon.ico' %}">
+
+
+    <!-- default title. Will be overwritten by specific pages -->
+    <title>VinylStore: {% block title %}Default Title{% endblock %}</title>
+    {% block extra_head %}
+    {% endblock %}
+
+</head>
+
+<body style="background-color:aquamarine;">
+
+    {% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 text-center" id="disclaimer-bar">
+                This is for educational purposes only and not intended to be used as a live site.
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+    {% block onload_js %}
+    <!-- MDB -->
+    <script src="{% static 'javascript/mdb.min.js' %}">
+    </script>
+
+    <!-- summernote -->
+    <!--<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.js"></script>-->
+
+    <!--my custom script -->
+    <script src="{% static 'javascript/script.js' %}">
+    </script>
+
+    {% endblock %}
+    {% endblock %}
+
+</body>
+</html>
