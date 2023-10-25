@@ -45,10 +45,12 @@ body {
 main {
     /* appply to the main section. I.e. the part of the page that is not a part of base.html 
         Background should always be grey
+        Text should always be white
     */
     flex: 1 0 auto;
-    background-image: url("/static/images/vinyl.jpg");
-    background-color: var(--grey);
+    /*background-image: url("/static/images/vinyl.jpg");*/
+    background-color: var(--black);
+    color: var(--white);
 }
 
 #disclaimer-bar {
