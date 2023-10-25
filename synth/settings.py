@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'bag',
+    'checkout',
 
     # Other
     'crispy_forms',
