@@ -2,12 +2,14 @@
 name: 'User story: <name>'
 about: This is the default user story template
 title: 'User story: [name]'
-labels: ''
+labels: Initial label
 assignees: jonthorell
 
 ---
 
-As a **role** I can **capability** so that I **perceived benefit**
+Epic: 
+
+User Story: As a **role** I can **capability** so that I **perceived benefit**
 
 # Acceptance criteria:
 
