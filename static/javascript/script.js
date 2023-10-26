@@ -19,3 +19,6 @@ const basicInstances = [
     'alert-light',
     'alert-dark',
 ];
+
+$("#cart").text("9");
+$("#notification").text("12");
