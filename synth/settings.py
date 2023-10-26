@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'core',
     'bag',
     'checkout',
+    'webauth',
 
     # Other
     'crispy_forms',

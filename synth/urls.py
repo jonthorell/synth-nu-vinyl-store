@@ -22,4 +22,5 @@ urlpatterns = [
     path('', include('core.urls')),
     path('bag/', include("bag.urls"), name="bag-urls"),
     path('checkout/', include("checkout.urls"), name="checkout-urls"),
+    path('webauth/', include("webauth.urls"), name="webauth-urls"),
 ]
