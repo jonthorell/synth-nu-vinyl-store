@@ -14,7 +14,7 @@
     --black: #000; /* used for html-background */
     --off-white: #f6f6f6; /* used for h1 */
     --white: #fff; /* used for maintext */
-    --red: #FF0000; /* used for disclaimer bar */
+    --red: #FF0000; /* used for disclaimer bar and h1 on startpage*/
     /* utils */
     /* used for forms */
     --small-box-shadow: 1px -1px 7px 0 #00000061;
@@ -28,6 +28,7 @@ html, body {
 h1 {
     /* use specific font and color for h1 */
     font-family: var(--cursive-font);
+    background-color: var(--black);
     color: var(--off-white);
 }
 
@@ -45,6 +46,9 @@ main {
     */
     flex: 1 0 auto;
     background-color: var(--black);
+    background: url('/static/images/lps.jpg') no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
     color: var(--white);
 }
 
@@ -52,4 +56,3 @@ main {
     /* the bar at the top should be red to stick out */
     background-color: var(--red);
 }
-
