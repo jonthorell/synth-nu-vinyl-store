@@ -23,4 +23,6 @@ urlpatterns = [
     path('bag/', include("bag.urls"), name="bag-urls"),
     path('checkout/', include("checkout.urls"), name="checkout-urls"),
     path('webauth/', include("webauth.urls"), name="webauth-urls"),
+    path('staff/', include("staff.urls"), name="staff-urls"),
+    path('about/', include("about.urls"), name="about-urls"),
 ]

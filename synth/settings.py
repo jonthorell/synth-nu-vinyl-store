@@ -46,13 +46,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # my custom apps
     'core',
     'bag',
     'checkout',
     'webauth',
+    'staff',
+    'about',
 
     # Other
     'crispy_forms',
+    # for aws
     'storages',
 ]
 

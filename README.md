@@ -14,3 +14,12 @@ NOTES
 
 Keep summernote / crispyforms in config for now. In case they will be needed. If not needed, remove at the end
 Maybe remove popper js? Keep for now
+
+Apps:
+
+Core: main-site
+bag: shopping-bag
+checkout: used by stripe
+webauth: used by allauth
+staff: used to provide admin-functionality for staff (update stock with new items for example)
+about: credits and about-text
