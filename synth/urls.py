@@ -25,4 +25,5 @@ urlpatterns = [
     path('webauth/', include("webauth.urls"), name="webauth-urls"),
     path('staff/', include("staff.urls"), name="staff-urls"),
     path('about/', include("about.urls"), name="about-urls"),
+    path('profiles/', include("profiles.urls"), name="profiles-urls"),
 ]

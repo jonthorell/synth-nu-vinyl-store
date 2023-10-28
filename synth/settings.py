@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'webauth',
     'staff',
     'about',
+    'profiles',
 
     # Other
     'crispy_forms',
