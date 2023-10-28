@@ -8,3 +8,9 @@ the certificate not being valid and the site refuses to load say css-files or im
 the issue.
 
 Removed .vscode and sqlitebb
+
+
+NOTES
+
+Keep summernote / crispyforms in config for now. In case they will be needed. If not needed, remove at the end
+Maybe remove popper js? Keep for now
