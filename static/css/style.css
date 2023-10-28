@@ -6,33 +6,29 @@
 
 :root {
     /* Make sure variables are defined in the root context so available everywhere */
-    /*  fonts */
-    --title: 'EB Garamond', serif;
-    --main-font: 'Roboto', serif;
-    --cursive-font: 'Tangerine', serif;
 
+    /*  fonts */
+    --main-font: 'Roboto', serif; /* used main text */
+    --cursive-font: 'Tangerine', serif; /* used for h1 */
     /* colors */
-    --background: #3f006a0f;
-    --blue: #0d6efd;
-    --black: #000;
-    --off-white: #f6f6f6;
-    --white: #fff;
-    --orange: #ffbf50;
-    --grey: #777777;
-    --grey2: #999999;
-    --red: #FF0000;
-    --green: #97aa88aa;
+    --black: #000; /* used for html-background */
+    --off-white: #f6f6f6; /* used for h1 */
+    --white: #fff; /* used for maintext */
+    --red: #FF0000; /* used for disclaimer bar */
     /* utils */
     /* used for forms */
     --small-box-shadow: 1px -1px 7px 0 #00000061;
 }
 
-/* classes for background colors used on its own for styling and not part of another class */
-
-
 html, body {
     /* use the entire height */
     height: 100%;
+}
+
+h1 {
+    /* use specific font and color for h1 */
+    font-family: var(--cursive-font);
+    color: var(--off-white);
 }
 
 body {
@@ -44,11 +40,10 @@ body {
 
 main {
     /* appply to the main section. I.e. the part of the page that is not a part of base.html 
-        Background should always be grey
+        Background should always be black
         Text should always be white
     */
     flex: 1 0 auto;
-    /*background-image: url("/static/images/vinyl.jpg");*/
     background-color: var(--black);
     color: var(--white);
 }
