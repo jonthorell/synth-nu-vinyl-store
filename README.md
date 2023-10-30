@@ -15,6 +15,8 @@ NOTES
 Keep summernote / crispyforms in config for now. In case they will be needed. If not needed, remove at the end
 Maybe remove popper js? Keep for now
 
+.nu tld means now in Swedish so if the site were to be deployed live it would be on a .nu domain
+
 Apps:
 
 Core: main-site
