@@ -17,6 +17,8 @@ Maybe remove popper js? Keep for now
 
 .nu tld means now in Swedish so if the site were to be deployed live it would be on a .nu domain
 
+fix border-end on index
+
 Apps:
 
 Core: main-site
