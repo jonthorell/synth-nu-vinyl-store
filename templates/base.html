@@ -65,6 +65,20 @@
     </div>
     {% include 'includes/header.html' %}
     <main>
+        {% if messages %}
+        {% for message in messages %}
+        <div class="alert fade show" id="alert-primary" role="alert"
+             data-mdb-color="dark"
+             data-mdb-position="top-right"
+             data-mdb-stacking="true"
+             data-mdb-width="30vw"
+             data-mdb-append-to-body="true"
+             data-mdb-autohide="true"
+             data-mdb-delay="8000">
+            {{ message | safe }}
+        </div>
+        {% endfor %}
+        {% endif %}
         {% block content %}
         {% endblock %}
     </main>
