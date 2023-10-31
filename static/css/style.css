@@ -62,3 +62,23 @@ main {
     text-transform: uppercase;
     text-shadow: 1px 1px 2px red, 0 0 1em white, 0 0 0.2em black;
 }
+
+.core-divs {
+    /* makes the main divs slightly opaque and rounded, and sets the main text color */
+    background-color: var(--off-white);
+    border-radius: 25px;
+    color: var(--red);
+    opacity: .9;
+}
+
+.container-bottom {
+    /* adds space between navbar and main content */
+    padding-top: 20px;
+}
+
+.div-header-h2 {
+    /* styles the initial h2 of each div */
+    text-decoration: underline;
+    text-transform: uppercase;
+    color: var(--black);
+}
