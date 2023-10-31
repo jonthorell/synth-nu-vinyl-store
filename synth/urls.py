@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from .views import handler404
 
 
 urlpatterns = [
@@ -27,3 +28,5 @@ urlpatterns = [
     path('about/', include("about.urls"), name="about-urls"),
     path('profiles/', include("profiles.urls"), name="profiles-urls"),
 ]
+
+handler404 = 'synth.views.handler404'
