@@ -82,3 +82,18 @@ main {
     text-transform: uppercase;
     color: var(--black);
 }
+
+/* -------------------------------- Media Queries */
+
+/* Container will have different max-width on different resolutions, to use screen estate more efficiently and be more visually pleasing */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 95%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .container {
+        max-width: 70%;
+    }
+}
