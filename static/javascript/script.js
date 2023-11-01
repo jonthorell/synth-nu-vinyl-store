@@ -22,3 +22,4 @@ const basicInstances = [
 
 $("#cart").text("9");
 $("#notification").text("12");
+

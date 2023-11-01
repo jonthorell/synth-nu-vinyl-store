@@ -6,7 +6,7 @@
 
 <div class="container container-bottom">
     <div class="row core-divs">
-        <div class="col-md border-end text-center">
+        <div class="col-md border-end text-center" id="left_div">
             <h2 class="div-header-h2">New Arrivals</h2>
             <p>Line 1</p>
             <p>Line 2</p>
@@ -18,7 +18,7 @@
             <p>Line 8</p>
             <p>Line 9</p>
         </div>
-        <div class="col-md border-start text-center">
+        <div class="col-md border-start text-center" id="right_div">
             <h2 class="div-header-h2">Special Deals and News</h2>
             <p>Memento Mori on sale!</p>
             <p>Box of Ultravox albums available!</p>
@@ -28,3 +28,9 @@
 </div>
 
  {% endblock content %}
+
+{% block onload_js %}
+{{ block.super }}
+<script src="{% static 'javascript/index.js' %}">
+</script>
+{% endblock %}
