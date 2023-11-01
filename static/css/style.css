@@ -48,7 +48,7 @@ main {
     background-color: var(--black);
     background: url('/static/images/lps.jpg') no-repeat center center fixed;
     background-size: cover;
-    height: calc(100vh - 164px);
+    /*height: calc(100vh - 164px);*/
     color: var(--white);
 }
 
@@ -72,8 +72,9 @@ main {
 }
 
 .container-bottom {
-    /* adds space between navbar and main content */
+    /* adds space between navbar/footer and main content */
     padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .div-header-h2 {

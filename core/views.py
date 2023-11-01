@@ -16,3 +16,8 @@ class Index(TemplateView):
     #     art_mess = "You do not have permission to delete that comment."
     #     messages.info(request, art_mess)
     #     return HttpResponseRedirect("/webauth")
+
+class privacy(TemplateView):
+    '''Class used to display the privacy policy '''
+
+    template_name = 'core/privacy.html'
