@@ -86,15 +86,33 @@ main {
 
 /* -------------------------------- Media Queries */
 
-/* Container will have different max-width on different resolutions, to use screen estate more efficiently and be more visually pleasing */
-@media (min-width: 1200px) {
+/* Media query: cellphone (max 768px) */
+@media screen and (max-width: 768px) {
+    /* Default size of container */
     .container {
-        max-width: 95%;
+        max-width: 60%;
     }
 }
 
-@media (max-width: 1100px) {
+
+/* Media query: tablets and larger (768px and up) */
+@media screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops and desktops, 992px and up) */
+@media screen and (min-width: 992px) {
+    /* Enlarge Container even more on xl */
     .container {
         max-width: 70%;
+    }
+    
+}
+
+/* x-Large devices (laptops and desktops, 1200px and up) */
+@media screen and (min-width: 1200px) {
+    /* Enlarge Container even more on xl */
+    .container {
+        max-width: 95%;
     }
 }
