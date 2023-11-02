@@ -20,9 +20,12 @@
         </div>
         <div class="col-md border-start text-center" id="right_div">
             <h2 class="div-header-h2">Special Deals and News</h2>
-            <p>Memento Mori on sale!</p>
-            <p>Box of Ultravox albums available!</p>
-            <p>Synthbands paying tribute to Johnny Cash!</p>
+            {% for newsfeed in newsfeeds %}
+            <p>{{ newsfeed.title }}</p>
+            <!--<a href="{{ article.get_absolute_url }}">
+                &nbsp;&nbsp;<i class="fa-solid fa-check">&nbsp;</i>{{ article.title }}
+            </a>-->
+            {% endfor %}
         </div>
     </div>
 </div>
