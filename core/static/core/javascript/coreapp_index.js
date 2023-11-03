@@ -14,11 +14,11 @@ $(window).resize(function () {
 
     /* Hide/show the spans with the published date */
 
-    if ($(window).width() < 440) {
+    if ($(window).width() < 380) {
         $(".published").hide()
     }
 
-    if ($(window).width() > 440) {
+    if ($(window).width() > 380) {
         $(".published").show()
     }
 
