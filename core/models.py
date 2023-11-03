@@ -32,7 +32,6 @@ class newsfeed(models.Model):
 
     title = models.CharField(max_length=60, blank=False, null=False, unique=True)
     slug = AutoSlugField(populate_from='title', unique=True)
-    url = models.CharField(max_length=255, blank=False, null=False, unique=True)
     description = models.CharField(max_length=255, blank=False, null=False)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)
