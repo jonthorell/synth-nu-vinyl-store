@@ -26,7 +26,6 @@ infoModal.addEventListener('show.mdb.modal', (e) => {
     // Button that triggered the modal
     const button = e.relatedTarget;
     // Extract info from data-mdb-* attributes
-    const recipient = button.getAttribute('data-mdb-whatever');
     const title = button.getAttribute('data-mdb-title');
     const body = button.getAttribute('data-mdb-body');
     

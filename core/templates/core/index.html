@@ -22,18 +22,20 @@
             <h2 class="div-header-h2">Special Deals and News</h2>
             {% for newsfeed in newsfeeds %}
             <p class="text-md-end">
-                <i class="fa-regular fa-star">&nbsp;</i>{{ newsfeed.title }}
-                <span class="published"><br />Published: {{ newsfeed.created_on }}</span>
-                <button 
-                        type="button" 
-                        class="btn btn-primary m-1" 
-                        data-mdb-toggle="modal" 
-                        data-mdb-target="#info-modal" 
-                        data-mdb-whatever="button_id{{forloop.counter}}"
+                <i class="fa-regular fa-star">&nbsp;</i>
+
+                {{ newsfeed.title }}
+                <button type="button"
+                        class="btn btn-link m-1"
+                        data-mdb-ripple-color="dark"
+                        data-mdb-toggle="modal"
+                        data-mdb-target="#info-modal"
                         data-mdb-title="{{newsfeed.title}}"
                         data-mdb-body="{{newsfeed.description}}">
-                    Top right
+                    Info
                 </button>
+                <span class="published"><br />Published: {{ newsfeed.created_on }}</span>
+
             </p>
             {% endfor %}
         </div>

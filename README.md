@@ -20,6 +20,8 @@ Maybe remove popper js? Keep for now
 fix border-end on index. Fixed by jquery
 name standard for css/js files that are app-specific
 
+Special deals - some sort of continues loading?
+
 
 
 Apps:

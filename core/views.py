@@ -14,8 +14,8 @@ class Index(TemplateView):
     
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context['newsfeeds'] = newsfeed.objects.filter(status=1).order_by('created_on')[:10]
-        # return the last three articles to template
+        context['newsfeeds'] = newsfeed.objects.filter(status=1).order_by('-created_on')[:10]
+        # return the last ten articles to template
 
         return context
     
