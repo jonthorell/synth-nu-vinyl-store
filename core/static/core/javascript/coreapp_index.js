@@ -17,3 +17,23 @@ $(window).resize(function () {
     }
 
 });
+
+/* the code to populate the modal comes from the mdb documentation */
+
+const infoModal = document.getElementById('info-modal');
+
+infoModal.addEventListener('show.mdb.modal', (e) => {
+    // Button that triggered the modal
+    const button = e.relatedTarget;
+    // Extract info from data-mdb-* attributes
+    const recipient = button.getAttribute('data-mdb-whatever');
+    const title = button.getAttribute('data-mdb-title');
+    const body = button.getAttribute('data-mdb-body');
+    
+    // Update the modal's content.
+    const modalTitle = infoModal.querySelector('.modal-title');
+    const modalBodyInput = infoModal.querySelector('.modal-body');
+
+    modalTitle.textContent = title;
+    modalBodyInput.textContent = body;
+});

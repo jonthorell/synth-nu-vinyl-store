@@ -86,8 +86,13 @@ main {
     color: var(--black);
 }
 
-/* -------------------------------- Media Queries */
+/* override modal classes */
 
+.modal-title, .modal-body {
+    color: var(--black);
+}
+
+/* -------------------------------- Media Queries */
 /* Media query: cellphone (max 768px) */
 @media screen and (max-width: 768px) {
     /* Default size of container */
