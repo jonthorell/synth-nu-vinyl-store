@@ -1,10 +1,16 @@
 {% load static %}
 <header>
+    {% comment %}
     <!-- Navbar -->
+    {% endcomment %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        {% comment %}
         <!-- Container wrapper -->
+        {% endcomment %}
         <div class="container-fluid">
+            {% comment %}
             <!-- Toggle button -->
+            {% endcomment %}
             <button class="navbar-toggler"
                     type="button"
                     data-mdb-toggle="collapse"
@@ -15,14 +21,20 @@
                 <i class="fas fa-bars"></i>
             </button>
 
+            {% comment %}
             <!-- Collapsible wrapper -->
+            {% endcomment %}
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                {% comment %}
                 <!-- Navbar brand -->
+                {% endcomment %}
                 <a class="navbar-brand mt-2 mt-lg-0" href="/" id="logo">
                     &#x23;synth.nu
                 </a>
+                {% comment %}
                 <!-- Left links -->
                 <!-- Genres -->
+                {% endcomment %}
                 <div class="dropdown">
                     <a class="text-reset dropdown-toggle d-flex align-items-center pe-2 hidden-arrow"
                        href="#"
@@ -58,19 +70,27 @@
                         <a class="nav-link" href="/about">About</a>
                     </li>
                 </ul>
+                {% comment %}
                 <!-- Left links -->
+                {% endcomment %}
             </div>
+            {% comment %}
             <!-- Collapsible wrapper -->
             <!-- Right elements -->
+            {% endcomment %}
             <div class="d-flex align-items-center">
+                {% comment %}
                 <!-- Icon -->
+                {% endcomment %}
                 <a class="text-reset me-3" href="#">
                     <i class="fas fa-shopping-cart">
                         <span class="badge rounded-pill badge-notification bg-danger" id="cart"></span>
                     </i>
                 </a>
 
+                {% comment %}
                 <!-- Notifications -->
+                {% endcomment %}
                 <div class="dropdown">
                     <a class="text-reset me-3 dropdown-toggle hidden-arrow"
                        href="#"
@@ -82,7 +102,9 @@
                         <span class="badge rounded-pill badge-notification bg-danger" id="notification"></span>
                     </a>
                 </div>
+                {% comment %}
                 <!-- Avatar -->
+                {% endcomment %}
                 <div class="dropdown">
                     <a class="dropdown-toggle d-flex align-items-center hidden-arrow"
                        href="#"
@@ -113,9 +135,15 @@
                     </ul>
                 </div>
             </div>
+            {% comment %}
             <!-- Right elements -->
+            {% endcomment %}
         </div>
+        {% comment %}
         <!-- Container wrapper -->
+        {% endcomment %}
     </nav>
+    {% comment %}
     <!-- Navbar -->
-    </header>
+    {% endcomment %}
+</header>

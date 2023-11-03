@@ -22,6 +22,13 @@ name standard for css/js files that are app-specific
 
 Special deals - some sort of continues loading?
 
+Comments
+
+every html-comment in the templates are encapsulated within djano comment-tags to make them invisible when in view source. Not strictly necessary
+but I like to do it that way because:
+1. I can easily spot the comments because of the color coding in Vstudio
+2. I can add comments there to remind me of something without having to worry about a curious end-user to see it.
+
 
 
 Apps:

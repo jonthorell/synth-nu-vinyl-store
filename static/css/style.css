@@ -48,7 +48,6 @@ main {
     background-color: var(--black);
     background: url('/static/images/lps.jpg') no-repeat center center fixed;
     background-size: cover;
-    /*height: calc(100vh - 164px);*/
     color: var(--white);
 }
 
