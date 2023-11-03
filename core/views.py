@@ -30,3 +30,8 @@ class privacy(TemplateView):
     '''Class used to display the privacy policy '''
 
     template_name = 'core/privacy.html'
+    
+class contact(TemplateView):
+    '''Class used to display the contact form '''
+
+    template_name = 'core/contact.html'
