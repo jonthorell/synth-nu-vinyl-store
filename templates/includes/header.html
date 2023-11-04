@@ -36,7 +36,7 @@
                 <!-- Genres -->
                 {% endcomment %}
                 <div class="dropdown">
-                    <a class="text-reset dropdown-toggle d-flex align-items-center pe-2 hidden-arrow"
+                    <a class="text-reset dropdown-toggle d-flex align-items-center pe-2"
                        href="#"
                        id="navbarDropdownMenuGenre"
                        role="button"
@@ -46,16 +46,36 @@
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end"
                         aria-labelledby="navbarDropdownMenuGenre">
+                        {% for genre in genres %}
                         <li>
-                            <a class="dropdown-item" href="/staff">
-                                Synthpop
+                            <a class="dropdown-item" href="#">
+                                {{ genre.friendly_name }}
                             </a>
                         </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% comment %}
+                <!-- Media type -->
+                {% endcomment %}
+                <div class="dropdown">
+                    <a class="text-reset dropdown-toggle d-flex align-items-center pe-2"
+                       href="#"
+                       id="navbarDropdownMenuMediaType"
+                       role="button"
+                       data-mdb-toggle="dropdown"
+                       aria-expanded="false">
+                        Media Type
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end"
+                        aria-labelledby="navbarDropdownMenuMediaType">
+                        {% for mediatype in mediatypes %}
                         <li>
-                            <a class="dropdown-item" href="/bag">
-                                EBM
+                            <a class="dropdown-item" href="#">
+                                {{ mediatype.friendly_name }}
                             </a>
                         </li>
+                        {% endfor %}
                     </ul>
                 </div>
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
