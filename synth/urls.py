@@ -27,6 +27,7 @@ urlpatterns = [
     path('staff/', include("staff.urls"), name="staff-urls"),
     path('about/', include("about.urls"), name="about-urls"),
     path('profiles/', include("profiles.urls"), name="profiles-urls"),
+    path('products/', include("products.urls"), name="products-urls"),
 ]
 
 handler404 = 'synth.views.handler404'

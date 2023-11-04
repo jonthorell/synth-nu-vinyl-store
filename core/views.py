@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 
-from core.models import newsfeed
+from .models import newsfeed
 
 # Create your views here.
 

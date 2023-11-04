@@ -29,7 +29,9 @@ but I like to do it that way because:
 1. I can easily spot the comments because of the color coding in Vstudio
 2. I can add comments there to remind me of something without having to worry about a curious end-user to see it.
 
+Db
 
+Moved some models to the products app
 
 Apps:
 

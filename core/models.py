@@ -11,30 +11,11 @@ from autoslug import AutoSlugField
 
 # Testimonials are in draft status by default. That means an admin has to approve the comment before it can be seen
 
-# Media_status is used in the products model to set if the entry is brand new or used. Defaults to new.
+
 
 STATUS = ((0, "Draft"), (1,"Published"))
 MEDIA_STATUS = ((0, "New"), (1,"Second hand"))
 User=get_user_model()
-
-class artist(models.Model):
-    '''Class used to create the artists model '''
-
-    friendly_name = models.CharField(max_length=40, blank=False, null=False, unique=True)
-    name = models.CharField(max_length=40, blank=False, null=False, unique=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    slug = AutoSlugField(populate_from='friendly_name', unique=True)
-    description = models.CharField(max_length=200, blank=False, null=False)
-    artist_image = models.CharField(max_length=60, blank=False, null=False, default="empty-artist-image.png")
-
-    class Meta:
-        ordering = ['friendly_name']
-
-    def __str__ (self):
-        return self.friendly_name
-
-    def get_absolute_url(self):
-        return reverse("articles_by_category", args=[str(self.id)])
     
 class newsfeed(models.Model):
     '''Class used to create the newsfeed model '''
@@ -51,40 +32,3 @@ class newsfeed(models.Model):
 
     def __str__(self):
         return self.title
-    
-class genre(models.Model):
-    '''Class used to create the genre model '''
-
-    name = models.CharField(max_length=40, blank=False, null=False, unique=True)
-    friendly_name = models.CharField(max_length=40, blank=False, null=False, unique=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    slug = AutoSlugField(populate_from='friendly_name', unique=True)
-    description = models.CharField(max_length=200, blank=False, null=False)
-    updated_on = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ['friendly_name']
-
-    def __str__ (self):
-        return self.friendly_name
-
-    def get_absolute_url(self):
-        return reverse("articles_by_category", args=[str(self.id)])
-    
-class mediatype(models.Model):
-    '''Class used to create the genre model '''
-
-    name = models.CharField(max_length=40, blank=False, null=False, unique=True)
-    friendly_name = models.CharField(max_length=40, blank=False, null=False, unique=True)
-    created_on = models.DateTimeField(auto_now_add=True)
-    slug = AutoSlugField(populate_from='friendly_name', unique=True)
-    updated_on = models.DateTimeField(auto_now=True)
-
-    class Meta:
-        ordering = ['friendly_name']
-
-    def __str__ (self):
-        return self.friendly_name
-
-    def get_absolute_url(self):
-        return reverse("articles_by_category", args=[str(self.id)])
