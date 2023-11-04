@@ -22,7 +22,7 @@
                         <p class="text-md-start">
                             Title: {{ product.name }}
                             <br />Artist: {{ product.artist }}
-                            <span class="published"><br />New in stock: {{ product.created_on }}</span>
+                            <span class="published"><br />New in stock: {{ product.created_on|date:"M j, Y" }}</span>
                         </p>
                     </td>
                 </tr>
@@ -44,8 +44,7 @@
                         data-mdb-body="{{newsfeed.description}}">
                     Info
                 </button>
-                <span class="published"><br />Published: {{ newsfeed.created_on }}</span>
-
+                <span class="published"><br />Published: {{ newsfeed.created_on|date:"M j, Y" }}</span>
             </p>
             {% endfor %}
         </div>
