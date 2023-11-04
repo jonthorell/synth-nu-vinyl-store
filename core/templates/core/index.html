@@ -20,9 +20,9 @@
                     </td>
                     <td>
                         <p class="text-md-start">
-                            {{ product.name }}
-                            <br />{{ product.description }}
-                            <br />New in stock: {{ product.created_on }}
+                            Title: {{ product.name }}
+                            <br />Artist: {{ product.artist }}
+                            <span class="published"><br />New in stock: {{ product.created_on }}</span>
                         </p>
                     </td>
                 </tr>
@@ -34,7 +34,6 @@
             {% for newsfeed in newsfeeds %}
             <p class="text-md-end">
                 <i class="fa-regular fa-star">&nbsp;</i>
-
                 {{ newsfeed.title }}
                 <button type="button"
                         class="btn btn-link m-1"
