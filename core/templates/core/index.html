@@ -8,15 +8,12 @@
     <div class="row core-divs">
         <div class="col-md border-end text-center" id="left_div">
             <h2 class="div-header-h2">New Arrivals</h2>
-            <p class="text-md-start">Line 1</p>
-            <p class="text-md-start">Line 2</p>
-            <p class="text-md-start">Line 3</p>
-            <p class="text-md-start">Line 4</p>
-            <p class="text-md-start">Line 5</p>
-            <p class="text-md-start">Line 6</p>
-            <p class="text-md-start">Line 7</p>
-            <p class="text-md-start">Line 8</p>
-            <p class="text-md-start">Line 9</p>
+            {% for product in products %}
+            <p class="text-md-start">
+                {{ product.name }}
+                <br />New in stock: {{ product.created_on }}
+            </p>
+            {% endfor %}
         </div>
         <div class="col-md border-start text-center" id="right_div">
             <h2 class="div-header-h2">Special Deals and News</h2>
