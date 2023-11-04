@@ -6,7 +6,6 @@ from .models import product, genre, mediatype, artist
 
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
-        'sku',
         'name',
         'genre',
         'price',
@@ -14,8 +13,6 @@ class ProductAdmin(admin.ModelAdmin):
         'image',
         'slug',
      )
-    
-    ordering = ("sku",)
     
 class GenreAdmin(admin.ModelAdmin):
     list_display = (
@@ -40,7 +37,7 @@ class MediaTypeAdmin(admin.ModelAdmin):
         
 
 
-admin.site.register(product,ProductAdmin)
+admin.site.register(product, ProductAdmin)
 admin.site.register(genre, GenreAdmin)
 admin.site.register(mediatype, MediaTypeAdmin)
 admin.site.register(artist,ArtistAdmin)

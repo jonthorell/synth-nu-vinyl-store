@@ -16,6 +16,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from .views import handler404
+from django.conf import settings
+from django.conf.urls.static import static
 
 
 urlpatterns = [
@@ -28,6 +30,6 @@ urlpatterns = [
     path('about/', include("about.urls"), name="about-urls"),
     path('profiles/', include("profiles.urls"), name="profiles-urls"),
     path('products/', include("products.urls"), name="products-urls"),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 handler404 = 'synth.views.handler404'
