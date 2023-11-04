@@ -8,12 +8,26 @@
     <div class="row core-divs">
         <div class="col-md border-end text-center" id="left_div">
             <h2 class="div-header-h2">New Arrivals</h2>
-            {% for product in products %}
-            <p class="text-md-start">
-                {{ product.name }}
-                <br />New in stock: {{ product.created_on }}
-            </p>
-            {% endfor %}
+            <table>
+                <tr>
+                    <th> </th>
+                    <th> </th>
+                </tr>
+                {% for product in products %}
+                <tr>
+                    <td>
+                        <img src="{% static 'images/noimage.jpg' %}" width="100" height="100" alt="No product image">
+                    </td>
+                    <td>
+                        <p class="text-md-start">
+                            {{ product.name }}
+                            <br />{{ product.description }}
+                            <br />New in stock: {{ product.created_on }}
+                        </p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
         </div>
         <div class="col-md border-start text-center" id="right_div">
             <h2 class="div-header-h2">Special Deals and News</h2>
