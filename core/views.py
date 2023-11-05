@@ -7,23 +7,10 @@ from django.contrib.auth.models import User
 from .models import newsfeed
 from products.models import product,genre,mediatype
 
+from core.mixins import custom_mixin_kategorimenu
+
 # Create your views here.
 
-class custom_mixin_kategorimenu(object):
-    '''Used to make all the context_data available at all times so the author/categories menues can be populated '''
-
-    # all other classes needs this mixin
-
-    def get_context_data(self, **kwargs):
-        try:
-            context = super().get_context_data(**kwargs)
-        except AttributeError:
-            context = {}
-        
-        context['genres'] = genre.objects.all()
-        context['mediatypes'] = mediatype.objects.all()
-        context['users'] = User.objects.prefetch_related("groups")
-        return context
 
 
 class Index(custom_mixin_kategorimenu, TemplateView):
@@ -35,7 +22,7 @@ class Index(custom_mixin_kategorimenu, TemplateView):
         context = super().get_context_data(*args, **kwargs)
         context['newsfeeds'] = newsfeed.objects.filter(status=1).order_by('-created_on')[:10]
         context['products'] = product.objects.all().order_by('-created_on')[:10]
-        # return the last ten articles to template
+        # return the last ten products as well as the last ten newsitems to template
 
         return context
     

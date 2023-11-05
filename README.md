@@ -33,6 +33,10 @@ Db
 
 Moved some models to the products app
 
+Moved custom class used as mixin to mixin.py in core app. All other apps imports it in view.py
+Slightly breaks the idea that apps should be self-contained but keeps to the DRY philosophy better.
+Apps are not all that selfcontained in an e-commerce django-site anyway
+
 Apps:
 
 Core: main-site
