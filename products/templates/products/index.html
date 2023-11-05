@@ -8,9 +8,54 @@
     <div class="row core-divs">
         <div class="col-md text-center">
             <h2 class="div-header-h2">Products</h2>
-           
+        </div>
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for product in products %}
+                    <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
+                        <div class="card h-100 border-0">
+                            {% if product.image %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="100" height="100">
+                            </a>
+                            {% else %}
+                            <a href="">
+                                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" with="100" height="200">
+                            </a>
+                            {% endif %}
+                            <div class="card-body pb-0">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text mb-0">{{ product.description }}</p>
+                            </div>
+                            <div class="card-footer bg-white pt-0 border-0 text-left">
+                                <div class="row">
+                                    <div class="col">
+                                        <p class="lead mb-0 text-left font-weight-bold">Price: {{ product.price }}</p>
+                                        {% if product.rating %}
+                                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                                        {% else %}
+                                        <small class="text-muted">No Rating</small>
+                                        {% endif %}
+                                        <small class="text-muted"><br />Genre: {{ product.genre }}</small>
+                                        {% if product.stock > 0 %}
+                                            <small class="text-muted"><br />Stock: {{ product.stock }}</small>
+                                        {% else %}
+                                            <small class="text-muted"><br />Stock: Not in stock</small>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<p>{{ product.name }}</p>-->
+                    {% endfor %}
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
 
  {% endblock content %}
