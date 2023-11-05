@@ -2,6 +2,13 @@
 {% load static %}
 {% block title %}Products{% endblock title %}
 
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/products.css' %}" type="text/css">
+{% endblock %}
+
+
+
 {% block content %}
 
 <div class="container container-bottom">
@@ -74,7 +81,30 @@
                             </div>
                         </div>
                     </div>
-                    <!--<p>{{ product.name }}</p>-->
+                    {% comment %}
+                    <!--the divisble code to display the hr is stolen from boutique-ado
+                    the solution was neat and useful so I borrowed it-->
+                    {% endcomment %}
+                    {% if forloop.counter|divisibleby:1 %}
+                    <div class="col-12 d-sm-none">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:2 %}
+                    <div class="col-12 d-none d-sm-block d-md-block d-lg-none">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:3 %}
+                    <div class="col-12 d-none d-lg-block d-xl-none">
+                        <hr>
+                    </div>
+                    {% endif %}
+                    {% if forloop.counter|divisibleby:4 %}
+                    <div class="col-12 d-none d-xl-block">
+                        <hr>
+                    </div>
+                    {% endif %}
                     {% endfor %}
                 </div>
             </div>

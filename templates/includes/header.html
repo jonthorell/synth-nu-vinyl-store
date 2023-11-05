@@ -87,7 +87,7 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="/webauth">New Arrivals</a>
+                        <a class="nav-link" href="/products">New Arrivals</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/contact">Contact</a>
@@ -104,6 +104,22 @@
             <!-- Collapsible wrapper -->
             <!-- Right elements -->
             {% endcomment %}
+
+            {% comment %}
+            <!--Search box-->
+            {% endcomment %}
+            <form method="GET" action="">
+                <div class="input-group w-100 search-padding-right">
+                    <input class="form-control border border-black rounded-0" type="text" name="q" placeholder="Search synth.nu">
+                    <div class="input-group-append">
+                        <button class="form-control btn btn-black border border-black rounded-0" type="submit">
+                            <span class="icon">
+                                <i class="fas fa-search"></i>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </form>
             <div class="d-flex align-items-center">
                 {% comment %}
                 <!-- Icon -->

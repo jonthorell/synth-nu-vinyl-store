@@ -85,6 +85,11 @@ main {
     color: var(--black);
 }
 
+.search-padding-right {
+    /* adds some space between the searchfield and the shopping bag icon in the header */
+    padding-right: 20px;
+}
+
 /* override modal classes */
 
 .modal-title, .modal-body {
