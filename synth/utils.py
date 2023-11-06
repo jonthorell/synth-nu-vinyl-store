@@ -1,3 +1,9 @@
+
+
+# This files "resides" on the project level and is imported in views.py in the other apps
+# It consists of helper-classes that are needed in many places and is used in this manner
+# to stick to the DRY principle.
+
 from products.models import product,genre,mediatype
 from django.contrib.auth.models import User
 

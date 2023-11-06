@@ -4,7 +4,7 @@ from django.views.generic import TemplateView
 from products.models import product,genre, mediatype
 from django.contrib.auth.models import User
 
-from core.mixins import custom_mixin_kategorimenu
+from synth.utils import custom_mixin_kategorimenu
 
 # Create your views here.
 
