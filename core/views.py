@@ -42,3 +42,15 @@ class contact(custom_mixin_kategorimenu, TemplateView):
     '''Class used to display the contact form '''
 
     template_name = 'core/contact.html'
+    
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        
+        # return articles to template that has the corresponding kwarg (i.e. the article being displayed)
+        return context
+    
+    def get(self, request, *args, **kwargs):
+        # display the form
+        context = self.get_context_data()
+        messages.info(request, "Your comment has been added.")
+        return HttpResponseRedirect("/")

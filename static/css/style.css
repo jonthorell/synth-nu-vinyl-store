@@ -93,7 +93,13 @@ main {
 /* override modal classes */
 
 .modal-title, .modal-body {
+    /* text should always be black */
     color: var(--black);
+}
+
+.modal-footer {
+    /* the footer should not be displayed */
+    display: none;
 }
 
 /* -------------------------------- Media Queries */
