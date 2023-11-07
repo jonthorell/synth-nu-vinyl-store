@@ -67,14 +67,17 @@
     <main>
         {% if messages %}
         {% for message in messages %}
-        <div class="alert fade show" id="alert-primary" role="alert"
-             data-mdb-color="dark"
-             data-mdb-position="top-right"
+        <div class="alert fade show"
+             id="alert-primary"
+             role="alert"
+             data-mdb-color="success"
+             data-mdb-position="top-center"
              data-mdb-stacking="true"
-             data-mdb-width="30vw"
+             data-mdb-width="25%"
              data-mdb-append-to-body="true"
              data-mdb-autohide="true"
              data-mdb-delay="8000">
+            <img src="https://synth-jt.s3.eu-north-1.amazonaws.com/static/icons/favicon.ico" height="40" width="40" alt="Record" loading="lazy">
             {{ message | safe }}
         </div>
         {% endfor %}
@@ -107,7 +110,10 @@
     <!--<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.20/dist/summernote.min.js"></script>-->
     {% endcomment %}
 
-    <script src="{% static 'javascript/script.js' %}">
+    <script>
+        var my_var = "new var"
+    </script>
+    <script type="text/javascript" src="{% static 'javascript/script.js' %}">
     </script>
     {% endblock %}
 
