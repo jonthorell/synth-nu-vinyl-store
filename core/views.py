@@ -52,6 +52,6 @@ class contact(custom_mixin_kategorimenu, TemplateView):
     def get(self, request, *args, **kwargs):
         # display the form
         context = self.get_context_data()
-        messages.info(request, "Your comment has been added.")
+        messages.error(request, "Your comment has been added.")
         
         return HttpResponseRedirect("/")

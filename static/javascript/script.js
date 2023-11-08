@@ -20,8 +20,6 @@ const basicInstances = [
     'alert-dark',
 ];
 
-console.log(my_var)
-
-$("#cart").text("9");
-/*$("#notification").text("17");*/
+$("#cart").text(myCart);
+$("#notification").text(myBell);
 

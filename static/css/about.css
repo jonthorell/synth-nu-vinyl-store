@@ -1,0 +1,4 @@
+.td-desc {
+    /* used for description column in table on credits page*/
+    color: var(--red);
+}
