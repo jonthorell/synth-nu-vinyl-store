@@ -42,7 +42,7 @@ Apps:
 Core: main-site
 bag: shopping-bag
 checkout: used by stripe
-webauth: used by allauth
+webauth: used by allauth - REMOVED
 staff: used to provide admin-functionality for staff (update stock with new items for example)
 about: credits and about-text
 
