@@ -48,7 +48,7 @@ about: credits and about-text
 
 Credits:
 
-lp-image
+lp-image  
 
 Photo by <a href="https://unsplash.com/@ekrull?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Eric Krull</a> on <a href="https://unsplash.com/photos/black-vinyl-record-on-black-vinyl-record-fi3_lDi3qPE?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
   
