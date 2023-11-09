@@ -102,6 +102,13 @@ main {
     display: none;
 }
 
+/* allauth overide */
+
+ul.errorlist {
+    /* remove the bullets from the error ul lists */
+    list-style-type:none;
+}
+
 /* -------------------------------- Media Queries */
 /* Media query: cellphone (max 768px) */
 @media screen and (max-width: 768px) {

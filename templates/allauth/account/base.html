@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Authentication{% endblock title %}
+
+{% block content %}
+<div class="container container-bottom">
+    <div class="row core-divs">
+        <div class="col-md text-center">
+            <div class="allauth-form-inner-content">
+                {% block inner_content %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>
+
+    {% endblock %}
