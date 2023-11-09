@@ -20,6 +20,8 @@ Products page looked too cramped when in two columns
 
 Fullname did not show up in user-menu. Forgot to make sure fname and lname is set on all accounts. Fixed by making custom signup form
 
+Custom signup form was hard to get the fields in the order I wanted them. 
+
 NOTES
 
 Keep summernote / crispyforms in config for now. In case they will be needed. If not needed, remove at the end
