@@ -70,6 +70,10 @@ INSTALLED_APPS = [
 
 SITE_ID = 1
 
+ACCOUNT_FORMS = {
+'signup': 'core.forms.CustomSignupForm',
+}
+
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
 ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
