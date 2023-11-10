@@ -182,6 +182,15 @@
                         <li>
                             <a class="dropdown-item disabled sans-font" href="#"> {{ user.first_name }} {{ user.last_name }}</a>
                         </li>
+                        {% if user.is_superuser %}
+                        {% comment %}
+                        <!--is user a superuser? -->
+                        {% endcomment %}
+                        <li>
+                            <a class="dropdown-item" href="/staff"><i class="fa-solid fa-screwdriver-wrench pe-2"></i>Administration</a>
+                        </li>
+                        <li><hr class="dropdown-divider" /></li>
+                        {% endif %}
                         <li>
                             <a class="dropdown-item" href="/edit_profile"><i class="fas fa-cog pe-2"></i>Edit my Profile</a>
                         </li>
