@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from .models import newsfeed
 from products.models import product,genre,mediatype
 
-from synth.utils import custom_mixin_kategorimenu
+from synth.utils import custom_mixin_kategorimenu, StaffRequiredMixin
 
 # Create your views here.
 

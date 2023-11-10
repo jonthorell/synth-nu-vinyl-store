@@ -60,6 +60,21 @@ webauth: used by allauth - REMOVED
 staff: used to provide admin-functionality for staff (update stock with new items for example)
 about: credits and about-text
 
+utils.py
+
+Contains some helper-classes that other apps are using. One is used by all, others are only imported in core-site.
+The last ones is mainly due to those classes are pretty static and a way to organize the code so you don't have to
+see them unless you really need to. 
+
+Groups in django
+
+There are three groups defined in django
+
+*Members. All users should be a part of this group, including superusers. Group is used to limit certain views from non-registered users.
+		  All registered users are automatically added to this group
+*Staff.	  All users that is considered staff should be here. The only thing you should need to log into the django console to alter
+*admin	  Only used to hide/show the link to django-admin. So only people that should be able to login to the console should be here
+
 Credits:
 
 lp-image  

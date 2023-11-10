@@ -184,11 +184,29 @@
                         </li>
                         {% if user.is_superuser %}
                         {% comment %}
-                        <!--is user a superuser? -->
+                        <!--is user a superuser?
+                                Iterate over the groups of the current user
+                                If user is a member of group admins, add link to django admin
+                        -->
                         {% endcomment %}
+                        {% for group in user.groups.all %}
+                        {% if group.name == 'staff' %}
                         <li>
-                            <a class="dropdown-item" href="/staff"><i class="fa-solid fa-screwdriver-wrench pe-2"></i>Administration</a>
+                            <a class="dropdown-item" href="/staff"><i class="fa-solid fa-screwdriver-wrench pe-2"></i>Staff: Administration</a>
                         </li>
+                        {% endif %}
+                        {% endfor %}
+                        {% for group in user.groups.all %}
+                        {% comment %}
+                        <!--Iterate over the groups of the current user
+                        If user is a member of group admins, add link to django admin -->
+                        {% endcomment %}
+                        {% if group.name == 'admin' %}
+                        <li>
+                            <a class="dropdown-item" href="/admin"><i class="fa-solid fa-screwdriver-wrench pe-2"></i>Django admin</a>
+                        </li>
+                        {% endif %}
+                        {% endfor %}
                         <li><hr class="dropdown-divider" /></li>
                         {% endif %}
                         <li>
