@@ -1,4 +1,4 @@
-li {
+.no-bullet {
     /* hide the li bullets on about page */
-    display:none;
+    list-style: none;
 }
