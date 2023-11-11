@@ -112,7 +112,6 @@ ul.errorlist {
 /* -------------------------------- Media Queries */
 /* Media query: cellphone (max 768px) */
 @media screen and (max-width: 768px) {
-    /* Default size of container */
     .container {
         max-width: 95%;
     }
@@ -121,7 +120,9 @@ ul.errorlist {
 
 /* Media query: tablets and larger (768px and up) */
 @media screen and (min-width: 768px) {
-
+    .container {
+        max-width: 95%;
+    }
 }
 
 /* Large devices (laptops and desktops, 992px and up) */
