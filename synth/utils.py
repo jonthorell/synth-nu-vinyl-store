@@ -7,23 +7,6 @@
 from products.models import product,genre,mediatype
 from django.contrib.auth.models import User
 from django.contrib.auth.mixins import UserPassesTestMixin
-
-
-class custom_mixin_kategorimenu(object):
-    '''Used to make all the context_data available at all times so the author/categories menues can be populated '''
-
-    # all other classes needs this mixin
-
-    def get_context_data(self, **kwargs):
-        try:
-            context = super().get_context_data(**kwargs)
-        except AttributeError:
-            context = {}
-        
-        context['genres'] = genre.objects.all()
-        context['mediatypes'] = mediatype.objects.all()
-        context['users'] = User.objects.prefetch_related("groups")
-        return context
     
 # only imported in core/views.py to restrict users to main-links
 # that is, if there is a class-based view in the profiles app that only

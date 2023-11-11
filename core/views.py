@@ -7,13 +7,13 @@ from django.contrib.auth.models import User
 from .models import newsfeed
 from products.models import product,genre,mediatype
 
-from synth.utils import custom_mixin_kategorimenu, StaffRequiredMixin
+# from synth.utils import custom_mixin_kategorimenu
 
 # Create your views here.
 
 
 
-class Index(custom_mixin_kategorimenu, TemplateView):
+class Index(TemplateView):
     '''Class used to display the index page '''
 
     template_name = 'core/index.html'
@@ -33,12 +33,12 @@ class Index(custom_mixin_kategorimenu, TemplateView):
     #     messages.info(request, art_mess)
     #     return HttpResponseRedirect("/webauth")
 
-class privacy(custom_mixin_kategorimenu, TemplateView):
+class privacy(TemplateView):
     '''Class used to display the privacy policy '''
 
     template_name = 'core/privacy.html'
     
-class contact(custom_mixin_kategorimenu, TemplateView):
+class contact(TemplateView):
     '''Class used to display the contact form '''
 
     template_name = 'core/contact.html'

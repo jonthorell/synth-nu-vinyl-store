@@ -130,6 +130,12 @@ TEMPLATES = [
                 'django.template.context_processors.request', #required by allauth
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                # The three custom context processors below are used to make sure the header can retrieve the data needed from the database without
+                # having to use a custom mixin for it. Means it also works for addons such as allauth that does not use class-based views
+                'synth.context_processors.genres_context',
+                'synth.context_processors.mediatypes_context',
+                'synth.context_processors.users_context',
+                
             ],
             'builtins': [
                 'crispy_forms.templatetags.crispy_forms_tags',

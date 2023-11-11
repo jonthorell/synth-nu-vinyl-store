@@ -4,11 +4,11 @@ from django.views.generic import TemplateView
 from products.models import product,genre, mediatype
 from django.contrib.auth.models import User
 
-from synth.utils import custom_mixin_kategorimenu
+# from synth.utils import custom_mixin_kategorimenu
 
 # Create your views here.
 
-class products(custom_mixin_kategorimenu, TemplateView):
+class products(TemplateView):
     '''Class used to display the products '''
 
     template_name = 'products/index.html'
