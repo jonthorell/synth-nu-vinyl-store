@@ -114,7 +114,7 @@ ul.errorlist {
 @media screen and (max-width: 768px) {
     /* Default size of container */
     .container {
-        max-width: 60%;
+        max-width: 95%;
     }
 }
 
@@ -128,7 +128,7 @@ ul.errorlist {
 @media screen and (min-width: 992px) {
     /* Enlarge Container even more on xl */
     .container {
-        max-width: 70%;
+        max-width: 95%;
     }
     
 }
