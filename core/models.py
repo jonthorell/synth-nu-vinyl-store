@@ -15,6 +15,7 @@ from autoslug import AutoSlugField
 
 STATUS = ((0, "Draft"), (1,"Published"))
 MEDIA_STATUS = ((0, "New"), (1,"Second hand"))
+PROGRESS = ((0, "Not complete"), (1,"Completed"))
 User=get_user_model()
     
 class newsfeed(models.Model):
@@ -37,6 +38,7 @@ class contact_message(models.Model):
     '''Class used to create the model used to store messages from the contact form into the db'''
 
     name = models.CharField(max_length=200, blank=False, null=False, unique=True)
+    complete = models.IntegerField(choices=PROGRESS, default=0)
     slug = AutoSlugField(populate_from='name', unique=True)
     updated_on = models.DateTimeField(auto_now=True)
     created_on = models.DateTimeField(auto_now_add=True)

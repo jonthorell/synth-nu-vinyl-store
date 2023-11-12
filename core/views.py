@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.core.mail import send_mail
 
-from .models import newsfeed
+from .models import newsfeed, contact_message
 from products.models import product,genre,mediatype
 
 
@@ -40,6 +40,9 @@ class privacy(TemplateView):
 class contact(View):
     '''Class used to display the contact page '''
 
+    template_name = "core/contact.html"
+    model = contact_message
+    context_object_name="contact_messages"
 
     def post(self, request, *args, **kwargs):
         # display form
@@ -52,6 +55,15 @@ class contact(View):
             req_mess = request.POST.get("mess")
             req_email = request.POST.get("email")
             req_subject = request.POST.get("subject")
+            
+            print(req_user)
+            print(req_mess)
+            print(req_email)
+            print(req_subject)
+            
+            # log into database
+
+            contact_message.objects.create(name=req_user, email=req_email, subjectline=req_subject, user_message=req_mess)           
 
             # set variables for e-mail.
             subject = 'Mail from Synth.Nu'
