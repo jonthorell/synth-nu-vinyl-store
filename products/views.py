@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
 
 from products.models import product,genre, mediatype
@@ -8,10 +8,10 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 
-class products(TemplateView):
-    '''Class used to display the products '''
+class all_products(TemplateView):
+    '''Class used to display all the products '''
 
-    template_name = 'products/index.html'
+    template_name = 'products/products.html'
     
     model = product
     context_object_name = 'product'
@@ -21,3 +21,14 @@ class products(TemplateView):
         context['products'] = product.objects.all().order_by('-created_on')
         # return articles to template that has the corresponding kwarg (i.e. the article being displayed)
         return context
+
+def product_detail(request, product_id):
+    """ A view to show individual product details """
+
+    prod = get_object_or_404(product, pk=product_id)
+
+    context = {
+        'product': prod,
+    }
+
+    return render(request, 'products/product_details.html', context)

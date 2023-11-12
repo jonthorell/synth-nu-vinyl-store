@@ -16,11 +16,13 @@
                 {% for product in products %}
                 <tr>
                     <td>
-                        {% if product.image %}
+                        <a href="{% url 'product_detail' product.id %}">
+                            {% if product.image %}
                             <img src="{{ product.image.url }}" alt="{{ product.name }}" width="100" height="100" />
-                        {% else %}
+                            {% else %}
                             <img src="{% static 'images/noimage.jpg' %}" width="100" height="100" alt="No product image">
-                        {% endif %}
+                            {% endif %}
+                            </a>
                     </td>
                     <td>
                         <p class="text-md-start">
