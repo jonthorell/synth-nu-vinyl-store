@@ -32,3 +32,21 @@ class newsfeed(models.Model):
 
     def __str__(self):
         return self.title
+    
+class contact_message(models.Model):
+    '''Class used to create the model used to store messages from the contact form into the db'''
+
+    name = models.CharField(max_length=200, blank=False, null=False, unique=True)
+    slug = AutoSlugField(populate_from='name', unique=True)
+    updated_on = models.DateTimeField(auto_now=True)
+    created_on = models.DateTimeField(auto_now_add=True)
+    email = models.CharField(max_length=200, blank=False, null=False, unique=False)
+    subjectline = models.CharField(max_length=200, blank=False, null=False, unique=False)
+    user_message = models.CharField(max_length=200, blank=False, null=False, unique=False)
+    
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return self.name

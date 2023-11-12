@@ -3,6 +3,8 @@ from django.contrib.auth.models import User, Group
 from django import forms
 from django.utils.translation import gettext as _
 
+SUBJECT = ((0,"Technical Issue"), (1,"Factual Issue"), (2,"Dead link or missing image"), (3,"Suggestion for accessability"), (4,"Suggestion for new idea"), (5,"Suggestion for new link"), (6,"Generic praise/hate"))
+
 class CustomSignupForm(SignupForm):
     '''Class used to alter some of the allauth fields '''
     first_name = forms.CharField(max_length=30, label='First Name')
@@ -39,3 +41,53 @@ class CustomSignupForm(SignupForm):
         user.save()
         
         return user
+    
+class ContactForm(forms.Form):
+    '''Class used to create contact form '''
+
+    name = forms.CharField(
+        required = False,
+        widget = forms.widgets.TextInput(
+            attrs={
+                "placeholder": "Your name",
+                "class": "form-control form-control-sm",
+                "required": True,
+                }
+            ),
+            label="Your name",
+        )
+    email = forms.EmailField(
+        required = False,
+        widget = forms.widgets.EmailInput(
+            attrs={
+                "placeholder": "Your e-mail",
+                "class": "form-control form-control-sm",
+                "required": True,
+                }
+            ),
+            label="Your e-mail",
+        )
+
+    subject = forms.CharField(
+        required=False,
+        widget = forms.widgets.TextInput(
+            attrs={
+                "class": "form-control form-control-sm",
+                "placeholder": "Subject",
+                "required": True,
+                }
+            ),
+        label="Subject",
+    )
+
+    mess = forms.CharField(
+        required=False,
+        widget = forms.widgets.Textarea(
+            attrs={
+                 "placeholder": "Enter message here",
+                "class": "form-control form-control-sm validate",
+                "required": True,
+                }
+            ),
+        label="What do you want to say to us?",
+    )
