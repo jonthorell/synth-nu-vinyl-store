@@ -51,7 +51,7 @@
                         </li>
                         {% for genre in genres %}
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{% url 'products' %}?genre={{genre.name}}">
                                 {{ genre.friendly_name }}
                             </a>
                         </li>
