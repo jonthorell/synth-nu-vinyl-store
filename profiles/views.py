@@ -7,4 +7,4 @@ from django.views.generic import TemplateView
 
 class profile(TemplateView):
     ''' Class used for the profile view '''
-    template_name = 'profiles/index.html'
+    template_name = 'profiles/profiles.html'

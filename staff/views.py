@@ -6,4 +6,4 @@ from synth.utils import StaffRequiredMixin
 
 class staff(StaffRequiredMixin, TemplateView):
     ''' Class used for the staff view '''
-    template_name = 'staff/index.html'
+    template_name = 'staff/staff.html'

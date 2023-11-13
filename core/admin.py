@@ -6,10 +6,10 @@ from .models import newsfeed, contact_message
 
 class contact_messageAdmin(admin.ModelAdmin):
     list_display = (
+        'subjectline',
         'name',
         'created_on',
         'complete',
-        'subjectline',
         'email',
         'slug',
      )
