@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
-from products.models import product, genre, artist
+from products.models import product, genre, artist, mediatype
 from django.contrib.auth.models import User
 
 # from synth.utils import custom_mixin_kategorimenu
@@ -14,12 +14,17 @@ def all_products(request):
     products = product.objects.all()
     query = None
     genres = None
+    types= None
 
     if request.GET:
         if 'genre' in request.GET:
             genres = request.GET['genre'].split(',')
             products = products.filter(genre__name__in=genres)
             genres = genre.objects.filter(name__in=genres)
+        if 'type' in request.GET:
+            types = request.GET['type'].split(',')
+            products = products.filter(media_format__name__in=types)
+            types = mediatype.objects.filter(name__in=types)
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:

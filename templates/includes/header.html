@@ -77,7 +77,7 @@
                         </li>
                         {% for mediatype in mediatypes %}
                         <li>
-                            <a class="dropdown-item" href="#">
+                            <a class="dropdown-item" href="{% url 'products' %}?type={{mediatype.name}}">
                                 {{ mediatype.friendly_name }}
                             </a>
                         </li>
