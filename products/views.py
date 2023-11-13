@@ -1,26 +1,36 @@
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import TemplateView
-
-from products.models import product,genre, mediatype
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
+from products.models import product
 from django.contrib.auth.models import User
 
 # from synth.utils import custom_mixin_kategorimenu
 
 # Create your views here.
 
-class all_products(TemplateView):
-    '''Class used to display all the products '''
+def all_products(request):
+    """ A view to show all products, including sorting and search queries """
 
-    template_name = 'products/products.html'
-    
-    model = product
-    context_object_name = 'product'
+    products = product.objects.all()
+    query = None
 
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['products'] = product.objects.all().order_by('-created_on')
-        # return articles to template that has the corresponding kwarg (i.e. the article being displayed)
-        return context
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+            
+            # need to alter this so can search for artist name
+            queries = Q(name__icontains=query) | Q(description__icontains=query)
+            products = products.filter(queries)
+
+    context = {
+        'products': products,
+        'search_term': query,
+    }
+
+    return render(request, 'products/products.html', context)
 
 def product_detail(request, product_id):
     """ A view to show individual product details """
