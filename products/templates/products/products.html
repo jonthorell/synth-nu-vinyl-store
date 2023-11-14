@@ -15,6 +15,17 @@
     <div class="row core-divs">
         <div class="col-md text-center">
             <h2 class="div-header-h2">Products</h2>
+            {% for c in current_genres %}
+            <p class="category-badge text-decoration-none">
+                <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark rounded-pill">{{ c.friendly_name }}</span>
+            </p>
+            {% endfor %}
+            {% for c in current_mediatypes %}
+            <p class="category-badge text-decoration-none">
+                <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark rounded-pill">{{ c.friendly_name }}</span>
+            </p>
+            {% endfor %}
+            <hr class="w-100 mb-1">
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">

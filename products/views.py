@@ -58,6 +58,7 @@ def all_products(request):
         'search_term': query,
         'current_genres': genres,
         'current_sorting': current_sorting,
+        'current_mediatypes': types,
     }
 
     return render(request, 'products/products.html', context)
