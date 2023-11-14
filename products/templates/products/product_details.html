@@ -39,7 +39,13 @@
                                 <div class="col">
                                     <p class="mb-0 text-left text-muted">Description: {{ product.description }}</p>
                                     {% if product.rating %}
-                                    <small class="mb-0 text-left text-muted"><i class="fas fa-star mr-1"></i> {{ product.rating }} / 5</small>
+                                    <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                    </ul>
                                     {% else %}
                                     <small class="mb-0 text-left text-muted">No Rating</small>
                                     {% endif %}
