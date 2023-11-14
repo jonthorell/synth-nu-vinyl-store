@@ -4,8 +4,6 @@ from django.db.models import Q
 from products.models import product, genre, artist, mediatype
 from django.contrib.auth.models import User
 
-# from synth.utils import custom_mixin_kategorimenu
-
 # Create your views here.
 
 def all_products(request):
@@ -15,8 +13,23 @@ def all_products(request):
     query = None
     genres = None
     types= None
+    sort = None
+    direction = None
 
     if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+            
         if 'genre' in request.GET:
             genres = request.GET['genre'].split(',')
             products = products.filter(genre__name__in=genres)
@@ -34,11 +47,14 @@ def all_products(request):
             # need to alter this so can search for artist name
             queries = Q(name__icontains=query) | Q(description__icontains=query)
             products = products.filter(queries)
+            
+    current_sorting = f'{sort}_{direction}'
 
     context = {
         'products': products,
         'search_term': query,
         'current_genres': genres,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/products.html', context)
