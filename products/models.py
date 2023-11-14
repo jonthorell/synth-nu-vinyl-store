@@ -54,7 +54,7 @@ class product(models.Model):
     slug = AutoSlugField(populate_from='name', unique=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
     # price is entered as SEK. Will be displayed as GBP by default using api calls
-    rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    rating = models.DecimalField(max_digits=1, decimal_places=0, null=False, blank=False, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)

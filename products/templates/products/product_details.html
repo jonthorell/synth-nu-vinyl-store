@@ -6,7 +6,7 @@
 
 <div class="container container-bottom">
     <div class="row core-divs">
-        <div class="col-md text-center" id="left_div">
+        <div class="col-md" id="left_div">
             <!--<h2 class="div-header-h2">Product Details</h2>-->
             <table class="table-responsive">
                 <tr>
@@ -43,7 +43,11 @@
                                     {% else %}
                                     <small class="mb-0 text-left text-muted">No Rating</small>
                                     {% endif %}
-                                    <small class="mb-0 text-left text-muted"><br />Genre: {{ product.genre }}</small>
+                                    <small class="mb-0 text-left text-muted"><br />Genre: 
+                                                                             <a href="{% url 'products' %}?genre={{product.genre.name}}">
+                                                                                 {{ product.genre }}
+                                                                             </a>
+                                        </small>
                                     {% if product.stock > 0 %}
                                     <small class="mb-0 text-left text-muted"><br />Stock: {{ product.stock }}</small>
                                     {% else %}
