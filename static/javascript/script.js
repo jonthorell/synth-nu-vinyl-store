@@ -21,5 +21,5 @@ const basicInstances = [
 ];
 
 $("#cart").text(myCart);
-$("#notification").text(myBell);
+/*$("#notification").text(myBell);*/
 
