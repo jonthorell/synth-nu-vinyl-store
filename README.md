@@ -24,6 +24,8 @@ Custom signup form was hard to get the fields in the order I wanted them.
 
 The css to remove the bullet points from the li on the privacy page hit too wide. Fixed by altering the css
 
+Search-field yields strange results if artist name contain space(s)
+
 NOTES
 
 Keep summernote / crispyforms in config for now. In case they will be needed. If not needed, remove at the end

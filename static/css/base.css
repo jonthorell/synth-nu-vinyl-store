@@ -139,3 +139,62 @@ ul.errorlist {
         max-width: 95%;
     }
 }
+
+/* links 
+   target-link first is to make sure the links in the navbar are not affected
+    categories first is to make sure navlinks in the categories cards (all categories)
+    are never shown as links since the card itself is the link.
+*/
+
+/* regular links except in navbar */
+
+/* unvisited link */
+.target-link a:link {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+/* visited link */
+.target-link a:visited {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+/* mouse over link */
+.target-link a:hover {
+    color: hotpink;
+    text-decoration: underline;
+}
+
+/* selected link */
+.target-link a:active {
+    color: var(--black);
+    text-decoration: underline;
+}
+
+/* when links are a complete "card" */
+
+/* unvisited link */
+.card-link a:link {
+    color: var(--black);
+    text-decoration: none;
+}
+
+/* visited link */
+.card-link a:visited {
+    color: var(--black);
+    text-decoration: none;
+}
+
+/* mouse over link */
+.card-link a:hover {
+    color: var(--black);
+    text-decoration: none;
+}
+
+/* selected link */
+.card-link a:active {
+    color: var(--black);
+    text-decoration: none;
+}
+
