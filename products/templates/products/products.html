@@ -25,11 +25,24 @@
                 <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark rounded-pill">{{ c.friendly_name }}</span>
             </p>
             {% endfor %}
+            <div class="col-md text-black">
+                <p>
+                    {{ products|length }} Product(s) in search result.
+                    {% if search_term %}
+                        Using search term <strong>{{ search_term }}</strong>.
+                    {% endif %}
+                </p>
+            </div>
             <hr class="w-100 mb-1">
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
-                <div class="row mt-1 mb-2"></div>
+                <div class="row mt-1 mb-2">
+                    {% comment %}
+                    selector box goes here
+                    {% endcomment %}
+                </div>
+               
                 <div class="row">
                     {% for product in products %}
                     <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
@@ -62,7 +75,7 @@
                     </div>
                     {% comment %}
                     <!--the divisble code to display the hr is stolen from boutique-ado
-                    the solution was neat and useful so I borrowed it-->
+        the solution was neat and useful so I borrowed it-->
                     {% endcomment %}
                     {% if forloop.counter|divisibleby:1 %}
                     <div class="col-12 d-sm-none">
