@@ -27,11 +27,14 @@
             {% endfor %}
             <div class="col-md text-black">
                 <p>
-                    {{ products|length }} Product(s) in search result.
+                    {{ products|length }} product(s) in search result.
                     {% if search_term %}
-                        Using search term <strong>{{ search_term }}</strong>.
-                    {% endif %}
+                    Using search term <strong>"{{ search_term }}"</strong>.
+                <p>
+                    <a href="/products" alt="Home to products page"><i class="fa-solid fa-house"></i> Home to all products page</a>
                 </p>
+                {% endif %}
+
             </div>
             <hr class="w-100 mb-1">
         </div>
