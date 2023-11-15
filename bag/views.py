@@ -1,7 +1,16 @@
 from django.views.generic import TemplateView
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.conf import settings
+import freecurrencyapi
 
 # Create your views here.
 
-class bag(TemplateView):
-    ''' Class used for the bag view '''
-    template_name = 'bag/bag.html'
+def bag(request):
+    client = freecurrencyapi.Client(settings.CURRENCY_API_KEY)
+    result = client.currencies(currencies=['EUR', 'CAD', 'SEK'])
+    
+    context = {
+        'currency': result,
+    }
+    
+    return render(request, 'bag/bag.html', context)

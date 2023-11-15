@@ -24,13 +24,6 @@ class Index(TemplateView):
         # return the last ten products as well as the last ten newsitems to template
 
         return context
-    
-    # def get(self, request, *args, **kwargs):
-    #     super().get(request, *args, **kwargs)
-        
-    #     art_mess = "You do not have permission to delete that comment."
-    #     messages.info(request, art_mess)
-    #     return HttpResponseRedirect("/webauth")
 
 class privacy(TemplateView):
     '''Class used to display the privacy policy '''
@@ -55,11 +48,6 @@ class contact(View):
             req_mess = request.POST.get("mess")
             req_email = request.POST.get("email")
             req_subject = request.POST.get("subject")
-            
-            print(req_user)
-            print(req_mess)
-            print(req_email)
-            print(req_subject)
             
             # log into database
 
