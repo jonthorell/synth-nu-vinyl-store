@@ -202,3 +202,20 @@ a.category-badge > span.badge:hover {
     background: #212529 !important;
     color: #fff !important;
 }
+
+/* back to top of page */
+
+.btt-button {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    background-color: var(--red);
+    color: var(--red);
+}
+
+.btt-link {
+    cursor: pointer;
+    color: var(--red);
+}
