@@ -16,14 +16,15 @@
         <div class="col-md text-center">
             <h2 class="div-header-h2">Products</h2>
             {% for c in current_genres %}
-            <p class="category-badge text-decoration-none">
+            <a class="category-badge text-decoration-none" href="{% url 'products' %}?genre={{ c.name }}">
+                &nbsp;
                 <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark rounded-pill">{{ c.friendly_name }}</span>
-            </p>
+            </a>
             {% endfor %}
             {% for c in current_mediatypes %}
-            <p class="category-badge text-decoration-none">
+            <a class="category-badge text-decoration-none" href="{% url 'products' %}?type={{ c.name }}">
                 <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark rounded-pill">{{ c.friendly_name }}</span>
-            </p>
+            </a>
             {% endfor %}
             <div class="col-md text-black">
                 <p>
