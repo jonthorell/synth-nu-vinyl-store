@@ -72,20 +72,21 @@
                                         <img class="card-img-top img-fluid" src="{% static 'images/noimage.jpg' %}" alt="{{ product.name }}" with="100" height="200">
                                     </a>
                                     {% endif %}
-                                    <div class="card-body pb-0">
+                                    <div class="card-body mb-0">
                                         <h5 class="card-title">Title: {{ product.name }}</h5>
                                         <p class="card-text mb-0">Artist: {{ product.artist }}</p>
-                                        <p class="card-text mb-0">Price: {{ product.price_currency}} {{ product.price }}</p>
+                                        <p class="card-text mb-0">Price: {{ product.price_currency }} {{ product.price }}</p>
                                         {% if product.rating %}
-                                        <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                        </ul>
+                                        
+                                            <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
+                                                <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                                <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                                <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                                <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                                <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                            </ul>
+                                           
                                         {% endif %}
-
                                     </div>
                                 </div>
                             </div>

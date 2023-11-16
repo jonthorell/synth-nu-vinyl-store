@@ -1,8 +1,8 @@
 from django.urls import path
-from .views import bag
+from . import views
 
-app_name = "bag"
+app_name = "view_bag"
 
 urlpatterns = [
-    path('', bag, name='bag'),
+    path('', views.view_bag, name='view_bag'),
     ]
