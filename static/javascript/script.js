@@ -20,6 +20,5 @@ const basicInstances = [
     'alert-dark',
 ];
 
-$("#cart").text(myCart);
-/*$("#notification").text(myBell);*/
+/*$("#cart").text(myCart);*/
 

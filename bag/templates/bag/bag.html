@@ -15,6 +15,7 @@
                 <div class="table-responsive rounded"></div>
                 {% else %}
                 <p class="lead mb-5">Your bag is empty.</p>
+                <p> {{ free_delivery_threshold }}</p>
                 <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>

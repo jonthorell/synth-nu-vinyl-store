@@ -122,7 +122,14 @@
             <!-- Collapsible wrapper -->
             <!-- Right elements -->
             {% endcomment %}
-
+            {% comment %}
+            <!-- display shipping threshold -->
+            {% endcomment %}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 search-padding-right">
+                <li class="nav-item">
+                    <span class="nav-link p-2 mt-2 badge badge-white rounded-0 border border-dark rounded-pill" id="nav_shipping">Free shipping on orders above ${{ free_delivery_delta }}</span>
+                </li>
+            </ul>
             {% comment %}
             <!--Search box-->
             {% endcomment %}
@@ -143,12 +150,12 @@
                 <!-- shopping cart Icon -->
                 {% endcomment %}
                 <a class="text-reset me-3" href="/bag">
-                        <i class="fas fa-shopping-cart">
-                    <span class="badge rounded-pill badge-notification bg-danger" id="cart"></span>
+                    <i class="fas fa-shopping-cart">
+                        <span class="badge rounded-pill badge-notification bg-danger" id="cart"></span>
                     </i>
                 </a>
 
-                
+
                 {% comment %}
                 <!-- Avatar -->
                 {% endcomment %}
@@ -190,9 +197,9 @@
                         {% if user.is_superuser %}
                         {% comment %}
                         <!--is user a superuser?
-                                Iterate over the groups of the current user
-                                If user is a member of group admins, add link to django admin
-                        -->
+                        Iterate over the groups of the current user
+                        If user is a member of group admins, add link to django admin
+                -->
                         {% endcomment %}
                         {% for group in user.groups.all %}
                         {% if group.name == 'staff' %}
@@ -204,7 +211,7 @@
                         {% for group in user.groups.all %}
                         {% comment %}
                         <!--Iterate over the groups of the current user
-                        If user is a member of group admins, add link to django admin -->
+                If user is a member of group admins, add link to django admin -->
                         {% endcomment %}
                         {% if group.name == 'admin' %}
                         <li>

@@ -135,6 +135,8 @@ TEMPLATES = [
                 'synth.context_processors.genres_context',
                 'synth.context_processors.mediatypes_context',
                 'synth.context_processors.users_context',
+                # next line provides access to the bag contents across the site
+                'bag.contexts.bag_contents',
                 
             ],
             'builtins': [
@@ -256,3 +258,7 @@ CURRENCY_API_KEY = os.environ.get('CURRENCY_API_KEY')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# used to calculate deliveries in bag, lifted from boutiqe ado
+FREE_DELIVERY_THRESHOLD = 50
+STANDARD_DELIVERY_PERCENTAGE = 10
