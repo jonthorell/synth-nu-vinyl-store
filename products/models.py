@@ -52,8 +52,9 @@ class product(models.Model):
     media_color = IntegerField(choices=MEDIA_COLOR, default=0)
     sku = models.CharField(max_length=254, null=True, blank=True)
     slug = AutoSlugField(populate_from='name', unique=True)
-    price = models.DecimalField(max_digits=6, decimal_places=2)
-    # price is entered as SEK. Will be displayed as GBP by default using api calls
+    price = models.DecimalField(max_digits=3, decimal_places=0)
+    # price is entered as USD. API calls will be able to change this
+    price_currency = models.CharField(max_length=3, null=False, blank=False,default="USD")
     rating = models.DecimalField(max_digits=1, decimal_places=0, null=False, blank=False, default=0)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)

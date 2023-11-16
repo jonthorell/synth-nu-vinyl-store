@@ -75,7 +75,7 @@
                                     <div class="card-body pb-0">
                                         <h5 class="card-title">Title: {{ product.name }}</h5>
                                         <p class="card-text mb-0">Artist: {{ product.artist }}</p>
-                                        <p class="card-text mb-0">Price: {{ product.price }}</p>
+                                        <p class="card-text mb-0">Price: {{ product.price_currency}} {{ product.price }}</p>
                                         {% if product.rating %}
                                         <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
                                             <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
