@@ -260,5 +260,5 @@ CURRENCY_API_KEY = os.environ.get('CURRENCY_API_KEY')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # used to calculate deliveries in bag, lifted from boutiqe ado
-FREE_DELIVERY_THRESHOLD = 50
+FREE_DELIVERY_THRESHOLD = 90
 STANDARD_DELIVERY_PERCENTAGE = 10
