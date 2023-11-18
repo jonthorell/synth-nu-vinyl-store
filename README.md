@@ -10,7 +10,7 @@ The site is by its nature B2C centered.
 The project is live 
 [here](https://synth-vinyls-e3c70f9ba271.herokuapp.com/)
 
-![mockup-picture](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/01-landing-page.webp?raw=true)
+![mockup-picture](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/gandalf.jpg?raw=true)
 
 # Background and use-case
 
