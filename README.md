@@ -47,6 +47,8 @@ are already in it.
 The padlock is the user-menu. It will look different depending on who is logged in (user can decide), and it provides
 links to among other things login, logout, create account, delete account, manage stock (for staff).
 
+The middle looks like this:
+
 ![middle-part](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/04-middle.png?raw=true)
 
 Example picture shows how it looks when you've selected a genre, or in this case: all genres.
