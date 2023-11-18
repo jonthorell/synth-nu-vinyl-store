@@ -72,12 +72,18 @@
                                         <img class="card-img-top img-fluid" src="{% static 'images/noimage.jpg' %}" alt="{{ product.name }}" with="100" height="200">
                                     </a>
                                     {% endif %}
-                                    <div class="card-body mb-0">
-                                        <h5 class="card-title">Title: {{ product.name }}</h5>
-                                        <p class="card-text mb-0">Artist: {{ product.artist }}</p>
-                                        <p class="card-text mb-0">Price: {{ product.price_currency }} {{ product.price }}</p>
-                                        {% if product.rating %}
-                                        
+                                    {% comment %}
+                                    <!--The idea of having both the image and the text to the same url is to make the ""entire"" card
+                                    be clickable to get to the product detail so it behaves the same way as the landing page.
+                                    -->
+                                    {% endcomment %}
+                                    <a href="{% url 'product_detail' product.id %}">
+                                        <div class="card-body mb-0">
+                                            <h5 class="card-title">Title: {{ product.name }}</h5>
+                                            <p class="card-text mb-0">Artist: {{ product.artist }}</p>
+                                            <p class="card-text mb-0">Price: {{ product.price_currency }} {{ product.price }}</p>
+                                            {% if product.rating %}
+
                                             <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
                                                 <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
                                                 <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
@@ -85,9 +91,10 @@
                                                 <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
                                                 <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
                                             </ul>
-                                           
-                                        {% endif %}
-                                    </div>
+
+                                            {% endif %}
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                             {% comment %}
