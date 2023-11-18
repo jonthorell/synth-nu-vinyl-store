@@ -7,6 +7,9 @@ Synth.now.
 
 The site is by its nature B2C centered.
 
+The project is live 
+[here](https://synth-vinyls-e3c70f9ba271.herokuapp.com/)
+
 ![mockup-picture](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/01-landing-page.png?raw=true?raw=true)
 
 # Background and use-case
@@ -277,6 +280,7 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 
 1. Search-field yields strange results if artist name contain space(s)
 2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
+3. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it"
 
 # NOTES TO BE DELETED WHEN COMPLETE
 
