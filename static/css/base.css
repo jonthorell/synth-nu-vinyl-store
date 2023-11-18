@@ -45,7 +45,7 @@ main {
     */
     flex: 1 0 auto;
     background-color: var(--black);
-    background: url('/static/images/lps.jpg') no-repeat center center fixed;
+    background: url('/static/images/lps.webp') no-repeat center center fixed;
     background-size: cover;
     color: var(--white);
 }
