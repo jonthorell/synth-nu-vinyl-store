@@ -213,16 +213,14 @@ a.category-badge > span.badge:hover {
     position: fixed;
     bottom: 10px;
     right: 10px;
-    background-color: var(--red);
-    color: var(--red);
+    background-color: var(--white);
+    color: var(--black);
 }
 
 .btt-link {
     cursor: pointer;
     color: var(--red);
 }
-
-/* colors for the text in the free shipping box */
 
 #nav_shipping {
     color: var(--red);
@@ -231,21 +229,19 @@ a.category-badge > span.badge:hover {
 
 /* shop buttons */
 
-.btn-black {
-    background: black;
-    color: white;
-}
-
+.btn-outline-black,
 .btn-outline-black {
     background: white;
-    color: black !important; /* use important to override link colors for <a> elements */
+    color: black;
     border: 1px solid black;
+    border-radius: 2px;
 }
+
 
     .btn-outline-black:hover,
     .btn-outline-black:active,
     .btn-outline-black:focus {
         background: black;
         color: white !important;
+        border-radius: 2px;
     }
-

@@ -157,7 +157,7 @@ The steps for deployment to Heroku are:
 1. Create an account at Heroku.
 2. Create an app in Heroku, with a unique name and a region
 3. Under settings, create the same environment variables as above
-4. Add an additional environment variable with the name PORT and value of 8000. 
+4. Add an additional environment variable with the name PORT and value of 8000 as well as an USE_AWS variable set to True
 5. Create an account at AWS
 6. Create a bucket in the AWS account.
 7. Follow the instructions in the aws.pdf to set correct rights on the bucket.
@@ -283,6 +283,7 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 1. Search-field yields strange results if artist name contain space(s)
 2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
 3. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it"
+4. The "Shop some more" text in the button should not be underlined. Works in bag view???
 
 # NOTES TO BE DELETED WHEN COMPLETE
 
