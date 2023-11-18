@@ -10,7 +10,7 @@ The site is by its nature B2C centered.
 The project is live 
 [here](https://synth-vinyls-e3c70f9ba271.herokuapp.com/)
 
-![mockup-picture](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/gandalf.jpg?raw=true)
+![mockup-picture](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/01-landing-page.png?raw=true)
 
 # Background and use-case
 
@@ -32,7 +32,7 @@ The screen is divided into three parts.
 
 At the top,
 
-![navbar](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/02-header.webp?raw=true)
+![navbar](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/02-header.png?raw=true)
 
 Genre and Mediatype are drop-down menues showing the different genres (such as EBM, Synthpop) and mediatypes shows album, single, and
 so on. Sort have a few pre-selected sort options, and more will be provided if you first select say a genre.
@@ -47,7 +47,7 @@ are already in it.
 The padlock is the user-menu. It will look different depending on who is logged in (user can decide), and it provides
 links to among other things login, logout, create account, delete account, manage stock (for staff).
 
-![middle-part](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/04-middle.webp?raw=true)
+![middle-part](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/04-middle.png?raw=true)
 
 Example picture shows how it looks when you've selected a genre, or in this case: all genres.
 
@@ -57,7 +57,7 @@ above, it is not.
 
 And finally, at the bottom. A footer with copyright information.
 
-![footer](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/03-footer.webp?raw=true)
+![footer](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/03-footer.png?raw=true)
 
 # Design considerations (visual). CHANGE!
 
