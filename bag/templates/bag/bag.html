@@ -2,6 +2,11 @@
 {% load static %}
 {% block title %}Bag{% endblock title %}
 
+{% block extra_css %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/bag.css' %}" type="text/css">
+{% endblock %}
+
 {% block content %}
 
 <div class="container container-bottom">
@@ -9,89 +14,109 @@
         <div class="col-md text-center">
             <h2 class="div-header-h2">Shopping bag</h2>
         </div>
+        {% if bag_items %}
+        {% comment %}
+        <!--There are items in the bag-->
+        {% endcomment %}
+        <div class="datatable" data-mdb-striped='false' data-mdb-borderless='true' data-mdb-hover='true' data-mdb-fixed-header='true' data-mdb-color='grey' data-mdb-full-pagination='true'>
+            {% comment %}
+            <!--the div class datatable is what makes the sorting magic happen -->
+            {% endcomment %}
+            <table class="table table-sm table-borderless">
+                <thead class="text-black">
+                    <tr>
+                        <th scope="col">Product Info</th>
+                        <th scope="col"></th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for item in bag_items %}
+                    <tr>
+                        <td class="p-3 w-25">
+                            <img class="img-fluid rounded" src="{{ item.product.image.url }}">
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0"><strong>{{ item.product.name }}</strong></p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.product.price }}</p>
+                        </td>
+                        <td class="py-3 w-25">
+                            <p class="my-0">{{ item.quantity }}</p>
+                        </td>
+                        <td class="py-3">
+                            <p class="my-0">${{ item.product.price }}</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
         <div class="row">
+            {% comment %}
+            <!--Outside the sort magic -->
+            {% endcomment %}
+            <table class="table table-sm table-borderless table-center">
+                <tbody>
+                    <tr>
+                        <td colspan="5" class="pt-5 text-right">
+                            <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
+                            <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
+                            <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
+                            {% if free_delivery_delta > 0 %}
+                            <p class="mb-1 text-danger">
+                                You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
+                            </p>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="5" class="text-right">
+                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                                <span class="icon">
+                                    <i class="fa-solid fa-basket-shopping"></i>
+                                </span>
+                                <span class="text-capitalize">shop some more</span>
+                            </a>
+                            <a href="" class="btn btn-black rounded-0 btn-lg">
+                                <span class="text-uppercase">Secure Checkout</span>
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                            </a>
+                        </td>
+                    </tr>
+            </table>
             <div class="col text-center">
-                {% if bag_items %}
-                <div class="table-responsive rounded">
-                    <table class="table table-sm table-borderless">
-                        <thead class="text-black">
-                            <tr>
-                                <th scope="col">Product Info</th>
-                                <th scope="col"></th>
-                                <th scope="col">Price</th>
-                                <th scope="col">Qty</th>
-                                <th scope="col">Subtotal</th>
-                            </tr>
-                        </thead>
-
-                        {% for item in bag_items %}
-                        <tr>
-                            <td class="p-3 w-25">
-                                <img class="img-fluid rounded" src="{{ item.product.image.url }}">
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0"><strong>{{ item.product.name }}</strong></p>
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0">${{ item.product.price }}</p>
-                            </td>
-                            <td class="py-3 w-25">
-                                <p class="my-0">{{ item.quantity }}</p>
-                            </td>
-                            <td class="py-3">
-                                <p class="my-0">${{ item.product.price }}</p>
-                            </td>
-                        </tr>
-                        {% endfor %}
-                        <tr>
-                            <td colspan="5" class="pt-5 text-right">
-                                <h6><strong>Bag Total: ${{ total|floatformat:2 }}</strong></h6>
-                                <h6>Delivery: ${{ delivery|floatformat:2 }}</h6>
-                                <h4 class="mt-4"><strong>Grand Total: ${{ grand_total|floatformat:2 }}</strong></h4>
-                                {% if free_delivery_delta > 0 %}
-                                <p class="mb-1 text-danger">
-                                    You could get free delivery by spending just <strong>${{ free_delivery_delta }}</strong> more!
-                                </p>
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td colspan="5" class="text-right">
-                                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                                    <span class="icon">
-                                        <i class="fa-solid fa-basket-shopping"></i>
-                                    </span>
-                                    <span class="text-capitalize">shop some more</span>
-                                </a>
-                                <a href="" class="btn btn-black rounded-0 btn-lg">
-                                    <span class="text-uppercase">Secure Checkout</span>
-                                    <span class="icon">
-                                        <i class="fas fa-lock"></i>
-                                    </span>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                    <div>We Support:</div>
-                    <div>
-                        <img src="{% static 'images/visa-logo.svg' %}" width="100" height="50" alt="Visa logo" class="search-padding-right"/>
-                        <img src="{% static 'images/mastercard-logo.svg' %}" width="100" height="50" alt="Mastercard logo" class="search-padding-right" />
-                        <img src="{% static 'images/qliro-logo.svg' %}" width="100" height="50" alt="QLiro logo" class="search-padding-right" />
-                        <img src="{% static 'images/swish-logo.svg' %}" width="100" height="50" alt="Swish logo" class="search-padding-right" />
-                    </div>
+                <div>We Support:</div>
+                <div>
+                    <img src="{% static 'images/visa-logo.svg' %}" width="100" height="50" alt="Visa logo" class="search-padding-right" />
+                    <img src="{% static 'images/mastercard-logo.svg' %}" width="100" height="50" alt="Mastercard logo" class="search-padding-right" />
+                    <img src="{% static 'images/qliro-logo.svg' %}" width="100" height="50" alt="QLiro logo" class="search-padding-right" />
+                    <img src="{% static 'images/swish-logo.svg' %}" width="100" height="50" alt="Swish logo" class="search-padding-right" />
                 </div>
-                {% else %}
-                <p class="lead mb-5">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                    <span class="icon">
-                        <i class="fas fa-chevron-left"></i>
-                    </span>
-                    <span class="text-uppercase">Keep Shopping</span>
-                </a>
-                {% endif %}
             </div>
         </div>
+        {% else %}
+        {% comment %}
+        <!--The bag is empty -->
+        {% endcomment %}
+        <div class="row">
+            <div class="col text-center">
+                <p class="lead mb-5">Your bag is empty.</p>
+                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg rounded-pill">
+                    <span class="icon">
+                        <i class="fa-solid fa-basket-shopping"></i>
+                    </span>
+                    <span class="text-capitalize">go shopping</span>
+                </a>
+            </div>
+        </div>
+        {% endif %}
     </div>
 </div>
 
-            {% endblock content %}
+        {% endblock content %}
