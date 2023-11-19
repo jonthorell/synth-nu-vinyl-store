@@ -287,6 +287,7 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 4. The "Shop some more" text in the button should not be underlined. Works in bag view???
 5. The "sort by" needs to be styled to be more inline with the rest of the site.
 6. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Maybe allow it but in the confirmation email state the customer is on the waiting list?
+7. Toasts are kinda cramped on mobile
 
 # NOTES TO BE DELETED WHEN COMPLETE
 
