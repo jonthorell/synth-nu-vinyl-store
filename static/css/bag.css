@@ -6,3 +6,9 @@ th, td {
     margin-left: auto;
     margin-right: auto;
 }
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
