@@ -108,7 +108,7 @@
                                 <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="{{product.stock}}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             </div>
                         </div>
-                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 rounded-pill">
+                        <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="btn btn-outline-black rounded-0 rounded-pill">
                             <span class="icon">
                                 <i class="fa-solid fa-basket-shopping"></i>
                             </span>

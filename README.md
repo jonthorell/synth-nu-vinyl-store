@@ -263,7 +263,7 @@ User has on_delete CASCADE set so if user is deleted, so is the profile
 1. Navbar did not list genres for all pages at first. I had the same issue in the RetroLoversUnited project, but used a context-processor this time around instead of a mixin. This approach
 has the added benefit that it also works on function-based views such as the ones for allauth
 2. Problem finding a way of getting the group for the current user. The solution found is not as elegant as I would like, but it works.
-3. Spacing issue between cover-image and the text on the product_details view. Fixed.
+3. Spacing issue between cover-image and the text on the product_details view. Fixed using custom css
 4. Some layout issues in "Add to bag" form. Changing the css solved the issue.
 5. Don't know if I imagined it since I can't find the reference again, but I was at first under the impression that it was a good idea to name the bucket in AWS
 the same way as the heroku-app. Turns out that was a bad idea...when the bucket has a .com or another TLD component in the name, the deployed site complains about
@@ -272,11 +272,12 @@ the issue.
 6. The vertical line dividing the columns on the landing page made the page look weird on lower resoltions. Fixed by using jQuery to remove/add the classes based on the resolution.
 7. Couldn't get the gmail integration working at first. It kept complaining about bad credentials when username and password was in env.py but worked fine when set explicitly
 in settings.py. Not sure what the problem was, since the code looks the same now except now it works...I suspect some typo crept in somewhere.
-8. Some overflow issues that showed up on real mobile but wasn't visible in devtools. Seems to work now, so I suspect it as a cached css-file that was the culprit.
+8. Some overflow issues that showed up on real mobile but wasn't visible in devtools. Seems to work now, so I suspect it was a cached css-file that was the culprit.
 9. Products page looked too cramped when in two columns. Fixed by removing some details and keeping that to the product_details page
 10. Fullname did not show up in user-menu. Forgot to make sure fname and lname is set on all accounts. Fixed by making a custom signup form
 11. Custom signup form was hard to get the fields in the order I wanted them. It took a while to find out you needed both the Meta class and field_order to make it work.
 12.The css to remove the bullet points from the li on the privacy page hit too wide. Fixed by altering the css.
+13. Update/remove links in bag did not work. Turned out it did not load the js-file correctly. Fixed.
 
 # Bugs encountered but not fixed yet
 
@@ -284,6 +285,8 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
 3. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it"
 4. The "Shop some more" text in the button should not be underlined. Works in bag view???
+5. The "sort by" needs to be styled to be more inline with the rest of the site.
+6. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Maybe allow it but in the confirmation email state the customer is on the waiting list?
 
 # NOTES TO BE DELETED WHEN COMPLETE
 

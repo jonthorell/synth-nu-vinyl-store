@@ -18,7 +18,9 @@
         {% comment %}
         <!--There are items in the bag-->
         {% endcomment %}
-        <div class="datatable" data-mdb-striped='false' data-mdb-borderless='true' data-mdb-hover='true' data-mdb-fixed-header='true' data-mdb-color='grey' data-mdb-full-pagination='true'>
+        <div class="datatable" data-mdb-striped='false' data-mdb-borderless='true' data-mdb-hover='false'
+             data-mdb-fixed-header='true' data-mdb-color='grey' data-mdb-full-pagination='false'
+             data-mdb-max-width="1800">
             {% comment %}
             <!--the div class datatable is what makes the sorting magic happen -->
             {% endcomment %}
@@ -45,7 +47,7 @@
                             <p class="my-0">${{ item.product.price }}</p>
                         </td>
                         <td class="py-3 w-25">
-                            <form class="form update-form" method="POST" action="">
+                            <form class="form update-form" method="POST" action="{% url 'adjust_bag' item.item_id %}">
                                 {% csrf_token %}
                                 <div class="form-group">
                                     <div class="input-group">
@@ -57,7 +59,7 @@
                                 </div>
                             </form>
                             <a class="update-link text-info"><small>Update</small></a>
-                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-size="{{ item.size }}"><small>Remove</small></a>
+                            <a class="remove-item text-danger float-right" id="remove_{{ item.item_id }}" data-product_size="{{ item.size }}"><small>Remove</small></a>
                         </td>
                         <td class="py-3">
                             <p class="my-0">${{ item.product.price }}</p>
@@ -87,7 +89,7 @@
                     </tr>
                     <tr>
                         <td colspan="5" class="text-right">
-                            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+                            <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="btn btn-outline-black rounded-0 btn-lg">
                                 <span class="icon">
                                     <i class="fa-solid fa-basket-shopping"></i>
                                 </span>
@@ -119,7 +121,7 @@
         <div class="row">
             <div class="col text-center">
                 <p class="lead mb-5">Your bag is empty.</p>
-                <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg rounded-pill">
+                <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="btn btn-outline-black rounded-0 btn-lg rounded-pill">
                     <span class="icon">
                         <i class="fa-solid fa-basket-shopping"></i>
                     </span>
@@ -132,3 +134,32 @@
 </div>
 
         {% endblock content %}
+
+{% block onload_js %}
+{{ block.super }}
+<!--<script src="{% static 'bag/javascript/quantity_input.js' %}">
+</script>-->
+
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var size = $(this).data('product_size');
+        var url = `/bag/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken, 'product_size': size};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+</script>
+{% endblock %}
