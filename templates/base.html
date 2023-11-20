@@ -67,19 +67,17 @@
     <main>
         {% if messages %}
             {% for message in messages %}
-                 <div class="alert fade show"
-                     id="alert-primary"
-                     role="alert"
-                     data-mdb-color="success"
-                     data-mdb-position="top-center"
-                     data-mdb-stacking="true"
-                     data-mdb-width="25%"
-                     data-mdb-append-to-body="true"
-                     data-mdb-autohide="true"
-                     data-mdb-delay="8000">
-                    <img src="https://synth-jt.s3.eu-north-1.amazonaws.com/static/icons/favicon.ico" height="40" width="40" alt="Record" loading="lazy">
-                    {{ message | safe }}
-                </div>
+              {% with message.level as level %}
+                    {% if level == 40 %}
+                        {% include 'includes/alerts/error.html' %}
+                    {% elif level == 30 %}
+                        {% include 'includes/alerts/warning.html' %}
+                    {% elif level == 25 %}
+                        {% include 'includes/alerts/success.html' %}
+                    {% else %}
+                        {% include 'includes/alerts/info.html' %}
+                    {% endif %}
+                {% endwith %}   
             {% endfor %}
         {% endif %}
         {% block content %}
