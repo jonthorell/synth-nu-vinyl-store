@@ -245,3 +245,10 @@ a.category-badge > span.badge:hover {
         color: white !important;
         border-radius: 2px;
     }
+
+/* ------------------------------- bootstrap toasts */
+
+.message-container {
+    /* keep it on top */
+    z-index: 99999999999;
+}

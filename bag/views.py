@@ -1,5 +1,5 @@
 
-from django.shortcuts import render, redirect, reverse, HttpResponse
+from django.shortcuts import render, redirect, reverse, HttpResponse, get_object_or_404
 from django.contrib import messages
 
 from products.models import product
@@ -14,34 +14,38 @@ def view_bag(request):
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 
-    prod = product.objects.get(pk=item_id)
+    prod = get_object_or_404(product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
 
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
+        messages.success(request, f'Updated "{prod.name}" quantity to {bag[item_id]}')
+        
     else:
         bag[item_id] = quantity
+        messages.success(request, f'Added "{prod.name}" to your bag')
 
-    messages.success(request, f'Added "{prod.name}" to your bag.') 
     request.session['bag'] = bag
         
     return redirect(redirect_url)
 
 def adjust_bag(request, item_id):
     """Adjust the quantity of the specified product to the specified amount"""
-
+    
+    prod = get_object_or_404(product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     
     bag = request.session.get('bag', {})
 
     if quantity > 0:
         bag[item_id] = quantity
+        messages.success(request, f'Updated "{prod.name}" quantity to {bag[item_id]}')
     else:
         bag.pop(item_id)
+        messages.success(request, f'Removed "{prod.name}" from your bag')
     
-    messages.success(request, 'The product has been updated in your bag!') 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
 
@@ -49,14 +53,16 @@ def remove_from_bag(request, item_id):
     """Remove the item from the shopping bag"""
 
     try:
+        prod = get_object_or_404(product, pk=item_id)
         bag = request.session.get('bag', {})
 
         bag.pop(item_id)
 
-        messages.success(request, 'The item has been removed from your bag.') 
+        messages.success(request, f'Removed "{prod.name}" from your bag')
         request.session['bag'] = bag
         return HttpResponse(status=200)
 
     except Exception as e:
+        messages.error(request, f'Error removing item: {e}')
         return HttpResponse(status=500)
 
