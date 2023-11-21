@@ -7,6 +7,7 @@ from .models import product, genre, mediatype, artist
 class ProductAdmin(admin.ModelAdmin):
     list_display = (
         'name',
+        'sku',
         'genre',
         'price',
         'rating',

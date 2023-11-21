@@ -50,7 +50,7 @@ class product(models.Model):
     new_old = models.IntegerField(choices=MEDIA_STATUS, default=0)
     media_format = models.ForeignKey('mediatype', null=True, blank=False, on_delete=models.SET_NULL)
     media_color = IntegerField(choices=MEDIA_COLOR, default=0)
-    sku = models.CharField(max_length=254, null=True, blank=True)
+    sku = models.CharField(max_length=254, null=False, blank=False, default="change this")
     slug = AutoSlugField(populate_from='name', unique=True)
     price = models.DecimalField(max_digits=3, decimal_places=0)
     # price is entered as USD. API calls will be able to change this
