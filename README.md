@@ -331,3 +331,12 @@ In order to not get complaints about Django-tags, the "view source" output for e
 
 I got the following result for the pages listed below (listed this way to make it more digestable).
 
+## Manual Tests
+
+1. Adding procuts to the bag and adjusting items already in the bag should only accept values between 1 and whatever is in stock. 
+Expected behavior: it is impossible to add more items of a given product than is currently in stock.
+This has been tested by checking that the up and down arrows next to the input fields stops when you've reaced the limits, and this has been done on multiple products. 
+Also, if the user enters a number manually the site should throw an error saying there is not enough in stock. This has also been done on several products, and I have 
+been unable to fool the site into adding more than what is possible. This does not apply to products that are out of stock since in that case you do not even get the 
+form in the first place. Works as intended.
+
