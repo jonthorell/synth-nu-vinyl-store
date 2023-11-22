@@ -278,6 +278,17 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 11. Custom signup form was hard to get the fields in the order I wanted them. It took a while to find out you needed both the Meta class and field_order to make it work.
 12.The css to remove the bullet points from the li on the privacy page hit too wide. Fixed by altering the css.
 13. Update/remove links in bag did not work. Turned out it did not load the js-file correctly. Fixed.
+14. Got a bunch of unbound errors when submitting the order into the database. I used the boutique ado code as a base but with some modifications. The problem was that in boutique ado the 
+model was named Products (capital P) but mine is called products (lowercase P). Python and/or Django got confused by this:
+```
+order_line_item = OrderLineItem(
+                            order=order,
+                            product=product,
+                            quantity=item_data,
+                    )
+```
+
+The solution was to replace the variable product with the shortened prod.
 
 # Bugs encountered but not fixed yet
 
@@ -290,6 +301,12 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 7. Toasts are kinda cramped on mobile. Product view in particulr
 8. Stripe input box is not rendered?? Silly mistake with an underscore in the block where it was supposed to go
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
+
+# To Do
+
+Send email on completion of order
+Update stock when an order has been completed
+PNG file in checkout from boutique ado
 
 # NOTES TO BE DELETED WHEN COMPLETE
 
