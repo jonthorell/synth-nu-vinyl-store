@@ -289,13 +289,13 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 6. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Maybe allow it but in the confirmation email state the customer is on the waiting list?
 7. Toasts are kinda cramped on mobile
 8. Stripe input box is not rendered?? Silly mistake with an underscore in the block where it was supposed to go
+9. About css file refuses to load from the correct app. Workaround: putting it in the core app
 
 # NOTES TO BE DELETED WHEN COMPLETE
 
 Removed .vscode and sqlitebb
 
-Keep summernote / crispyforms in config for now. In case they will be needed. If not needed, remove at the end
-Maybe remove popper js? Keep for now
+Summernote and popper removed. Code outside of repo if needed to add them back easily.
 
 # Testing
 

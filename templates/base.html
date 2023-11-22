@@ -27,7 +27,6 @@
     {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}" type="text/css">
     {% comment %}
-    {% comment %}
     <!-- My custom css -->
     {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}" type="text/css">
@@ -41,10 +40,6 @@
     <!-- Font awsome -->
     {% endcomment %}
     <script src="https://kit.fontawesome.com/e9c73d7092.js" crossorigin="anonymous"></script>
-    {% comment %}
-    <!-- MDB -->
-    {% endcomment %}
-    <script src="{% static 'javascript/mdb.min.js' %}"></script>
     {% comment %}
     <!-- jquery -->
     {% endcomment %}
@@ -107,6 +102,10 @@
     {% include 'includes/footer.html' %}
 
     {% block onload_js %}
+    {% comment %}
+    <!-- MDB -->
+    {% endcomment %}
+    <script src="{% static 'javascript/mdb.min.js' %}"></script>
     {% endblock %}
 
     {% block postloadjs %}

@@ -1,0 +1,9 @@
+.td-desc {
+    /* used for description column in table on credits page
+        Should really be in about app, but for some reason
+        I can not find I get a 404 error if it is there.
+        It is not a big deal since core and about both
+        work straight from the start page.
+    */
+    color: var(--red);
+}
