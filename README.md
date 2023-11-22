@@ -367,3 +367,17 @@ Has been tested with these two fake credit cards
 
 csv and expiredate can be anything
 
+Those were used for successful orders.
+
+These were used for testing specific use cases:
+Generic decline	4000000000000002	card_declined	generic_decline
+Insufficient funds decline	4000000000009995	card_declined	insufficient_funds
+Lost card decline	4000000000009987	card_declined	lost_card
+Stolen card decline	4000000000009979	card_declined	stolen_card
+Expired card decline	4000000000000069	expired_card	n/a
+Incorrect CVC decline	4000000000000127	incorrect_cvc	n/a
+Processing error decline	4000000000000119	processing_error	n/a
+Incorrect number decline	4242424242424241	incorrect_number	n/a
+Exceeding velocity limit decline	4000000000006975	card_declined	card_velocity_exceeded
+
+As well as 4000002760003184 to test 3D Secure
