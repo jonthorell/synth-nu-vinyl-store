@@ -358,3 +358,12 @@ Also, if the user enters a number manually the site should throw an error saying
 been unable to fool the site into adding more than what is possible. This does not apply to products that are out of stock since in that case you do not even get the 
 form in the first place. Works as intended.
 
+## Credit cards
+
+Has been tested with these two fake credit cards
+
+4000007520000008
+4242424242424242
+
+csv and expiredate can be anything
+
