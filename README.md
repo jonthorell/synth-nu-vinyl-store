@@ -308,6 +308,7 @@ The solution was to replace the variable product with the shortened prod.
 Send email on completion of order
 Update stock when an order has been completed
 PNG file in checkout from boutique ado
+Make sure to style allauth better
 
 # NOTES TO BE DELETED WHEN COMPLETE
 

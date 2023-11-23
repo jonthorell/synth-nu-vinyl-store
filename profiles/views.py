@@ -1,10 +1,10 @@
-from django.views.generic import TemplateView
-
-# from synth.utils import custom_mixin_kategorimenu
+from django.shortcuts import render
 
 
-# Create your views here.
+def profile(request):
+    """ Display the user's profile. """
 
-class profile(TemplateView):
-    ''' Class used for the profile view '''
-    template_name = 'profiles/profiles.html'
+    template = 'profiles/profile.html'
+    context = {}
+
+    return render(request, template, context)

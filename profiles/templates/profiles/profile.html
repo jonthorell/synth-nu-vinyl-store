@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}My Profile{% endblock title %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'core/css/profile.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container container-bottom">
+    <div class="row core-divs">
+        <div class="col-md text-center">
+            <h2 class="div-header-h2">My Profile</h2>
+        </div>
+    </div>
+</div>
+
+ {% endblock content %}
