@@ -308,7 +308,10 @@ The solution was to replace the variable product with the shortened prod.
 Send email on completion of order
 Update stock when an order has been completed
 PNG file in checkout from boutique ado
-Make sure to style allauth better
+Make sure to style allauth better, or all forms really
+Staff view
+Curreny selector in profile
+
 
 # NOTES TO BE DELETED WHEN COMPLETE
 

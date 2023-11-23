@@ -13,7 +13,6 @@ class UserProfileAdmin(admin.ModelAdmin):
         'default_street_address1',
         'default_street_address2',
         'default_county',
-        'default_currency',
         )
     
 admin.site.register(UserProfile,UserProfileAdmin)
