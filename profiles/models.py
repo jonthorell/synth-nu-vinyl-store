@@ -12,7 +12,7 @@ class UserProfile(models.Model):
     delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # Like in the orders model, so just copied from there
+    # Like in the orders model, so just copied from there, except currency
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_country = CountryField(blank_label='Country *', null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
@@ -20,6 +20,7 @@ class UserProfile(models.Model):
     default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
     default_street_address2 = models.CharField(max_length=80, null=True, blank=True)
     default_county = models.CharField(max_length=80, null=True, blank=True)
+    default_currency = models.CharField(max_length=3, null=False, blank=False, default="USD")
 
     def __str__(self):
         return self.user.username
