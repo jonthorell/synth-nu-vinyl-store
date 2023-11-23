@@ -203,9 +203,9 @@
                         {% if user.is_superuser %}
                         {% comment %}
                         <!--is user a superuser?
-                        Iterate over the groups of the current user
-                        If user is a member of group admins, add link to django admin
-                -->
+            Iterate over the groups of the current user
+            If user is a member of group admins, add link to django admin
+    -->
                         {% endcomment %}
                         {% for group in user.groups.all %}
                         {% if group.name == 'staff' %}
@@ -217,7 +217,7 @@
                         {% for group in user.groups.all %}
                         {% comment %}
                         <!--Iterate over the groups of the current user
-                If user is a member of group admins, add link to django admin -->
+    If user is a member of group admins, add link to django admin -->
                         {% endcomment %}
                         {% if group.name == 'admin' %}
                         <li>
@@ -247,6 +247,14 @@
                             <a class="dropdown-item" href="/accounts/login"><i class="fas fa-door-open pe-2"></i>Login</a>
                         </li>
                         {% endif %}
+                        <li><hr class="dropdown-divider" /></li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'view_bag' %}"><i class="fa-solid fa-bag-shopping"></i> Goto bag</a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'checkout' %}"><i class="fa-regular fa-money-bill-1"></i> Goto Checkout</a>
+                        </li>
+
                         <li><hr class="dropdown-divider" /></li>
                         <li>
                             <a class="dropdown-item" href="/privacy"><i class="fa-solid fa-circle-exclamation pe-2"></i>View Privacy Policy</a>
