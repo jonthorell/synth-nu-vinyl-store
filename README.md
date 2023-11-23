@@ -301,6 +301,7 @@ The solution was to replace the variable product with the shortened prod.
 7. Toasts are kinda cramped on mobile. Product view in particulr
 8. Stripe input box is not rendered?? Silly mistake with an underscore in the block where it was supposed to go
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
+10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
 
 # To Do
 
