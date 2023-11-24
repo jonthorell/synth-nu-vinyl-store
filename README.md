@@ -313,6 +313,7 @@ Staff view
 Curreny selector in profile
 Wrap order history in datatable to make it sortable
 Change "Thank you" to something else if viewing a past-order
+Make sure profile view only works when logged in (mixin?). It does not work as-is but a generic server error is not good enough
 
 Check everything!
 
