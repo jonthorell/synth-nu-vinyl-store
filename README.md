@@ -312,6 +312,9 @@ Make sure to style allauth better, or all forms really
 Staff view
 Curreny selector in profile
 Wrap order history in datatable to make it sortable
+Change "Thank you" to something else if viewing a past-order
+
+Check everything!
 
 
 # NOTES TO BE DELETED WHEN COMPLETE
