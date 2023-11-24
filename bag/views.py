@@ -18,7 +18,6 @@ def add_to_bag(request, item_id):
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     bag = request.session.get('bag', {})
-    print(prod.stock)
 
     if quantity > prod.stock:
         messages.error(request, f'There is not that much in stock of "{prod.name}".')
