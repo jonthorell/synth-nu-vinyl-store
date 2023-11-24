@@ -311,6 +311,7 @@ PNG file in checkout from boutique ado
 Make sure to style allauth better, or all forms really
 Staff view
 Curreny selector in profile
+Wrap order history in datatable to make it sortable
 
 
 # NOTES TO BE DELETED WHEN COMPLETE
