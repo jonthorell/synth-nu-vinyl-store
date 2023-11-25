@@ -1,9 +1,14 @@
-from django.views.generic import TemplateView
 
-from synth.utils import StaffRequiredMixin
+from synth.decorators import check_user_is_staff
+from django.shortcuts import render, get_object_or_404
+from django.contrib import messages
 
-# Create your views here.
 
-class staff(StaffRequiredMixin, TemplateView):
-    ''' Class used for the staff view '''
-    template_name = 'staff/staff.html'
+@check_user_is_staff
+def staff(request):
+    """ Display the staff only page. """
+    
+    template = 'staff/staff.html'
+    context = {}
+
+    return render(request, template, context)

@@ -1,15 +1,14 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
-from django.views.generic import TemplateView
 
 from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
 
-from profiles.decorators import check_user_able_to_see_page
+from synth.decorators import check_user_is_member
     
-@check_user_able_to_see_page
+@check_user_is_member
 def profile(request):
     """ Display the user's profile. """
     profile = get_object_or_404(UserProfile, user=request.user)
