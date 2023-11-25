@@ -290,6 +290,7 @@ order_line_item = OrderLineItem(
 
 The solution was to replace the variable product with the shortened prod.
 15. The Add-staff link to menu did not work properly. Removed check if user is superuser. Superfluos since it is only the group membership that is important
+16. The new image field in profile model introduced an error in profile-view. Fixed by altering the form.
 
 # Bugs encountered but not fixed yet
 
