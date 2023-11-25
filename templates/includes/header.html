@@ -176,12 +176,21 @@
                         {% comment %}
                         <!--is user logged in? -->
                         {% endcomment %}
+                        {% if not user.userprofile.image %}
                         <img src="{{ MEDIA_URL }}avatars/default-user.webp"
                              class="rounded-circle"
                              height="25"
                              width="25"
                              alt="Default user logo"
                              loading="lazy" />
+                        {% else %}
+                        <img src="{{ MEDIA_URL }}{{user.userprofile.image}}"
+                             class="rounded-circle"
+                             height="25"
+                             width="25"
+                             alt="Default user logo"
+                             loading="lazy" />
+                        {% endif %}
                         {% else %}
                         <img src="{{ MEDIA_URL }}avatars/not-logged-in.webp"
                              class="rounded-circle"
@@ -200,12 +209,8 @@
                         <li>
                             <a class="dropdown-item disabled sans-font" href="#"> {{ user.first_name }} {{ user.last_name }}</a>
                         </li>
-                        {% if user.is_superuser %}
                         {% comment %}
-                        <!--is user a superuser?
-            Iterate over the groups of the current user
-            If user is a member of group admins, add link to django admin
-    -->
+                        <!--Check if user is member of staff, if so: add link-->
                         {% endcomment %}
                         {% for group in user.groups.all %}
                         {% if group.name == 'staff' %}
@@ -216,8 +221,7 @@
                         {% endfor %}
                         {% for group in user.groups.all %}
                         {% comment %}
-                        <!--Iterate over the groups of the current user
-    If user is a member of group admins, add link to django admin -->
+                        <!--Check if user is member of admin, if so: add link-->
                         {% endcomment %}
                         {% if group.name == 'admin' %}
                         <li>
@@ -226,7 +230,6 @@
                         {% endif %}
                         {% endfor %}
                         <li><hr class="dropdown-divider" /></li>
-                        {% endif %}
                         <li>
                             <a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user-alt pe-2"></i>My Profile</a>
                         </li>
