@@ -18,7 +18,7 @@ class CustomSignupForm(SignupForm):
         
     password1 = forms.CharField(label=_("Password"),
         widget=forms.PasswordInput)
-    password2 = forms.CharField(label=_("Password confirmation"),
+    password2 = forms.CharField(label=_("Password again"),
         widget=forms.PasswordInput,)
 
     def __init__(self, *args, **kwargs):
@@ -27,6 +27,7 @@ class CustomSignupForm(SignupForm):
        self.fields['last_name'].widget = forms.TextInput(attrs={'placeholder': 'Enter last name'})
        self.fields['password1'].widget = forms.PasswordInput(attrs={'placeholder': 'Password'})
        self.fields['password2'].widget = forms.PasswordInput(attrs={'placeholder': 'Password again'})
+       self.fields['email2'].widget = forms.TextInput(attrs={'placeholder': 'Email again'})
 
     def save(self, request):
         

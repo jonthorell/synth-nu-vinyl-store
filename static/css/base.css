@@ -61,6 +61,11 @@ main {
     text-shadow: 1px 1px 2px red, 0 0 1em white, 0 0 0.2em black;
 }
 
+.black-text {
+    /* used whenever the text needs to be explicitly set to black. Used in "header" for allauth */
+    color: var(--black);
+}
+
 .core-divs {
     /* makes the main divs slightly opaque and rounded, and sets the main text color */
     background-color: var(--off-white);
@@ -227,6 +232,12 @@ a.category-badge > span.badge:hover {
     background-color: var(--black);
 }
 
+/* placeholder color in search field */
+
+input[name='q']::placeholder {
+    color: #aab7c4;
+}
+
 /* shop buttons */
 
 .btn-outline-black,
@@ -279,4 +290,18 @@ a.category-badge > span.badge:hover {
 .message-container {
     /* keep it on top */
     z-index: 99999999999;
+}
+
+/* Allauth form formatting */
+
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #aab7c4;
+}
+
+.allauth-form-inner-content hr {
+    color: var(--black);
 }
