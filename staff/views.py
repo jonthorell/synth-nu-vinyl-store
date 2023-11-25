@@ -10,5 +10,7 @@ def staff(request):
     
     template = 'staff/staff.html'
     context = {}
+    
+    
 
     return render(request, template, context)

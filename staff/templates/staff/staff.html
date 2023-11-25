@@ -4,9 +4,21 @@
 
 {% block content %}
 
-<div class="text-center">
-    <h1>Staff New</h1>
-</div>
+<div class="container container-bottom">
+    <div class="row core-divs">
+        <div class="col-md text-center">
+            <h2 class="div-header-h2">Staff Page</h2>
+        </div>
 
+        
+
+        {{ user.last_name }}
+        {{ user.userprofile.image }}
+        {{ userprofile.image }}
+
+
+        <br>
+    </div>
+</div>
 
  {% endblock content %}
