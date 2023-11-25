@@ -56,7 +56,6 @@ class product(models.Model):
     # price is entered as USD. API calls will be able to change this
     price_currency = models.CharField(max_length=3, null=False, blank=False,default="USD")
     rating = models.DecimalField(max_digits=1, decimal_places=0, null=False, blank=False, default=0)
-    image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)

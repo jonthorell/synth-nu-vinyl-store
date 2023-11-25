@@ -176,14 +176,14 @@
                         {% comment %}
                         <!--is user logged in? -->
                         {% endcomment %}
-                        <img src="{% static 'images/avatars/default-user.webp' %}"
+                        <img src="{{ MEDIA_URL }}avatars/default-user.webp"
                              class="rounded-circle"
                              height="25"
                              width="25"
                              alt="Default user logo"
                              loading="lazy" />
                         {% else %}
-                        <img src="{% static 'images/avatars/not-logged-in.webp' %}"
+                        <img src="{{ MEDIA_URL }}avatars/not-logged-in.webp"
                              class="rounded-circle"
                              height="25"
                              width="25"
