@@ -291,6 +291,9 @@ order_line_item = OrderLineItem(
 The solution was to replace the variable product with the shortened prod.
 15. The Add-staff link to menu did not work properly. Removed check if user is superuser. Superfluos since it is only the group membership that is important
 16. The new image field in profile model introduced an error in profile-view. Fixed by altering the form.
+17. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Now prevented by some if-statements.
+18. Stripe input box is not rendered?? Silly mistake with an underscore in the block where it was supposed to go.
+19. Profile view showed an generic "server error" if you were not logged in. Fixed by wrapping it in a decorator so the error is more meaningful
 
 # Bugs encountered but not fixed yet
 
@@ -299,16 +302,14 @@ The solution was to replace the variable product with the shortened prod.
 3. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it"
 4. The "Shop some more" text in the button should not be underlined. Works in bag view???
 5. The "sort by" needs to be styled to be more inline with the rest of the site.
-6. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Maybe allow it but in the confirmation email state the customer is on the waiting list?
 7. Toasts are kinda cramped on mobile. Product view in particulr
-8. Stripe input box is not rendered?? Silly mistake with an underscore in the block where it was supposed to go
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
 10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
+11. Emails do not work from webhook
 
 
 # To Do
 
-Send email on completion of order
 Update stock when an order has been completed
 PNG file in checkout from boutique ado
 Make sure to style allauth better, or all forms really
@@ -316,7 +317,6 @@ Staff view
 Curreny selector in profile
 Wrap order history in datatable to make it sortable
 Change "Thank you" to something else if viewing a past-order
-Make sure profile view only works when logged in (mixin?). It does work as-is but a generic server error is not good enough
 Double check if I've understood webhooks. Should'nt an order be placed even if something goes wrong if the payment.intent succeeded?
 Modify so it is possible to upload image on profile page
 
