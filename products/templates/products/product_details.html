@@ -111,9 +111,15 @@
                             <span class="icon">
                                 <i class="fa-solid fa-basket-shopping"></i>
                             </span>
-                            <span class="text-uppercase">Shop some more</span>
+                            <span class="text-capitalize">Shop some more</span>
                         </a>
-                        <input type="submit" class="mt-2 btn btn-outline-black rounded-0 rounded-pill" value="buy item">
+                        <input type="submit" class="text-capitalize mt-2 btn btn-outline-black rounded-0 rounded-pill" value="buy item">
+                        <a href="{% url 'checkout' %}" class="btn btn-outline-black rounded-0 rounded-pill text-decoration-none">
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                            <span class="text-capitalize">Secure Checkout</span>
+                        </a>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
