@@ -14,15 +14,18 @@
     <div class="row core-divs">
         <div class="col-md text-center">
             <h2 class="div-header-h2">Products</h2>
+            
+                <a class="btn btn-outline-black rounded-0 rounded-pill" href="/products/?genre=classic,electronica,ebm,experimental,industry,spop"><i class="fa-solid fa-house"></i> Home</a>
+            
             {% for c in current_genres %}
             <a class="category-badge text-decoration-none" href="{% url 'products' %}?genre={{ c.name }}">
                 &nbsp;
-                <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark rounded-pill">{{ c.friendly_name }}</span>
+                <span class="btn btn-outline-black rounded-0 rounded-pill">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             {% for c in current_mediatypes %}
             <a class="category-badge text-decoration-none" href="{% url 'products' %}?type={{ c.name }}">
-                <span class="p-2 mt-2 badge badge-white text-black rounded-0 border border-dark rounded-pill">{{ c.friendly_name }}</span>
+                <span class="btn btn-outline-black rounded-0 rounded-pill">{{ c.friendly_name }}</span>
             </a>
             {% endfor %}
             <div class="col-md text-black">
@@ -30,29 +33,24 @@
                     {{ products|length }} product(s) in search result.
                     {% if search_term %}
                     Using search term <strong>"{{ search_term }}"</strong>.
-                <p>
-                    <a href="/products" alt="Home to products page"><i class="fa-solid fa-house"></i> Home to all products page</a>
-                </p>
-                {% endif %}
-
-
-                <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
-                    <div class="sort-select-wrapper">
-                        <select id="sort-selector" class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
-                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
-                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
-                            <option value="genre_asc" {% if current_sorting == 'genre_asc' %}selected{% endif %}>Genre (A-Z)</option>
-                            <option value="genre_desc" {% if current_sorting == 'genre_desc' %}selected{% endif %}>Genre (Z-A)</option>
-                        </select>
+                    {% endif %}
+                    <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end">
+                        <div class="sort-select-wrapper">
+                            <select id="sort-selector" class="form-control input-style rounded-0 rounded-pill border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
+                                <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...</option>
+                                <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                                <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                                <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                                <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                                <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                                <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                                <option value="genre_asc" {% if current_sorting == 'genre_asc' %}selected{% endif %}>Genre (A-Z)</option>
+                                <option value="genre_desc" {% if current_sorting == 'genre_desc' %}selected{% endif %}>Genre (Z-A)</option>
+                            </select>
+                        </div>
                     </div>
-                </div>
 
-                <hr class="w-100 mb-1">
+                    <hr class="w-100 mb-1">
 
             </div>
             <div class="row">
@@ -73,8 +71,8 @@
                                     {% endif %}
                                     {% comment %}
                                     <!--The idea of having both the image and the text to the same url is to make the ""entire"" card
-                                    be clickable to get to the product detail so it behaves the same way as the landing page.
-                                    -->
+                            be clickable to get to the product detail so it behaves the same way as the landing page.
+                            -->
                                     {% endcomment %}
                                     <a href="{% url 'product_detail' product.id %}">
                                         <div class="card-body mb-0">
@@ -98,7 +96,7 @@
                             </div>
                             {% comment %}
                             <!--the divisble code to display the hr is stolen from boutique-ado
-                            the solution was neat and useful so I borrowed it-->
+                    the solution was neat and useful so I borrowed it-->
                             {% endcomment %}
                             {% if forloop.counter|divisibleby:1 %}
                             <div class="col-12 d-sm-none">
