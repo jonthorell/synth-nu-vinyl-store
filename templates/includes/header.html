@@ -150,16 +150,15 @@
                 {% comment %}
                 <!-- shopping cart Icon -->
                 {% endcomment %}
-                <a class="text-reset me-3" href="/bag">
-                    <i class="fas fa-shopping-cart">
-                        {% if product_count %}
-                        <span class="badge rounded-pill badge-notification bg-danger" id="cart">{{ product_count }}</span>
-                        {% else %}
-                        <span class="badge rounded-pill badge-notification bg-danger" id="cart"></span>
-                        {% endif %}
-
-                    </i>
-                </a>
+                    <a class="text-reset me-3" href="/bag">
+                        <i class="fas fa-shopping-cart">
+                            {% if product_count %}
+                            <span class="badge rounded-pill badge-notification bg-danger" id="cart">{{ product_count }}</span>
+                            {% else %}
+                            <span class="badge rounded-pill badge-notification bg-danger" id="cart"></span>
+                            {% endif %}
+                        </i>
+                    </a>
 
 
                 {% comment %}
