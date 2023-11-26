@@ -11,7 +11,7 @@
 <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
     {% csrf_token %}
     <fieldset class="rounded px-3 mb-5">
-        <legend class="fieldset-label small text-black px-2 w-auto">Sign Up</legend>
+        
         {{ form.as_p }}
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
