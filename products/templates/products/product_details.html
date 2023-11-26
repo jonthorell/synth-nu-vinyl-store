@@ -107,13 +107,13 @@
                                 <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="{{product.stock}}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
                             </div>
                         </div>
-                        <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="btn btn-outline-black rounded-0 rounded-pill">
+                        <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="mt-2 btn btn-outline-black rounded-0 rounded-pill">
                             <span class="icon">
                                 <i class="fa-solid fa-basket-shopping"></i>
                             </span>
-                            <span class="text-capitalize">Shop some more</span>
+                            <span class="text-uppercase">Shop some more</span>
                         </a>
-                        <input type="submit" class="btn btn-outline-black rounded-0 text-left text-capitalize mt-5 rounded-pill" value="buy item">
+                        <input type="submit" class="mt-2 btn btn-outline-black rounded-0 rounded-pill" value="buy item">
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </div>
