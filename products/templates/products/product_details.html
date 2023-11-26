@@ -24,7 +24,7 @@
                             <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" height="200" />
                         </a>
                         {% else %}
-                        <a href="/media/noimage.webp' %}" target="_blank">
+                        <a href="{% static 'images/noimage.webp' %}" target="_blank">
                             <img src="{% static 'images/noimage.webp' %}" width="200" height="200" alt="No product image">
                         </a>
                         {% endif %}

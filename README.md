@@ -294,40 +294,31 @@ The solution was to replace the variable product with the shortened prod.
 17. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Now prevented by some if-statements.
 18. Stripe input box is not rendered?? Silly mistake with an underscore in the block where it was supposed to go.
 19. Profile view showed an generic "server error" if you were not logged in. Fixed by wrapping it in a decorator so the error is more meaningful
+20. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it". The if-statement to check whether the product has an associated image was wrong.
+21. The "Shop some more" text in the button should not be underlined. Fixed. It was missing a class.
+22. The "sort by" needs to be styled to be more inline with the rest of the site. Fixed by applying the right classes.
 
 # Bugs encountered but not fixed yet
 
 1. Search-field yields strange results if artist name contain space(s)
 2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
-3. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it"
-4. The "Shop some more" text in the button should not be underlined. Works in bag view???
-5. The "sort by" needs to be styled to be more inline with the rest of the site.
 7. Toasts are kinda cramped on mobile. Product view in particulr
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
 10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
 11. Emails do not work from webhook
+12. The image field in the profile model is not being updated when a user tries to upload an image.
 
 
 # To Do
 
 Update stock when an order has been completed
-PNG file in checkout from boutique ado
-Make sure to style allauth better, or all forms really
 Staff view
 Curreny selector in profile
 Wrap order history in datatable to make it sortable
 Change "Thank you" to something else if viewing a past-order
 Double check if I've understood webhooks. Should'nt an order be placed even if something goes wrong if the payment.intent succeeded?
-Modify so it is possible to upload image on profile page
 
 Check everything!
-
-
-# NOTES TO BE DELETED WHEN COMPLETE
-
-Removed .vscode and sqlitebb
-
-Summernote and popper removed. Code outside of repo if needed to add them back easily.
 
 # Testing
 
