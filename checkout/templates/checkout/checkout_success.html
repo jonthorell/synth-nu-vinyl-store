@@ -10,10 +10,17 @@
 
 <div class="container container-bottom">
     <div class="row core-divs">
+        {% if from_profile == True %}
+        <div class="col-md text-center">
+            <h2 class="div-header-h2">Past Order Confirmation</h2>
+            <p class="text-black">Your order information is below. A confirmation email was sent to <strong>{{ order.email }}</strong>.</p>
+        </div>
+        {% else %}
         <div class="col-md text-center">
             <h2 class="div-header-h2">Thank You!</h2>
             <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
         </div>
+        {% endif %}
         <div class="row">
             <div class="col-12 col-lg-7">
                 <div>
