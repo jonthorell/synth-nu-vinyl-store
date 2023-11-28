@@ -297,6 +297,7 @@ The solution was to replace the variable product with the shortened prod.
 20. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it". The if-statement to check whether the product has an associated image was wrong.
 21. The "Shop some more" text in the button should not be underlined. Fixed. It was missing a class.
 22. The "sort by" needs to be styled to be more inline with the rest of the site. Fixed by applying the right classes.
+23. The image field in the profile model is not being updated when a user tries to upload an image. The post method missed request.FILES, fixed.
 
 # Bugs encountered but not fixed yet
 
@@ -306,7 +307,6 @@ The solution was to replace the variable product with the shortened prod.
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
 10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
 11. Emails do not work from webhook
-12. The image field in the profile model is not being updated when a user tries to upload an image.
 
 
 # To Do
