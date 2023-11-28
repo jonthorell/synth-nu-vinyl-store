@@ -10,9 +10,9 @@ class ProductForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        categories = genre.objects.all()
-        friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
+        genres = genre.objects.all()
+        friendly_names = [(c.id, c.get_friendly_name()) for c in genres]
 
         self.fields['genre'].choices = friendly_names
         for field_name, field in self.fields.items():
-            field.widget.attrs['class'] = 'border-black rounded-0'
+            field.widget.attrs['class'] = 'form-control input-style'

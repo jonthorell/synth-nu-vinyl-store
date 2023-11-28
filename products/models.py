@@ -38,6 +38,9 @@ class genre(models.Model):
 
     def get_absolute_url(self):
         return reverse("articles_by_category", args=[str(self.id)])
+    
+    def get_friendly_name(self):
+        return self.friendly_name
 
 class product(models.Model):
     '''Class used to create the genre model '''
