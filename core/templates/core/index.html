@@ -2,6 +2,10 @@
 {% load static %}
 {% block title %}Main-page{% endblock title %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'core/css/index.css' %}">
+{% endblock %}
+
 {% block content %}
 
 <div class="container container-bottom">
@@ -19,7 +23,7 @@
                     <!--The idea of having both the image and the p link to the same url is to make the ""entire"" row of the table
                     be clickable to get to the product detail. Combined with the card-link class to override what links look like
                         makes it sort-of like a card from bootstrap but with some additional layout functionality
-                        --> 
+                        -->
                     {% endcomment %}
                     <td>
                         <a href="{% url 'product_detail' product.id %}">
@@ -37,7 +41,7 @@
                                 <br />Artist: {{ product.artist }}
                                 <span class="published"><br />Added: {{ product.created_on|date:"M j, Y" }}</span>
                             </p>
-                            </a>
+                        </a>
                     </td>
                 </tr>
                 {% endfor %}

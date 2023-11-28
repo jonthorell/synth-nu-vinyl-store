@@ -104,11 +104,6 @@ main {
     color: var(--black);
 }
 
-.modal-footer {
-    /* the footer should not be displayed */
-    display: none;
-}
-
 /* allauth overide */
 
 ul.errorlist {

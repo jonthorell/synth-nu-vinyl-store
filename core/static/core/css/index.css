@@ -1,0 +1,6 @@
+/* override modal classes */
+
+.modal-footer {
+    /* the footer should not be displayed */
+    display: none;
+}
