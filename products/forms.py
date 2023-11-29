@@ -8,8 +8,11 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = product
         fields = '__all__'
+        exclude = ('price_currency','slug',)
         
     image = forms.ImageField(label='Image', required=False, widget=CustomClearableFileInput)
+    
+    field_order = ['image','name', 'artist', 'description', 'genre', 'new_old', 'media_format', 'media_color','sku','price','stock','rating']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

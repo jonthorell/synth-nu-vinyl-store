@@ -15,7 +15,7 @@
         <div class="col-md text-center">
             <h2 class="div-header-h2">Products</h2>
             
-                <a class="btn btn-outline-black rounded-0 rounded-pill" href="/products/?genre=classic,electronica,ebm,experimental,industry,spop"><i class="fa-solid fa-house"></i> Home</a>
+                <a class="btn btn-outline-black rounded-0 rounded-pill" href="/products/?genre=classic,electronica,ebm,experimental,industry,spop,euro"><i class="fa-solid fa-house"></i> Home</a>
             
             {% for c in current_genres %}
             <a class="category-badge text-decoration-none" href="{% url 'products' %}?genre={{ c.name }}">
