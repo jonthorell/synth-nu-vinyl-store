@@ -4,7 +4,7 @@ from django.db.models import Q
 from django.db.models.functions import Lower
 import urllib.parse
 from products.models import product, genre, artist, mediatype
-from .forms import ProductForm
+from .forms import ProductForm,GenreForm
 from django.contrib.auth.models import User
 from synth.decorators import check_user_is_staff
 
@@ -121,4 +121,26 @@ def edit_product(request, product_id):
         'product': prod,
     }
 
+    return render(request, template, context)
+
+@check_user_is_staff
+def add_genre(request):
+    """ Add a new genre to the store """
+    
+    if request.method == 'POST':
+        form = GenreForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added genre!')
+            return redirect(reverse('/staff'))
+        else:
+            messages.error(request, 'Failed to add product. Please ensure the form is valid.')
+    else:
+        form = GenreForm()
+
+    template = 'products/add_genre.html'
+    context = {
+        'form': form,
+    }
+    print(context)
     return render(request, template, context)
