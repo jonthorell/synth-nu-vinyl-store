@@ -5,8 +5,6 @@ from django.dispatch import receiver
 
 from django_countries.fields import CountryField
 
-NEWSLETTER_STATUS = ((0, "No, I do not want a newsletter"), (1,"Yes, I want a newsletter"))
-# CURRENCY = ((0, "USD"), (1,"SEK"))
 CURRENCY = ((0,"USD"), (1,"SEK"), (2,"GBP"), (3,"EUR"))
 
 
@@ -26,9 +24,7 @@ class UserProfile(models.Model):
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
     default_country = CountryField(blank_label='Country', null=True, blank=True)
     currency = models.IntegerField(choices=CURRENCY, default=0)
-    # default_currency = models.CharField(max_length=3, null=False, blank=False, default="USD")
     
-
     def __str__(self):
         return self.user.username
 

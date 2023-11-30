@@ -1,0 +1,62 @@
+#news-update-form .form-control {
+    color: #000;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+#news-update-form input::placeholder {
+    color: #aab7c4;
+}
+
+.input-style {
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-padding-end: 20px;
+    -moz-padding-end: 20px;
+    -webkit-padding-start: 20px;
+    -moz-padding-start: 20px;
+    border: 1px solid #AAA;
+    border-radius: 2px;
+    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    font-size: inherit;
+    margin: 0;
+    overflow: hidden;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+select option:first-child {
+    color: #aab7c4;
+}
+
+select option:not(:first-child) {
+    color: #000;
+}
+
+.custom-form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    background-clip: padding-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border-radius: .25rem;
+    box-shadow: inset 0 1px 2px rgba(0,0,0,.075);
+}
+
+.custom-form-control-sm {
+    min-height: calc(1.6em + .5rem + 2px);
+    padding: .25rem .5rem;
+    font-size: .775rem;
+}

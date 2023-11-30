@@ -142,7 +142,6 @@ def add_genre(request):
     context = {
         'form': form,
     }
-    print(context)
     return render(request, template, context)
 
 @check_user_is_staff

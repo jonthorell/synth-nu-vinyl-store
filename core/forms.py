@@ -3,7 +3,7 @@ from django.contrib.auth.models import User, Group
 from django import forms
 from django.utils.translation import gettext as _
 
-SUBJECT = ((0,"Technical Issue"), (1,"Factual Issue"), (2,"Dead link or missing image"), (3,"Suggestion for accessability"), (4,"Suggestion for new idea"), (5,"Suggestion for new link"), (6,"Generic praise/hate"))
+from .models import newsfeed
 
 class CustomSignupForm(SignupForm):
     '''Class used to alter some of the allauth fields '''
@@ -92,3 +92,36 @@ class ContactForm(forms.Form):
             ),
         label="What do you want to say to us?",
     )
+    
+class NewsForm(forms.ModelForm):
+    '''Class used to create news form '''
+
+    class Meta:
+        model = newsfeed
+        fields = '__all__'
+
+    title = forms.CharField(
+        required = False,
+        widget = forms.widgets.TextInput(
+            attrs={
+                "placeholder": "Title",
+                "class": "form-control form-control-sm",
+                "required": True,
+                }
+            ),
+            label="Title",
+        )
+    
+    description = forms.CharField(
+        required = False,
+        widget = forms.widgets.TextInput(
+            attrs={
+                "placeholder": "Description",
+                "class": "form-control form-control-sm",
+                "required": True,
+                }
+            ),
+            label="Description",
+        )    
+
+    

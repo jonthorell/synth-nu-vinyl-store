@@ -2,7 +2,7 @@ from django.shortcuts import render,redirect, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
 from django import forms
 from django.views.generic import TemplateView,View
-from core.forms import ContactForm
+from core.forms import ContactForm, NewsForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.conf import settings
@@ -10,6 +10,8 @@ from django.core.mail import send_mail
 
 from .models import newsfeed, contact_message
 from products.models import product,genre,mediatype
+
+from synth.decorators import check_user_is_staff
 
 
 class Index(TemplateView):
@@ -71,3 +73,25 @@ class contact(View):
         "core/contact.html",
         {"form": form},
     )
+    
+@check_user_is_staff
+def add_news(request):
+    """ Add a newitem to the store """
+    
+    if request.method == 'POST':
+        form = NewsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully added news item!')
+            return HttpResponseRedirect("/staff")
+        else:
+            messages.error(request, 'Failed to add news item. Please ensure the form is valid.')
+    else:
+        form = NewsForm()
+
+    template = 'staff/add_news.html'
+    context = {
+        'form': form,
+    }
+    print(context)
+    return render(request, template, context)

@@ -34,6 +34,9 @@ class newsfeed(models.Model):
     def __str__(self):
         return self.title
     
+    def get_status(self):
+        return self.status
+    
 class contact_message(models.Model):
     '''Class used to create the model used to store messages from the contact form into the db'''
 
