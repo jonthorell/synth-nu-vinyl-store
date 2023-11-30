@@ -27,7 +27,7 @@ class UserProfileForm(forms.ModelForm):
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
-            if field != 'default_country' and field !='image' and field !='image_url':
+            if field != 'default_country' and field !='image' and field !='newsletter' and field !='currency':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:

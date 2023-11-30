@@ -5,6 +5,10 @@ from django.dispatch import receiver
 
 from django_countries.fields import CountryField
 
+NEWSLETTER_STATUS = ((0, "No"), (1,"Yes"))
+# CURRENCY = ((0, "USD"), (1,"SEK"))
+CURRENCY = ((0,"USD"), (1,"SEK"), (2,"GBP"), (3,"EUR"))
+
 
 class UserProfile(models.Model):
     """
@@ -12,7 +16,7 @@ class UserProfile(models.Model):
     delivery information and order history
     """
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    # Like in the orders model, so just copied from there, except currency and image
+    # Like in the orders model, so just copied from there, except currency, newsletter and image
     image = models.ImageField(null=True, blank=True, upload_to="avatars")
     default_phone_number = models.CharField(max_length=20, null=True, blank=True)
     default_street_address1 = models.CharField(max_length=80, null=True, blank=True)
@@ -21,6 +25,8 @@ class UserProfile(models.Model):
     default_county = models.CharField(max_length=80, null=True, blank=True)
     default_postcode = models.CharField(max_length=20, null=True, blank=True)
     default_country = CountryField(blank_label='Country', null=True, blank=True)
+    newsletter = models.IntegerField(choices=NEWSLETTER_STATUS, default=0)
+    currency = models.IntegerField(choices=CURRENCY, default=0)
     # default_currency = models.CharField(max_length=3, null=False, blank=False, default="USD")
     
 

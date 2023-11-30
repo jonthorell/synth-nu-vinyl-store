@@ -13,7 +13,8 @@ class UserProfileAdmin(admin.ModelAdmin):
         'default_street_address1',
         'default_street_address2',
         'default_county',
-        'image'
+        'image',
+        'newsletter',
         )
     
 admin.site.register(UserProfile,UserProfileAdmin)
