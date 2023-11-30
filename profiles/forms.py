@@ -27,11 +27,12 @@ class UserProfileForm(forms.ModelForm):
 
         self.fields['default_phone_number'].widget.attrs['autofocus'] = True
         for field in self.fields:
+            self.fields[field].widget.attrs['class'] = 'form-control form-control-sm input-style'
             if field != 'default_country' and field !='image' and field !='newsletter' and field !='currency':
                 if self.fields[field].required:
                     placeholder = f'{placeholders[field]} *'
                 else:
                     placeholder = placeholders[field]
                 self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'form-control form-control-lg input-style'
+            
             self.fields[field].label = False

@@ -5,7 +5,7 @@ from django.dispatch import receiver
 
 from django_countries.fields import CountryField
 
-NEWSLETTER_STATUS = ((0, "No"), (1,"Yes"))
+NEWSLETTER_STATUS = ((0, "No, I do not want a newsletter"), (1,"Yes, I want a newsletter"))
 # CURRENCY = ((0, "USD"), (1,"SEK"))
 CURRENCY = ((0,"USD"), (1,"SEK"), (2,"GBP"), (3,"EUR"))
 

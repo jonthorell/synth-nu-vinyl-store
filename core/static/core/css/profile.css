@@ -1,5 +1,7 @@
 #profile-update-form .form-control {
     color: #000;
+    margin-bottom: 20px;
+    border-radius: 10px;
 }
 
 #profile-update-form input::placeholder {
@@ -11,10 +13,29 @@
     color: #000;
 }
 
-    #id_default_country option:first-child {
-        color: #aab7c4;
-    }
+#id_default_country option:first-child {
+    color: #aab7c4;
+}
+
 .input-style {
     margin-bottom: 20px;
     border-radius: 10px;
+}
+
+#id_currency option:first-child {
+    color: #aab7c4;
+}
+
+#id_currency,
+#id_currency option:not(:first-child) {
+    color: #000;
+}
+
+#id_newsletter option:first-child {
+    color: #aab7c4;
+}
+
+#id_newsletter,
+#id_newsletter option:not(:first-child) {
+    color: #000;
 }
