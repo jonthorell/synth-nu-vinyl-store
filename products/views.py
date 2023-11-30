@@ -84,9 +84,9 @@ def add_product(request):
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
+            prod = form.save()
             messages.success(request, 'Successfully added product!')
-            return redirect(reverse('add_product'))
+            return redirect(reverse('product_detail', args=[prod.id]))
         else:
             messages.error(request, 'Failed to add product. Please ensure the form is valid.')
     else:
@@ -144,3 +144,11 @@ def add_genre(request):
     }
     print(context)
     return render(request, template, context)
+
+@check_user_is_staff
+def delete_product(request, product_id):
+    """ Delete a product from the store """
+    prod = get_object_or_404(product, pk=product_id)
+    prod.delete()
+    messages.success(request, 'Product deleted!')
+    return redirect('/products/?genre=classic,electronica,ebm,experimental,industry,spop,euro')

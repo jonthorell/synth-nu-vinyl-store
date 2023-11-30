@@ -28,6 +28,28 @@
                             <img src="{% static 'images/noimage.webp' %}" width="200" height="200" alt="No product image">
                         </a>
                         {% endif %}
+                        <div>
+                            {% comment %}
+                            <!--Only add the edit/delete links if the user is in the staff group-->
+                            {% endcomment %}
+
+                            {% for group in user.groups.all %}
+                            {% comment %}
+                            <!--Iterate over the groups of the current user
+                            If user is a member of group Editors, add create article link-->
+                            {% endcomment %}
+                            {% if group.name == 'staff' %}
+                            <small class="ml-3">
+                                <a href="{% url 'edit_product' product.id %}"><i class="fa-solid fa-pen-to-square"></i> Edit</a> |
+                                <a class="text-danger" href="{% url 'delete_product' product.id %}"><i class="fa-solid fa-trash"></i> Delete</a>
+                            </small>
+                            {% endif %}
+                            {% endfor %}
+
+                            
+                            
+                            
+                        </div>
                     </td>
                     <td>
                         <p class="text-md-start">
