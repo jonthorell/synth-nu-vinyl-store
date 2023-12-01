@@ -301,18 +301,21 @@ The solution was to replace the variable product with the shortened prod.
 24. The add product, edit product, add genre, and add news item only used the left column. Fixed by aligning the divs and their classes properly
 25. Not necessarily a big bug but an annoyance. When viewing a past order, it still said thank you in the header which is not really appropriate. Fixed by adding a if-statement to check if the user comes from the profile or not
 26. Accidentally used static instead of MEDIA_URL to access default avatar images in menu. Fixed
+27. The ordernumber in the toast when successfully bought something flowed out of the toast on smaller devices such as mobile phones."Fixed" by removing that from the toast. The information is present in the page below anyway.
+28. Toasts are kinda cramped on mobile. Rewrote how big they are to rectify that.
 
 # Bugs encountered but not fixed yet
 
 1. Search-field yields strange results if artist name contain space(s)
 2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
-7. Toasts are kinda cramped on mobile. Product view in particulr
+7. 
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
 10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
 11. Emails do not work from webhook
 12. Right column on product_details is "cut off" on mobile.
 13. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
 more generic and work regardless of what genres are present in the db
+14. The toast when successfully bought something is off. The ordernumber flows outside of it
 
 
 # To Do
@@ -322,6 +325,14 @@ Staff view - in progress
 Double check if I've understood webhooks. Should'nt an order be placed even if something goes wrong if the payment.intent succeeded?
 
 Check everything!
+
+# Things for the future
+
+The newsletter works fine given its limited scope. It is perfectly possible to add oneself to the mailing list and remove oneself again. However, since it is a non-vital
+part of the site (although nice to have) I decided to not implement checks to see if it is the right individual that has entered the adress. For a live site that would
+of course not do. In such a case something like an e-mail being sent out to verify the intent at the very least would need to be in place. Just because there are no such
+checks and that it is a non-vital part of the site, I decided that the newsletter functions will not send out any e-mails at this point. The only notification the user
+will get is on the page itself.
 
 # Testing
 

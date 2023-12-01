@@ -13,14 +13,15 @@
         <form method="POST" class="form mt-1 pt-1">
             {% csrf_token %}
             <div class="text-center">
-            <fieldset class="mx-2 px-2 grey">
-                {% for field in form %}
-                {{ field }}
-                {% endfor %}
-                <br>
-                <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize" type="reset">Clear</button>
-                <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize" type="submit">Submit!</button>
-            </fieldset>
+                <fieldset class="mx-2 px-2 grey">
+                    {% for field in form %}
+                    {{ field }}
+                    {% endfor %}
+                    <br>
+                    <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize" type="reset">Clear</button>
+                    <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize" type="submit" name="subscribe">Subscribe</button>
+                    <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize" type="submit" name="unsubscribe">Unsubscribe</button>
+                </fieldset>
                 </div>
         </form>
     </div>
