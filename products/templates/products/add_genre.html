@@ -9,12 +9,10 @@
 
 <div class="container container-bottom">
     <div class="row core-divs">
-        <div class="col-12 col-md-6 text-center">
+        <div class="col-md text-center">
             <h2 class="div-header-h2">Product Management</h2>
             <h5>Add Genre</h5>
         </div>
-        <div class="row">
-            <div class="col-12 col-md-6">
                 <form method="POST" action="{% url 'add_genre' %}" class="form mb-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {% for field in form %}
@@ -28,9 +26,5 @@
                 </form>
             </div>
         </div>
-    </div>
-
-
-</div>
 
             {% endblock content %}

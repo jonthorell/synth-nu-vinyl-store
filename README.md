@@ -298,6 +298,8 @@ The solution was to replace the variable product with the shortened prod.
 21. The "Shop some more" text in the button should not be underlined. Fixed. It was missing a class.
 22. The "sort by" needs to be styled to be more inline with the rest of the site. Fixed by applying the right classes.
 23. The image field in the profile model is not being updated when a user tries to upload an image. The post method missed request.FILES, fixed.
+24. The add product, edit product, add genre, and add news item only used the left column. Fixed by aligning the divs and their classes properly
+25. Not necessarily a big bug but an annoyance. When viewing a past order, it still said thank you in the header which is not really appropriate. Fixed by adding a if-statement to check if the user comes from the profile or not
 
 # Bugs encountered but not fixed yet
 
@@ -312,10 +314,7 @@ The solution was to replace the variable product with the shortened prod.
 # To Do
 
 Update stock when an order has been completed
-Staff view
-Curreny selector in profile
-Wrap order history in datatable to make it sortable
-Change "Thank you" to something else if viewing a past-order
+Staff view - in progress
 Double check if I've understood webhooks. Should'nt an order be placed even if something goes wrong if the payment.intent succeeded?
 
 Check everything!
