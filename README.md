@@ -300,6 +300,7 @@ The solution was to replace the variable product with the shortened prod.
 23. The image field in the profile model is not being updated when a user tries to upload an image. The post method missed request.FILES, fixed.
 24. The add product, edit product, add genre, and add news item only used the left column. Fixed by aligning the divs and their classes properly
 25. Not necessarily a big bug but an annoyance. When viewing a past order, it still said thank you in the header which is not really appropriate. Fixed by adding a if-statement to check if the user comes from the profile or not
+26. Accidentally used static instead of MEDIA_URL to access default avatar images in menu. Fixed
 
 # Bugs encountered but not fixed yet
 
@@ -309,6 +310,9 @@ The solution was to replace the variable product with the shortened prod.
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
 10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
 11. Emails do not work from webhook
+12. Right column on product_details is "cut off" on mobile.
+13. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
+more generic and work regardless of what genres are present in the db
 
 
 # To Do
