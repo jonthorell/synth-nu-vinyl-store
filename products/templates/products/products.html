@@ -14,7 +14,7 @@
     <div class="row core-divs">
         <div class="col-md text-center">
             <h2 class="div-header-h2">Products</h2>
-            <div class="d-grid gap-2 d-sm-block">
+            <div class="gap-2 d-grid d-md-block">
                 <a class="btn btn-outline-black rounded-0 rounded-pill no-overflow" href="/products/?genre=classic,electronica,ebm,experimental,industry,spop,euro"><i class="fa-solid fa-house"></i> Home</a>
                 {% for c in current_genres %}
                 <a class="btn btn-outline-black rounded-0 rounded-pill no-overflow" href="{% url 'products' %}?genre={{ c.name }}">

@@ -304,7 +304,7 @@ The solution was to replace the variable product with the shortened prod.
 27. The ordernumber in the toast when successfully bought something flowed out of the toast on smaller devices such as mobile phones."Fixed" by removing that from the toast. The information is present in the page below anyway.
 28. Toasts are kinda cramped on mobile. Rewrote how big they are to rectify that.
 29. Text sometimes spilled out of the button on smaller resolutions. First noticed on the newsletter subscription form. Fixed by adding a no-overflow class that sets the property to hidden. Will be added to remaining buttons as well.
-30. The buttons on top of the all products view got a strange layout on lower resolutions. Fixed by adding so they are stacked on those resolutions. A bit of a tradeof when that happens so there is no wasted screen real estate on larger resolutions. Settled for d-sm as the breaking point. Should be added elsewhere there are buttons present as well.
+30. The buttons on top of the all products view got a strange layout on lower resolutions. Fixed by adding so they are stacked on those resolutions. A bit of a tradeof when that happens so there is no wasted screen real estate on larger resolutions. Settled for d-md as the breaking point, and added some extra margin to the buttons as well for when the buttons are not stacked. Should be added elsewhere there are buttons present as well.
 
 
 # Bugs encountered but not fixed yet

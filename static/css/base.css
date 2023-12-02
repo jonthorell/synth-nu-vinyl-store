@@ -302,6 +302,16 @@ input[name='q']::placeholder {
     color: var(--black);
 }
 
+/* Class provides two functions (used for buttons only)
+    First, prevents text from spilling out of the button
+    Secondly, provides some extra margins on the right
+    and the bottom to get a nice layout when the resolution
+    is low enough that the buttons need to take up more than
+    one row, but not low enough for them to become stacked.
+*/
+
 .no-overflow {
-    overflow:hidden;
+    overflow: hidden;
+    margin-right: 10px;
+    margin-bottom: 10px;
 }
