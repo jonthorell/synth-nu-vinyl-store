@@ -30,6 +30,21 @@
                         {% endif %}
                         <div>
                             {% comment %}
+                            <!--Only add the review link if the user is in the members group, that is: is authenticated-->
+                            {% endcomment %}
+                            {% for group in user.groups.all %}
+                            {% comment %}
+                            <!--Iterate over the groups of the current user
+                            If user is a member of group members, add the link-->
+                            {% endcomment %}
+                            {% if group.name == 'members' %}
+                            <small class="ml-3">
+                                <a href=""><i class="fa-solid fa-medal"></i> Review</a>
+                            </small>
+                            {% endif %}
+                            {% endfor %}
+
+                            {% comment %}
                             <!--Only add the edit/delete links if the user is in the staff group-->
                             {% endcomment %}
 
@@ -112,7 +127,7 @@
                                     {% for testimonial in testimonials %}
 
                                     {% if product.id == testimonial.reviewed_id %}
-                                        <small class="mb-0 text-left text-muted"><br />Testimonial: {{ testimonial.body }}</small>
+                                        <small class="mb-0 text-left text-muted"><br />Testimonial by {{ testimonial.name }}: {{ testimonial.body }}</small>
                                     {% endif %}
                                     {% endfor %}
                                 </div>

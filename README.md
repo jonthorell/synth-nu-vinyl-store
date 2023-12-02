@@ -303,19 +303,21 @@ The solution was to replace the variable product with the shortened prod.
 26. Accidentally used static instead of MEDIA_URL to access default avatar images in menu. Fixed
 27. The ordernumber in the toast when successfully bought something flowed out of the toast on smaller devices such as mobile phones."Fixed" by removing that from the toast. The information is present in the page below anyway.
 28. Toasts are kinda cramped on mobile. Rewrote how big they are to rectify that.
+29. Text sometimes spilled out of the button on smaller resolutions. First noticed on the newsletter subscription form. Fixed by adding a no-overflow class that sets the property to hidden. Will be added to remaining buttons as well.
+30. The buttons on top of the all products view got a strange layout on lower resolutions. Fixed by adding so they are stacked on those resolutions. A bit of a tradeof when that happens so there is no wasted screen real estate on larger resolutions. Settled for d-sm as the breaking point. Should be added elsewhere there are buttons present as well.
+
 
 # Bugs encountered but not fixed yet
 
 1. Search-field yields strange results if artist name contain space(s)
 2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
-7. 
 9. About css file refuses to load from the correct app. Workaround: putting it in the core app
 10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
 11. Emails do not work from webhook
 12. Right column on product_details is "cut off" on mobile.
 13. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
 more generic and work regardless of what genres are present in the db
-14. The toast when successfully bought something is off. The ordernumber flows outside of it
+
 
 
 # To Do
