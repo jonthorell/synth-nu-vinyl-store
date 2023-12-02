@@ -95,3 +95,36 @@ def add_news(request):
     }
     print(context)
     return render(request, template, context)
+
+@check_user_is_staff
+def editnews(request, news_id):
+    """ Edit a newsitem """
+    
+    prod = get_object_or_404(newsfeed, pk=news_id)
+    template = 'staff/edit_news.html'
+    
+    if request.method == 'POST':
+        form = NewsForm(request.POST, request.FILES, instance=prod)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Successfully edited news item!')
+            return HttpResponseRedirect("/")
+        else:
+            messages.error(request, 'Failed to edit news item. Please ensure the form is valid.')
+    else:
+        form = NewsForm(instance=prod)
+
+    
+    context = {
+        'form': form,
+        'newsfeed': prod,
+    }
+    return render(request, template, context)
+
+@check_user_is_staff
+def deletenews(request, product_id):
+    """ Delete a newsitem """
+    prod = get_object_or_404(newsfeed, pk=product_id)
+    prod.delete()
+    messages.success(request, 'Newsitem deleted!')
+    return redirect('/')

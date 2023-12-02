@@ -36,7 +36,7 @@
                             {% for group in user.groups.all %}
                             {% comment %}
                             <!--Iterate over the groups of the current user
-                            If user is a member of group Editors, add create article link-->
+                            If user is a member of group staff, add the links-->
                             {% endcomment %}
                             {% if group.name == 'staff' %}
                             <small class="ml-3">
@@ -45,10 +45,6 @@
                             </small>
                             {% endif %}
                             {% endfor %}
-
-                            
-                            
-                            
                         </div>
                     </td>
                     <td>
