@@ -62,14 +62,15 @@
                                     <p class="mb-0 text-left text-muted">Description: {{ product.description }}</p>
                                     {% if product.rating %}
                                     <p class="mb-0 text-left text-muted">
-                                        Our Rating</p>
-                                        <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                            <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                        </ul>
+                                        Our Rating
+                                    </p>
+                                    <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                                    </ul>
                                     {% else %}
                                     <small class="mb-0 text-left text-muted">No Rating</small>
                                     {% endif %}
@@ -108,6 +109,12 @@
                                     {% else %}
                                     <small class="mb-0 text-left text-muted"><br />Status: New</small>
                                     {% endif %}
+                                    {% for testimonial in testimonials %}
+
+                                    {% if product.id == testimonial.reviewed_id %}
+                                        <small class="mb-0 text-left text-muted"><br />Testimonial: {{ testimonial.body }}</small>
+                                    {% endif %}
+                                    {% endfor %}
                                 </div>
                             </div>
                     </td>

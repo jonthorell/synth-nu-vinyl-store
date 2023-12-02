@@ -1,4 +1,4 @@
-from products.models import product,genre,mediatype
+from products.models import product,genre,mediatype,testimonial
 from django.contrib.auth.models import User
 from profiles.models import UserProfile
 
@@ -21,3 +21,7 @@ def users_context(request):
 def userprofiles_context(request):
         userprofiles = UserProfile.objects.all()
         return {'userprofiles': userprofiles}
+
+def testimonials_context(request):
+        testimonials = testimonial.objects.all()
+        return {'testimonials': testimonials}

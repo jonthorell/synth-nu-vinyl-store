@@ -132,12 +132,13 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                # The four custom context processors below are used to make sure the header can retrieve the data needed from the database without
+                # The five custom context processors below are used to make sure the header can retrieve the data needed from the database without
                 # having to use a custom mixin for it. Means it also works for addons such as allauth that does not use class-based views
                 'synth.context_processors.genres_context',
                 'synth.context_processors.mediatypes_context',
                 'synth.context_processors.users_context',
                 'synth.context_processors.userprofiles_context',
+                'synth.context_processors.testimonials_context',
                 # next line provides access to the bag contents across the site
                 'bag.contexts.bag_contents',
                 

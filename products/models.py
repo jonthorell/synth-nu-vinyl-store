@@ -102,3 +102,23 @@ class artist(models.Model):
 
     def get_absolute_url(self):
         return reverse("articles_by_category", args=[str(self.id)])
+    
+class testimonial(models.Model):
+    '''Class used to create the testimonaials/reviews model '''
+
+    reviewed = models.ForeignKey(product, on_delete=models.CASCADE)
+    name = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user')
+    body = models.TextField(max_length=200,blank=False, null=False)
+    slug = AutoSlugField(populate_from='name', unique=False)
+    created_on = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
+
+    class Meta:
+        ordering = ['created_on']
+
+    def __str__(self):
+        return (
+            f"User: {self.name}, "
+            f"body: {self.body[:30]}..., "
+            f"({self.created_on:%Y-%m-%d %H:%M}): "
+        )

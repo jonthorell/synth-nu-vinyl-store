@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.contrib.auth.models import User, Group
-from .models import product, genre, mediatype, artist
+from django.test.utils import teardown_test_environment
+from .models import product, genre, mediatype, artist,testimonial
 
 # Register models in admin
 
@@ -36,6 +37,16 @@ class MediaTypeAdmin(admin.ModelAdmin):
         'name',
         'slug',
         )
+    
+class TestimonialAdmin(admin.ModelAdmin):
+    list_display = (
+        'reviewed',
+        'name',
+        'body',
+        'slug',
+        'approved',
+        )
+    
         
 
 
@@ -43,3 +54,4 @@ admin.site.register(product, ProductAdmin)
 admin.site.register(genre, GenreAdmin)
 admin.site.register(mediatype, MediaTypeAdmin)
 admin.site.register(artist,ArtistAdmin)
+admin.site.register(testimonial,TestimonialAdmin)
