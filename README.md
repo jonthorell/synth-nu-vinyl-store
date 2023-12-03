@@ -178,11 +178,13 @@ This might include things not necessarily referenced, but it will make sure the 
 The different models used in the database can be seen in the following diagram. Note though that models that django uses internally
 and allauth models not used are not shown here, as well as models postgres uses internally. Futher description of the models beneath the image.
 
+![database-diagram](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/07-models-diagram.png?raw=true)
+
 The models are ordered from most important to least, with the most important at the top. All are of course important for the site to work,
 it is just that those lower down in the image require the ones on top to function but not the other way around. The exception are those
 color-coded in blue. They do not depend on anything and are self-contained.
 
-
+As can be seen, not all apps uses models of their own.
 
 # Bugs encountered and fixed
 1. Navbar did not list genres for all pages at first. I had the same issue in the RetroLoversUnited project, but used a context-processor this time around instead of a mixin. This approach
