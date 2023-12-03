@@ -100,26 +100,25 @@
                     </fieldset>
 
                     <div class="submit-button text-right mt-5 mb-2">
-                        <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0 rounded-pill">
-                            <span class="icon">
-                                <i class="fa-solid fa-basket-shopping"></i>
-                            </span>
-                            <span class="font-weight-bold text-capitalize">Adjust Bag</span>
-                        </a>
-                        <button id="submit-button" class="btn btn-outline-black rounded-0 rounded-pill">
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                            <span class="font-weight-bold text-capitalize">Complete Order</span>
-                        </button>
-                        <p class="small text-danger my-0">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle"></i>
-                            </span>
-                            <span>Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
-                        </p>
-                    </div>
-                </form>
+                        <div class="gap-2 d-grid d-md-block">
+                            <a href="{% url 'view_bag' %}" class="btn btn-outline-black rounded-0 rounded-pill no overflow">
+                                <span class="icon">
+                                    <i class="fa-solid fa-basket-shopping"></i>
+                                </span>
+                                <span class="font-weight-bold text-capitalize no overflow">Adjust Bag</span>
+                            </a>
+                            <button id="submit-button" class="btn btn-outline-black rounded-0 rounded-pill no overflow">
+                                <span class="icon">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <span class="font-weight-bold text-capitalize no overflow">Complete Order</span>
+                            </button>
+                            
+                                </div>
+                                <span class="small"><i class="fas fa-exclamation-circle"></i> Your card will be charged <strong>${{ grand_total|floatformat:2 }}</strong></span>
+                            
+                        </div>
+</form>
             </div>
         </div>
     </div>

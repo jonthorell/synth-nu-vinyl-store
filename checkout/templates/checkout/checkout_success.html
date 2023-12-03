@@ -15,17 +15,21 @@
             <h2 class="div-header-h2">Past Order Confirmation</h2>
             <p class="text-black">Your order information is below. A confirmation email was sent to <strong>{{ order.email }}</strong>.</p>
             <div class="col-md text-center">
-                <a class="btn btn-outline-black rounded-0 rounded-pill w-25" href="/"><i class="fa-solid fa-house"></i> Home</a>
+                <div class="gap-2 d-grid d-md-block">
+                    <a class="btn btn-outline-black rounded-0 rounded-pill w-25 no-overflow" href="/"><i class="fa-solid fa-house"></i> Home</a>
+                    </div>
+                </div>
             </div>
-        </div>
         {% else %}
         <div class="col-md text-center">
             <h2 class="div-header-h2">Thank You!</h2>
             <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
             <div class="col-md text-center">
-                <a class="btn btn-outline-black rounded-0 rounded-pill w-25" href="/"><i class="fa-solid fa-house"></i> Home</a>
+                <div class="gap-2 d-grid d-md-block">
+                    <a class="btn btn-outline-black rounded-0 rounded-pill w-25 no-overflow" href="/"><i class="fa-solid fa-house"></i> Home</a>
+                    </div>
+                </div>
             </div>
-        </div>
         {% endif %}
         <div class="row">
             <!--<div class="col-12 col-lg-7">-->

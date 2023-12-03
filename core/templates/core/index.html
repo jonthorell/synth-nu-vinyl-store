@@ -53,34 +53,36 @@
             <p class="text-md-end">
                 <i class="fa-regular fa-star">&nbsp;</i>
                 <span class="black-text">{{ newsfeed.title }}</span>
-                <button type="button"
-                        class="btn m-1 ml-3 btn-primary"
-                        data-mdb-ripple-color="dark"
-                        data-mdb-toggle="modal"
-                        data-mdb-target="#info-modal"
-                        data-mdb-title="{{newsfeed.title}}"
-                        data-mdb-body="{{newsfeed.description}}">
-                    Info
-                </button>
-                {% comment %}
-                <!--Only add the edit/delete links if the user is in the staff group-->
-                {% endcomment %}
+                <span class="gap-2 d-grid d-md-block">
+                    <button type="button"
+                            class="btn m-1 ml-3 btn-primary no-overflow"
+                            data-mdb-ripple-color="dark"
+                            data-mdb-toggle="modal"
+                            data-mdb-target="#info-modal"
+                            data-mdb-title="{{newsfeed.title}}"
+                            data-mdb-body="{{newsfeed.description}}">
+                        Info
+                    </button>
+                    </span>
+                    {% comment %}
+                    <!--Only add the edit/delete links if the user is in the staff group-->
+                    {% endcomment %}
 
-                {% for group in user.groups.all %}
-                {% comment %}
-                <!--Iterate over the groups of the current user
-                If user is a member of group staff, add the links-->
-                {% endcomment %}
-                {% if group.name == 'staff' %}
-                <span>
-                    <small class="ml-3">
-                        <a href="{% url 'editnews' newsfeed.id %}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
-                        <a class="text-danger" href="{% url 'deletenews' newsfeed.id %}"><i class="fa-solid fa-trash"></i> Delete</a>
-                    </small>
-                </span>
-                {% endif %}
-                {% endfor %}
-                <span class="published black-text"><br />Published: {{ newsfeed.created_on|date:"M j, Y" }}</span>
+                    {% for group in user.groups.all %}
+                    {% comment %}
+                    <!--Iterate over the groups of the current user
+        If user is a member of group staff, add the links-->
+                    {% endcomment %}
+                    {% if group.name == 'staff' %}
+                    <span>
+                        <small class="ml-3">
+                            <a href="{% url 'editnews' newsfeed.id %}"><i class="fa-solid fa-pen-to-square"></i> Edit</a>
+                            <a class="text-danger" href="{% url 'deletenews' newsfeed.id %}"><i class="fa-solid fa-trash"></i> Delete</a>
+                        </small>
+                    </span>
+                    {% endif %}
+                    {% endfor %}
+                    <span class="published black-text"><br />Published: {{ newsfeed.created_on|date:"M j, Y" }}</span>
             </p>
             {% endfor %}
         </div>
