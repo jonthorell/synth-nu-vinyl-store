@@ -1,7 +1,6 @@
+
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.http import HttpResponseRedirect
-from django import forms
-from django.views.generic import TemplateView
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
@@ -9,8 +8,7 @@ import urllib.parse
 from products.models import product, genre, artist, mediatype, testimonial
 from .forms import ProductForm,GenreForm, CommentForm
 from django.contrib.auth.models import User
-from synth.decorators import check_user_is_staff
-from synth.utils import MemberRequiredMixin
+from synth.decorators import check_user_is_staff, check_user_is_member
 
 # Create your views here.
 
@@ -156,24 +154,15 @@ def delete_product(request, product_id):
     messages.success(request, 'Product deleted!')
     return redirect('/products/?genre=classic,electronica,ebm,experimental,industry,spop,euro')
 
-class review_product(MemberRequiredMixin, TemplateView):
-    '''Class used for reviewing product '''
+@check_user_is_member
+def review_product(request, **kwargs):
+    '''Add revoew to product '''
 
     template_name = 'products/comment_product.html'
     model = testimonial
-    context_object_name = 'article'
-
-    def get(self, request, *args, **kwargs):
-        # display the form
-        context = self.get_context_data()
-        form = CommentForm(request.POST)
-        return render(
-        request,
-        "products/comment_product.html",
-        {"form": form, **context},
-    )
-
-    def post(self, request, *args, **kwargs):
+    comment_form = CommentForm()
+    
+    if request.method == 'POST':
         comment_form = CommentForm(data=request.POST)
         if comment_form.is_valid():
             # check form is valid and get values from it into variables.
@@ -195,13 +184,8 @@ class review_product(MemberRequiredMixin, TemplateView):
         else:
             comment_form = CommentForm()
 
-        return render(
-            request,
-            "products/comment_product.html",
-            {"form": comment_form},
+    return render(
+        request,
+        "products/comment_product.html",
+        {"form": comment_form},
     )
-
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        context['articles'] = testimonial.objects.all()
-        return context
