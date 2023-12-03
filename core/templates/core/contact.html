@@ -15,8 +15,10 @@
                 <fieldset class="mx-2 px-2 grey">
                     {{ form.as_p |safe}}
                     <br>
-                    <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize" type="reset">Clear</button>
-                    <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize" type="submit">Submit!</button>
+                    <div class="gap-2 d-grid d-md-block">
+                        <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize no-overflow" type="reset">Clear</button>
+                        <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize no-overflow" type="submit">Submit!</button>
+                    </div>
                 </fieldset>
             </form>
             <br>

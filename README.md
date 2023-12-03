@@ -182,8 +182,6 @@ The models are ordered from most important to least, with the most important at 
 it is just that those lower down in the image require the ones on top to function but not the other way around. The exception are those
 color-coded in blue. They do not depend on anything and are self-contained.
 
-Since the entire site is built around three apps, there is a possibility to use models in three different places.
-
 
 
 # Bugs encountered and fixed
@@ -216,6 +214,7 @@ order_line_item = OrderLineItem(
 ```
 
 The solution was to replace the variable product with the shortened prod.
+
 15. The Add-staff link to menu did not work properly. Removed check if user is superuser. Superfluos since it is only the group membership that is important
 16. The new image field in profile model introduced an error in profile-view. Fixed by altering the form.
 17. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Now prevented by some if-statements.
