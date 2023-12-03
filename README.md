@@ -61,16 +61,15 @@ And finally, at the bottom. A footer with copyright information.
 
 ![footer](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/03-footer.png?raw=true)
 
-# Design considerations (visual). CHANGE!
+# Design considerations (visual).
 
-1. Colors and other graphical elements have been "stolen" or mimicked from AmigaOS as much as possible. 
-2. The beachball at the top-left is a sort-of unofficial logo.
-3. The grey background is the default background color of the GUI.
-4. The navbar uses the same white as the AmigaOS menubar.
-5. The black text is the default font-color.
-6. The orange text comes from the "fuel-gauge" that indicates how full a disk is (from an earlier version of AmigaOS).
-7. The black background and the blinking graphics on the 403 page is how the Amiga indicates it has run into a dead-end software failure.
-8. The site should be fully responsive.
+1. The main part of the site consists of a semi-transparant overlay on top of a background image. This is to provide a striking overall look.
+2. Headers are all in upper-case to stand-out
+3. Most of the main text (including headers) is black. It provides a nice contrast against the semi-transparant image.
+4. The exception is that whenever it was felt that the text could use to stand out a bit more, it uses a red color.
+5. If the text is a link, it is blue in color.
+6. The site uses toasts extensively, and those are colored according to the default bootstrap warning levels so they are easily distinguished if it is informative or an error.
+7. The site should be fully responsive.
 
 # Technologies used
 
@@ -87,12 +86,17 @@ And finally, at the bottom. A footer with copyright information.
 
 1. Since it is a django-project, configuation is done in settings.py, forms.py, & urls.py
 2. The project consists of several apps.
-Core: main-site
-bag: shopping-bag
-checkout: used by stripe
-staff: used to provide admin-functionality for staff (update stock with new items for example)
+Core: main-site, houses the landing page, contact page, and about page.
+bag: the shopping-bag the customers places their desired products in
+checkout: used by stripe etc to finalize a purchase
+newsletter: provides the ability to sign up for a newsletter
+staff: used to provide admin-functionality for staff. It is essentially an app that provides front-end pages to manipulate the backend from an administrative point of view, for example adding new products and maintaining stock.
+products: lists, sorts, and provides details on what the store is sellig
+profiles: provides a mean of providing the customer the ability to store shipping details as well as an order history
 about: credits and about-text
-Point one applies here as well.
+
+
+Point one applies to the individual apps as well as on the project level.
 3. The main code is in views.py and "scattered" in the django template files as well such as the articles_by_author file. In the latter case it stuff like this:
 ```django
 {% if profile.user.is_active %}
@@ -106,7 +110,7 @@ self-containment in a site like this. With that I mean a checkout app will by ne
 6. Custom javascript and custom css classes used only in one app or even on just one page of an app are stored in separate files rather than in a generic script.js and style.css and
 then "injected" into the template that needs it. The reason is to make it easier to locate the code in question should you need to change it, and lessen the risk of the "wrong"
 class being applied.
-7. In the folder synth (the project-level core-folder) contains a utils.py file. It contains some helper-classes that other apps are using. Those are imported in the core-site.
+7. In the folder synth (the project-level core-folder) contains a utils.py file. It contains some helper-classes that other apps are using. Those are imported in the other apps where applicable.
 This is mainly due to those classes are pretty static and a way to organize the code so you don't have to see them unless you really need to. 
 
 # Design considerations (user classes)
@@ -121,7 +125,7 @@ Every user belongs to one or more classes of user. This is implemented using dja
 # External APIs used
 
 1. Stripe for payment processing
-2. FreeCurrecnyAPI for online currecy conversion
+2. FreeCurrecnyAPI for online currency conversion
 
 # Deployment
 
@@ -169,95 +173,18 @@ This might include things not necessarily referenced, but it will make sure the 
 11. Under deployment method, connect the app to the correct github repository
 12. Decide if you want the deployment to be automatic or manual. That is a matter of preference. For now, I have opted to make it manual.
 
-# Database design CHANGE!
+# Database Design
+
+The different models used in the database can be seen in the following diagram. Note though that models that django uses internally
+and allauth models not used are not shown here, as well as models postgres uses internally. Futher description of the models beneath the image.
+
+The models are ordered from most important to least, with the most important at the top. All are of course important for the site to work,
+it is just that those lower down in the image require the ones on top to function but not the other way around. The exception are those
+color-coded in blue. They do not depend on anything and are self-contained.
 
 Since the entire site is built around three apps, there is a possibility to use models in three different places.
 
-App: FAQ
 
-Uses one very simple model called __Terminology__. It has four fields (5 if you count the automatically created id/pk field).
-
-* Name: Charfield, max 40 characters in length. Can not be blank and must be unique. It must be unique because it is used as a title in the display and I do not want to confuse the user with having the same name twice or more.
-* Created_on: Datefield, is automatically filled in.
-* Slug: filled automatically using the third-party django-autoslug package. In the end I ended up not using slugs to create more intuiative urls since I could not quite get it to work the way I wanted, but left the field if I want to extend the site later on.
-* Description: Charfield, max length 3000, must not be empty. Used to provide the "meat" of the terminology so the user can get more information.
-
-There are no relations to other models. Also, this particular model needs to be populated from django-admin.
-
-The output of this model looks like this:
-
-
-
-App: Credits
-
-Does not use a model.
-
-App: Retro
-
-The main app, uses the following models:
-
-The default django user-model
-
-+the following (all uses the default id/pk field)
-
-__Category__
-
-* Name: Name of category. Charfield, max_length 40 and must be unique and not null
-* Created_on: created by default with the current time-stamp
-* Slug: see above regarding slugs
-* Description: Description of the category. Max_length 200 (can be seen in all-categories boxes), must not be null
-* Avatar: filename of category-image (can be seen in categories menu). Max-length 60, must not be null. File is pulled from static/categories
-
-Does not refer to any other model, but others refer to this.
-
-__Article__
-
-* Category: refers to the id of category model so the article is linked to one category.
-* Slug: see above regarding slugs
-* Title: name of the article. Charfield, maxlength 60. Must not be null
-* Content: main body of the article. Max length 200, must not be null and is linked to a summernote field
-* updated_on/created_on: DateTimeField, updated automatically
-* excerpt: short description of article. 
-* status: published or not (integer). 1=published, which is the default
-* user: refers to the id of the user in the usertable so the article is linked to one user (=owner)
-
-Both user and category has on_delete CASCADE so if the user or category is deleted, so is the article
-
-__Link__
-
-* Name. Charfield, Name of the link, max_length 60, must be unique and not null
-* Slug: see above regarding slugs
-* URL: max length 255, must be unique and not null
-* Description: Charfield, max length 255. Must not be null. A short description of the url.
-* Alt: Charfield. Maxlength 255, not null. Provides the alt= text
-
-Link model is self-contained and does not refer to any other models or is referred to one.
-
-__Comment__
-
-* Article. Refers to the article model to keep track of which article it is a comment on.
-* Name. Refers to the user model to keep track of who wrote the comment
-* Body. Textfield, maxlength 200. Can not be null
-* Slug. See above regarding slugs
-* Created_on: DateTimeField, updated automatically
-* Approved. Boolean. Comments needs to be approved by an admin before they are visible so set to False automatically so admin needs to approve it.
-* Status. Integer. Either 0 (not published, or invisible) or 1 (published and visible). 
-
-Article and name are set on_delete CASCADE so if the article or user the comment belongs to is deleted, so is the comment
-
-__Profile__
-
-In django-admin, this one is not listed as a model on its own. Instead the fields show up if one clicks on a user. It is sort of an extension of the user model.
-
-* Short_description. Charfield, maxlength 60. Not null.
-* Description. Charfield, max 2000. Not null. Longer description. A biography if you will.
-* updated on/created on. DateTimeField. Added automatically
-* slug. See above regarding slugs.
-* user. Refers to the id of the user in the user model.
-* avatar. Charfield, maxlength 60. Not null. See under categories. Same principle, except the picture is fetched from static/avatars. Can be null in principle but gets a default on creation.
-* conputer. Textfield, maxlength 400. A computer oriented site needs to let the user describe their setup, right?
-
-User has on_delete CASCADE set so if user is deleted, so is the profile
 
 # Bugs encountered and fixed
 1. Navbar did not list genres for all pages at first. I had the same issue in the RetroLoversUnited project, but used a context-processor this time around instead of a mixin. This approach

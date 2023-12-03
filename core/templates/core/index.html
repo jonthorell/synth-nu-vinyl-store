@@ -52,7 +52,7 @@
             {% for newsfeed in newsfeeds %}
             <p class="text-md-end">
                 <i class="fa-regular fa-star">&nbsp;</i>
-                {{ newsfeed.title }}
+                <span class="black-text">{{ newsfeed.title }}</span>
                 <button type="button"
                         class="btn m-1 ml-3 btn-primary"
                         data-mdb-ripple-color="dark"
@@ -80,7 +80,7 @@
                 </span>
                 {% endif %}
                 {% endfor %}
-                <span class="published"><br />Published: {{ newsfeed.created_on|date:"M j, Y" }}</span>
+                <span class="published black-text"><br />Published: {{ newsfeed.created_on|date:"M j, Y" }}</span>
             </p>
             {% endfor %}
         </div>
