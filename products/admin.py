@@ -40,7 +40,7 @@ class MediaTypeAdmin(admin.ModelAdmin):
     
 class TestimonialAdmin(admin.ModelAdmin):
     list_display = (
-        'reviewed',
+        'article',
         'name',
         'body',
         'slug',

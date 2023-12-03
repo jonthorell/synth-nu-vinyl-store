@@ -1,12 +1,16 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.http import HttpResponseRedirect
+from django import forms
+from django.views.generic import TemplateView
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 import urllib.parse
-from products.models import product, genre, artist, mediatype
-from .forms import ProductForm,GenreForm
+from products.models import product, genre, artist, mediatype, testimonial
+from .forms import ProductForm,GenreForm, CommentForm
 from django.contrib.auth.models import User
 from synth.decorators import check_user_is_staff
+from synth.utils import MemberRequiredMixin
 
 # Create your views here.
 
@@ -151,3 +155,53 @@ def delete_product(request, product_id):
     prod.delete()
     messages.success(request, 'Product deleted!')
     return redirect('/products/?genre=classic,electronica,ebm,experimental,industry,spop,euro')
+
+class review_product(MemberRequiredMixin, TemplateView):
+    '''Class used for reviewing product '''
+
+    template_name = 'products/comment_product.html'
+    model = testimonial
+    context_object_name = 'article'
+
+    def get(self, request, *args, **kwargs):
+        # display the form
+        context = self.get_context_data()
+        form = CommentForm(request.POST)
+        return render(
+        request,
+        "products/comment_product.html",
+        {"form": form, **context},
+    )
+
+    def post(self, request, *args, **kwargs):
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            # check form is valid and get values from it into variables.
+            for arg in kwargs.values():
+                article_id=arg
+            body = comment_form.cleaned_data.get("body")
+            comment_form.name_id=User.id
+            
+            # add new comment to database
+            record = testimonial(name_id=request.user.id,body=body,approved=False,article_id=article_id)
+            record.save()
+
+            # notify the user
+            messages.info(request, "Your review has been added.")
+            messages.info(request, "It is awaiting approval.")
+
+            # return to article comment was made on
+            return HttpResponseRedirect("/products/"+str(article_id))
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            "products/comment_product.html",
+            {"form": comment_form},
+    )
+
+    def get_context_data(self, *args, **kwargs):
+        context = super().get_context_data(*args, **kwargs)
+        context['articles'] = testimonial.objects.all()
+        return context

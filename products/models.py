@@ -106,7 +106,7 @@ class artist(models.Model):
 class testimonial(models.Model):
     '''Class used to create the testimonaials/reviews model '''
 
-    reviewed = models.ForeignKey(product, on_delete=models.CASCADE)
+    article = models.ForeignKey(product, on_delete=models.CASCADE)
     name = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='user')
     body = models.TextField(max_length=200,blank=False, null=False)
     slug = AutoSlugField(populate_from='name', unique=False)

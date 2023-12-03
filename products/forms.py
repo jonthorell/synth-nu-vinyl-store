@@ -1,6 +1,6 @@
 from django import forms
 from .widgets import CustomClearableFileInput
-from .models import product, genre
+from .models import product, genre, testimonial
 
 
 class ProductForm(forms.ModelForm):
@@ -65,3 +65,22 @@ class GenreForm(forms.ModelForm):
             ),
             label="Genre",
         )    
+    
+class CommentForm(forms.ModelForm):
+    '''Class used to create add-review form '''
+
+    class Meta:
+        model = testimonial
+        fields = ('body',)
+
+    body = forms.CharField(
+        required = False,
+        widget = forms.widgets.Textarea(
+            attrs={
+                "placeholder": "Enter review here",
+                "class": "form-control form-control-sm validate",
+                "required": True,
+                }
+            ),
+            label="",
+        )

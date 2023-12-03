@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Review Product{% endblock title %}
+
+{% block content %}
+
+<div class="container container-bottom">
+    <div class="row core-divs">
+        <div class="col-md text-center">
+            <h2 class="div-header-h2">Review Product</h2>
+        </div>
+            <form method="post" class="form mt-1 pt-1">
+                {% csrf_token %}
+                <fieldset class="mx-2 px-2 grey">
+                    {{ form.as_p |safe}}
+                    <br>
+                    <div class="gap-2 d-grid d-md-block text-center">
+                        <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize no-overflow" type="reset">Clear</button>
+                        <button class="btn btn-outline-black w-25 mb-2 rounded-0 rounded-pill text-capitalize no-overflow" type="submit">Submit!</button>
+                    </div>
+                </fieldset>
+            </form>
+            <br>
+        </div>
+    </div>
+
+ {% endblock content %}

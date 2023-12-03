@@ -39,7 +39,7 @@
                             {% endcomment %}
                             {% if group.name == 'members' %}
                             <small class="ml-3">
-                                <a href=""><i class="fa-solid fa-medal"></i> Review</a>
+                                <a href="{% url 'review_product' product.id %}"><i class="fa-solid fa-medal"></i> Review</a>
                             </small>
                             {% endif %}
                             {% endfor %}
@@ -124,10 +124,17 @@
                                     {% else %}
                                     <small class="mb-0 text-left text-muted"><br />Status: New</small>
                                     {% endif %}
+                                    <small class="mb-0 text-left text-muted"><br />Testimonial(s), if any:</small>
                                     {% for testimonial in testimonials %}
 
-                                    {% if product.id == testimonial.reviewed_id %}
-                                        <small class="mb-0 text-left text-muted"><br />Testimonial by {{ testimonial.name }}: {{ testimonial.body }}</small>
+                                    {% if product.id == testimonial.article_id and testimonial.approved == True %}
+
+                                    <details>
+                                        <summary>
+                                            <small class="mb-0 text-left text-muted">{{ testimonial.name }}</small>
+                                        </summary>
+                                        <small class="mb-0 text-left text-muted">{{ testimonial.body }}</small>
+                                    </details>
                                     {% endif %}
                                     {% endfor %}
                                 </div>
