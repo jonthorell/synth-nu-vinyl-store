@@ -10,17 +10,22 @@
     <div class="row core-divs">
         <div class="col-md text-center">
             <h2 class="div-header-h2">Staff Page</h2>
-                <a class="category-badge text-decoration-none" href="{% url 'add_product' %}">
-                    <span class="btn btn-outline-black rounded-0 rounded-pill text-capitalize">Add Product</span>
+            <div class="gap-2 d-grid d-md-block">
+                <a class="btn btn-outline-black rounded-0 rounded-pill text-decoration-none" href="{% url 'add_product' %}">
+                    <span class="no-overflow text-capitalize">Add Product</span>
                 </a>
-                <a class="category-badge text-decoration-none" href="{% url 'add_genre' %}">
-                    <span class="btn btn-outline-black rounded-0 rounded-pill text-capitalize">Add Genre</span>
+                <a class="btn btn-outline-black rounded-0 rounded-pill text-decoration-none" href="{% url 'add_genre' %}">
+                    <span class="no-overflow text-capitalize">Add Genre</span>
                 </a>
-                <a class="category-badge text-decoration-none" href="{% url 'add_news' %}">
-                    <span class="btn btn-outline-black rounded-0 rounded-pill text-capitalize">Add News item</span>
+                <a class="btn btn-outline-black rounded-0 rounded-pill text-decoration-none" href="{% url 'add_news' %}">
+                    <span class="no-overflow text-capitalize">Add News item</span>
+                </a>
+                <a class="btn btn-outline-black rounded-0 rounded-pill text-decoration-none" href="">
+                    <span class="no-overflow text-capitalize">Approve reviews</span>
                 </a>
             </div>
         </div>
     </div>
+</div>
 
  {% endblock content %}
