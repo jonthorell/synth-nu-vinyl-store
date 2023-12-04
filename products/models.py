@@ -5,6 +5,7 @@ from django.db import models
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from autoslug import AutoSlugField
+from versatileimagefield.fields import VersatileImageField
 
 # status is used to check wheter approved to be shown (newsfeed items, testimonials). Some of this has been adapted for 
 # my own use from the codestar code-along
@@ -59,7 +60,11 @@ class product(models.Model):
     # price is entered as USD. API calls will be able to change this
     price_currency = models.CharField(max_length=3, null=False, blank=False,default="USD")
     rating = models.DecimalField(max_digits=1, decimal_places=0, null=False, blank=False, default=0)
-    image = models.ImageField(null=True, blank=True)
+    image = VersatileImageField(
+        'Image',
+        null=True, 
+        blank=True
+    )
     created_on = models.DateTimeField(auto_now_add=True)
     updated_on = models.DateTimeField(auto_now=True)
     stock = models.IntegerField(null=False, blank=False, default=1)
