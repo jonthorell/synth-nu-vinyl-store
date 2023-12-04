@@ -235,15 +235,16 @@ The solution was to replace the variable product with the shortened prod.
 30. The buttons on top of the all products view got a strange layout on lower resolutions. Fixed by adding so they are stacked on those resolutions. A bit of a tradeof when that happens so there is no wasted screen real estate on larger resolutions. Settled for d-md as the breaking point, and added some extra margin to the buttons as well for when the buttons are not stacked. Should be added elsewhere there are buttons present as well.
 
 
-# Bugs encountered but not fixed yet
+# Bugs encountered but not fixed
 
 1. Search-field yields strange results if artist name contain space(s)
 2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
-9. About css file refuses to load from the correct app. Workaround: putting it in the core app
-10. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
-11. Emails do not work from webhook
-12. Right column on product_details is "cut off" on mobile.
-13. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
+3. The rating field on add/edit product should be limited between the values 1 to 5. Not fixed due to time restrains. Noticed it too late. However, it is not a big issue since the display only shows a max of 5 stars anyway. The rating is not entirely truthful though 
+4. About css file refuses to load from the correct app. Workaround: putting it in the core app
+5. Webhooks do not work all the way. Money is being drawn but order not fulfilled if user closes the browser
+6. Emails do not work from webhook
+7. Right column on product_details is "cut off" on mobile.
+8. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
 more generic and work regardless of what genres are present in the db
 
 
