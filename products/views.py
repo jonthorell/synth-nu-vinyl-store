@@ -53,7 +53,7 @@ def all_products(request):
                 return redirect(reverse('products'))
             
             # need to alter this so can search for artist name
-            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(artist__name__icontains=query)
+            queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(artist__friendly_name__icontains=query)
             products = products.filter(queries)
             
     current_sorting = f'{sort}_{direction}'

@@ -235,16 +235,15 @@ The solution was to replace the variable product with the shortened prod.
 30. The buttons on top of the all products view got a strange layout on lower resolutions. Fixed by adding so they are stacked on those resolutions. A bit of a tradeof when that happens so there is no wasted screen real estate on larger resolutions. Settled for d-md as the breaking point, and added some extra margin to the buttons as well for when the buttons are not stacked. Should be added elsewhere there are buttons present as well.
 31. Email confirmations were not sent upon completed purchase. Something was wrong in webhook_handler.py, although not quite sure which one of my changes did the trick. It does work now however.
 32. Webhooks did not work completely. Money was drawn, but order not processed all the way (i.e. not added to db). Same thing as 31, not sure which change made it work. It works.
+33. Search field yielded strange results. Turns out I had accidently made it search on name instead of friendly name, which means that a search for depeche (for example) as artist did not work since the name is shorthand. Fixed.
 
 
 # Bugs encountered but not fixed
 
-1. Search-field yields strange results if artist name contain space(s)
-2. App-specific css-files refuses to work from the app's static/css folder. It does work for js though. Temporary workaround: keep css-files in the global static/css folder
-3. The rating field on add/edit product should be limited between the values 1 to 5. Not fixed due to time restrains. Noticed it too late. However, it is not a big issue since the display only shows a max of 5 stars anyway. The rating is not entirely truthful though 
-4. About css file refuses to load from the correct app. Workaround: putting it in the core app.
-7. Right column on product_details is "cut off" on mobile.
-8. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
+1. Some app-specific css/js-files refuses to work from the app's static/css folder. Workaround: keep css-files in the global static/css folder
+2. The rating field on add/edit product should be limited between the values 1 to 5. Not fixed due to time restrains. Noticed it too late. However, it is not a big issue since the display only shows a max of 5 stars anyway. The rating is not entirely truthful though 
+3. Right column on product_details is "cut off" on mobile.
+4. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
 more generic and work regardless of what genres are present in the db
 
 
@@ -253,9 +252,6 @@ more generic and work regardless of what genres are present in the db
 
 Update stock when an order has been completed
 Staff view - in progress
-Double check if I've understood webhooks. Should'nt an order be placed even if something goes wrong if the payment.intent succeeded?
-
-Check everything!
 
 # Things for the future
 
