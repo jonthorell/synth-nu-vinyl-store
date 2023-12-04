@@ -60,7 +60,7 @@ INSTALLED_APPS = [
 
     # Other
     'crispy_forms',
-    'debug_toolbar',
+    # 'debug_toolbar',
     # for aws
     'storages',
     # allauth
@@ -108,7 +108,7 @@ SUMMERNOTE_THEME = 'bs4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "debug_toolbar.middleware.DebugToolbarMiddleware",
+    # "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

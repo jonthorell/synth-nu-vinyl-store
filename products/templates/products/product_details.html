@@ -10,175 +10,161 @@
 
 <div class="container container-bottom target-link">
     <div class="row core-divs">
-        <div class="col-md" id="left_div">
-            <table class="table-responsive">
-                <tr>
-                    <th> </th>
-                    <th> </th>
-                </tr>
+        <div class="col-md text-center">
+            <h2 class="div-header-h2">Product Details</h2>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col-6">
+                {% if product.image %}
+                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" height="200" />
+                {% else %}
+                    <img src="{% static 'images/noimage.webp' %}" width="200" height="200" alt="No product image">
+                {% endif %}
+                <div>
+                    {% comment %}
+                    <!--Only add the review link if the user is in the members group, that is: is authenticated-->
+                    {% endcomment %}
+                    {% for group in user.groups.all %}
+                    {% comment %}
+                    <!--Iterate over the groups of the current user
+                    If user is a member of group members, add the link-->
+                    {% endcomment %}
+                    {% if group.name == 'members' %}
+                    <small class="ml-3">
+                        <a href="{% url 'review_product' product.id %}"><i class="fa-solid fa-medal"></i> Review</a>
+                    </small>
+                    {% endif %}
+                    {% endfor %}
 
-                <tr>
-                    <td>
-                        {% if product.image %}
-                        <a href="{{ product.image.url }}" target="_blank">
-                            <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" height="200" />
-                        </a>
-                        {% else %}
-                        <a href="{% static 'images/noimage.webp' %}" target="_blank">
-                            <img src="{% static 'images/noimage.webp' %}" width="200" height="200" alt="No product image">
-                        </a>
-                        {% endif %}
-                        <div>
-                            {% comment %}
-                            <!--Only add the review link if the user is in the members group, that is: is authenticated-->
-                            {% endcomment %}
-                            {% for group in user.groups.all %}
-                            {% comment %}
-                            <!--Iterate over the groups of the current user
-                            If user is a member of group members, add the link-->
-                            {% endcomment %}
-                            {% if group.name == 'members' %}
-                            <small class="ml-3">
-                                <a href="{% url 'review_product' product.id %}"><i class="fa-solid fa-medal"></i> Review</a>
-                            </small>
-                            {% endif %}
-                            {% endfor %}
+                    {% comment %}
+                    <!--Only add the edit/delete links if the user is in the staff group-->
+                    {% endcomment %}
 
-                            {% comment %}
-                            <!--Only add the edit/delete links if the user is in the staff group-->
-                            {% endcomment %}
-
-                            {% for group in user.groups.all %}
-                            {% comment %}
-                            <!--Iterate over the groups of the current user
-                            If user is a member of group staff, add the links-->
-                            {% endcomment %}
-                            {% if group.name == 'staff' %}
-                            <small class="ml-3">
-                                <a href="{% url 'edit_product' product.id %}"><i class="fa-solid fa-pen-to-square"></i> Edit</a> |
-                                <a class="text-danger" href="{% url 'delete_product' product.id %}"><i class="fa-solid fa-trash"></i> Delete</a>
-                            </small>
-                            {% endif %}
-                            {% endfor %}
-                        </div>
-                    </td>
-                    <td>
-                        <p class="text-md-start">
-                            Title: {{ product.name }}
-                            <br />Artist: {{ product.artist }}
-                            <br />Added: {{ product.created_on|date:"M j, Y" }}
-                        </p>
-                        <p class="text-md-start">
-                            <small class="mb-0 font-weight-bold">
-                                Price: {{ product.price_currency}} {{ product.price }}
-                            </small>
-                            <div class="row">
-                                <div class="col">
-                                    <p class="mb-0 text-left text-muted">Description: {{ product.description }}</p>
-                                    {% if product.rating %}
-                                    <p class="mb-0 text-left text-muted">
-                                        Our Rating
-                                    </p>
-                                    <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
-                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                        <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
-                                    </ul>
-                                    {% else %}
-                                    <small class="mb-0 text-left text-muted">No Rating</small>
-                                    {% endif %}
-                                    <small class="mb-0 text-left text-muted">
-                                        <br />Genre:
-                                        <a href="{% url 'products' %}?genre={{product.genre.name}}">
-                                            {{ product.genre }}
+                    {% for group in user.groups.all %}
+                    {% comment %}
+                    <!--Iterate over the groups of the current user
+                    If user is a member of group staff, add the links-->
+                    {% endcomment %}
+                    {% if group.name == 'staff' %}
+                    <small class="ml-3">
+                        <a href="{% url 'edit_product' product.id %}"><i class="fa-solid fa-pen-to-square"></i> Edit</a> |
+                        <a class="text-danger" href="{% url 'delete_product' product.id %}"><i class="fa-solid fa-trash"></i> Delete</a>
+                    </small>
+                    {% endif %}
+                    {% endfor %}
+                    {% if product.stock %}
+                    <!--<div class="col-md text-center mb-4">-->
+                        <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
+                            {% csrf_token %}
+                            <div class="form-row">
+                                <!--<div class="col-12">-->
+                                    <p class="mt-3"><strong>Quantity:</strong></p>
+                                    <div class="form-group w-100">
+                                        <div class="input-group">
+                                            <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="{{product.stock}}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        </div>
+                                    </div>
+                                    <div class="gap-2 d-grid d-md-block">
+                                        <input type="submit" class="text-capitalize mt-2 btn btn-outline-black rounded-0 rounded-pill no-overflow" value="buy item">
+                                        <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="mt-2 btn btn-outline-black rounded-0 rounded-pill text-decoration-none no-overflow">
+                                            <span class="icon">
+                                                <i class="fa-solid fa-basket-shopping"></i>
+                                            </span>
+                                            <span class="text-capitalize">Shop some more</span>
                                         </a>
-                                    </small>
-                                    {% if product.stock > 0 %}
-                                    <small class="mb-0 text-left text-muted"><br />Stock: {{ product.stock }}</small>
-                                    {% else %}
-                                    <small class="mb-0 text-left font-weight-bold"><br />Stock: Not in stock</small>
-                                    {% endif %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Format: {{ product.media_format }}</small>
-                                    {% if product.media_color == 0 %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Black</small>
-                                    {% elif product.media_color == 1 %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Gold</small>
-                                    {% elif product.media_color == 2 %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Red</small>
-                                    {% elif product.media_color == 3 %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Green</small>
-                                    {% elif product.media_color == 4 %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Picture</small>
-                                    {% elif product.media_color == 5 %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Transparant</small>
-                                    {% elif product.media_color == 6 %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Blue</small>
-                                    {% else %}
-                                    <small class="mb-0 text-left text-muted"><br />Media Color: Other</small>
-                                    {% endif %}
 
-                                    {% if product.new_old == 1 %}
-                                    <small class="mb-0 text-left text-muted"><br />Status: Second-hand</small>
-                                    {% else %}
-                                    <small class="mb-0 text-left text-muted"><br />Status: New</small>
-                                    {% endif %}
-                                    <small class="mb-0 text-left text-muted"><br />Testimonial(s), if any:</small>
-                                    {% for testimonial in testimonials %}
-
-                                    {% if product.id == testimonial.article_id and testimonial.approved == True %}
-
-                                    <details>
-                                        <summary>
-                                            <small class="mb-0 text-left text-muted">{{ testimonial.name }}</small>
-                                        </summary>
-                                        <small class="mb-0 text-left text-muted">{{ testimonial.body }}</small>
-                                    </details>
-                                    {% endif %}
-                                    {% endfor %}
-                                </div>
+                                        <a href="{% url 'checkout' %}" class="btn btn-outline-black rounded-0 rounded-pill text-decoration-none no-overflow">
+                                            <span class="icon">
+                                                <i class="fas fa-lock"></i>
+                                            </span>
+                                            <span class="text-capitalize">Secure Checkout</span>
+                                        </a>
+                                    </div>
+                                <!--</div>-->
+                                <input type="hidden" name="redirect_url" value="{{ request.path }}">
                             </div>
-                    </td>
-                </tr>
-
-            </table>
-        </div>
-        {% if product.stock %}
-        <div class="col-md text-center mb-4" id="right_div">
-            <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
-                {% csrf_token %}
-                <div class="form-row">
-                    <div class="col-12">
-                        <p class="mt-3"><strong>Quantity:</strong></p>
-                        <div class="form-group w-100">
-                            <div class="input-group">
-                                <input class="form-control qty_input no-overflow" type="number" name="quantity" value="1" min="1" max="{{product.stock}}" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
-                            </div>
-                        </div>
-                        <div class="gap-2 d-grid d-md-block">
-                            <input type="submit" class="text-capitalize mt-2 btn btn-outline-black rounded-0 rounded-pill no-overflow" value="buy item">
-                            <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="mt-2 btn btn-outline-black rounded-0 rounded-pill text-decoration-none no-overflow">
-                                <span class="icon">
-                                    <i class="fa-solid fa-basket-shopping"></i>
-                                </span>
-                                <span class="text-capitalize">Shop some more</span>
-                            </a>
-
-                            <a href="{% url 'checkout' %}" class="btn btn-outline-black rounded-0 rounded-pill text-decoration-none no-overflow">
-                                <span class="icon">
-                                    <i class="fas fa-lock"></i>
-                                </span>
-                                <span class="text-capitalize">Secure Checkout</span>
-                            </a>
-                            </div>
-                        </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </form>
+                    <!--</div>-->
+                    {% endif %}
                 </div>
-            </form>
+            </div>
+            <div class="col-6">
+                <p class="text-md-start">
+                    Title: {{ product.name }}
+                    <br />Artist: {{ product.artist }}
+                    <br />Added: {{ product.created_on|date:"M j, Y" }}
+                </p>
+                <p class="text-md-start">
+                    <small class="mb-0 font-weight-bold">
+                        Price: {{ product.price_currency}} {{ product.price }}
+                    </small>
+                </p>
+                <p class="mb-0 text-left text-muted">Description: {{ product.description }}</p>
+                {% if product.rating %}
+                <p class="mb-0 text-left text-muted">
+                    Our Rating
+                </p>
+                <ul class="rating" data-mdb-toggle="rating" data-mdb-readonly="true" data-mdb-value={{product.rating}}>
+                    <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                    <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                    <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                    <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                    <li><i class="far fa-star fa-sm" data-mdb-color="#FF0000"></i></li>
+                </ul>
+                {% else %}
+                <small class="mb-0 text-left text-muted">No Rating</small>
+                {% endif %}
+                <small class="mb-0 text-left text-muted">
+                    <br />Genre:
+                    <a href="{% url 'products' %}?genre={{product.genre.name}}">
+                        {{ product.genre }}
+                    </a>
+                </small>
+                {% if product.stock > 0 %}
+                <small class="mb-0 text-left text-muted"><br />Stock: {{ product.stock }}</small>
+                {% else %}
+                <small class="mb-0 text-left font-weight-bold"><br />Stock: Not in stock</small>
+                {% endif %}
+                <small class="mb-0 text-left text-muted"><br />Media Format: {{ product.media_format }}</small>
+                {% if product.media_color == 0 %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Black</small>
+                {% elif product.media_color == 1 %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Gold</small>
+                {% elif product.media_color == 2 %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Red</small>
+                {% elif product.media_color == 3 %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Green</small>
+                {% elif product.media_color == 4 %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Picture</small>
+                {% elif product.media_color == 5 %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Transparant</small>
+                {% elif product.media_color == 6 %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Blue</small>
+                {% else %}
+                <small class="mb-0 text-left text-muted"><br />Media Color: Other</small>
+                {% endif %}
+                {% if product.new_old == 1 %}
+                <small class="mb-0 text-left text-muted"><br />Status: Second-hand</small>
+                {% else %}
+                <small class="mb-0 text-left text-muted"><br />Status: New</small>
+                {% endif %}
+                <small class="mb-0 text-left text-muted"><br />Testimonial(s), if any:</small>
+                {% for testimonial in testimonials %}
+
+                {% if product.id == testimonial.article_id and testimonial.approved == True %}
+
+                <details>
+                    <summary>
+                        <small class="mb-0 text-left text-muted">{{ testimonial.name }}</small>
+                    </summary>
+                    <small class="mb-0 text-left text-muted">{{ testimonial.body }}</small>
+                </details>
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
-        {% endif %}
     </div>
 </div>
 
-{% endblock %}
+
+ {% endblock content %}
