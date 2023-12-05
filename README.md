@@ -9,7 +9,7 @@ The aim of this project was to build an fully working e-commerce site that aims 
 The users are able to use free-text search to find the items they want to purchase as well as using drop-down menues to list products by genre or media type (album, single).
 Furthermore, they can add items to a shopping bag, pay for their purchases by credit-card, view past orders 
 (if they have created an account, which is not mandatory), and review products. If they do create an account, they can provide shipping details and payment details in their profile so they don't have to
-enter those details if they come back for another purchase.
+enter those details every time if they come back for another purchase.
 
 Staff-members can also add products, genres, & media types. They also have the ability to approve user reviews and handle support requests.
 
@@ -24,7 +24,16 @@ The project is live
 
 # Buisness Case
 
+The site is consumer orientated (B2C). The target audience is somewhat limited given that the genres the store has on purpose
+limited itself to have in stock. However, people belonging to the target audience is usually die-hards for the sub-genres they
+like and are likely to be recurring customers if the shop lives up to its promises. 
 
+Given the right marketing, it can certainly be a viable niche business able to support itself as a business without the owner
+having to support him/herself with another job. The site does not require much maintenance and could easily be used as the
+basis of a free-time e-commerce site if one does not want to go all the way.
+
+The code of the site is in my opinion quite flexible so it would not take much work to adapt it for other speciality-stores
+or even make it more generic if one wants to.
 
 # User Interface
 
@@ -122,6 +131,42 @@ Every user belongs to one or more classes of user. This is implemented using dja
 3. Members. Used to provide a profile for the user. When someone sign up, they are automatically added to this group. If they need to be in another group (say editors) an admin has to add them there manually.
 4. Anonymous users (or not logged in users). Can purchase but not provide testimonials.
 
+A note here regarding the admin group and django-admin.
+
+The only thing the admin-group does is to provide a shortcut to the django-admin view. If the user really should be able to login
+there as well they need to have the superuser right assigned to them.
+
+In most cases that should not be necessary. Almost everything can be accomplished without logging into the django-admin
+portal.
+
+There are two exceptions.
+
+* If you need to add a created user to the staff group or assign him/her superuser status.
+* If you want to delete an artist or genre completely. Technically, this could be accomplished by writing specific code/views to
+handle it, but I decided against it. That is because the action can be so far-reaching that I judged it best if only super-users has that
+access and not just any staff-member.
+
+If you are logged in as a staff-user you have access to a certain view (can be found under the user-avatar in the top-right) where
+you handle all of the day-to-day tasks of maintaining the site.
+
+In the above image you can see what staff members can do from that view. The "Add" buttons should be self-explanatory (except news-item,
+that adds items to the right-hand column on the landing page). 
+
+"Approve reviews" lets staff-members decide if the posted review(s) should be visible. Note that a regular staff user can not make it invisble again,
+and that is by design. I think it is dishonest to remove bad reviews, so if you are afraid of bad reviews you probably should think twice (or more) of how
+you conduct your business rather than hiding the bad reviews. A superuser can, of couse, remove or hide the bad review but should be considered an exceptional case.
+
+"Handle contact form messages" lets the staff member handle things that have come in through the contact form.
+
+"View all orders" does what it says - views all orders ever placed on the site. Can be sorted in various ways, such as by
+customer name, order date, or order total.
+
+Deleting and/or editings things are not done from here. If you want to edit/delete the details of a specific product, you do
+so by links under the product image on the product details page. Note that there is no confirmation on delete so be careful.
+
+Similarily, the news-items are deleted/edited from the landing page. It only ever shows the latest ten news-items so if you for some reason need to alter news-items from further
+back you need to do it through django-admin. Since older news are not accessible to the general public that should not be a major concern.
+
 # External APIs used
 
 1. Stripe for payment processing
@@ -185,7 +230,7 @@ color-coded in blue. They do not depend on anything and are self-contained.
 
 As can be seen, not all apps uses models of their own.
 
-ADD DESCRIPTION OF MODEL
+ADD DESCRIPTION OF MODELS
 
 # Bugs encountered and fixed
 1. Navbar did not list genres for all pages at first. I had the same issue in the RetroLoversUnited project, but used a context-processor this time around instead of a mixin. This approach
@@ -250,7 +295,6 @@ more generic and work regardless of what genres are present in the db
 # To Do
 
 Update stock when an order has been completed
-Staff view - in progress
 
 # Things for the future
 
