@@ -313,3 +313,11 @@ VERSATILEIMAGEFIELD_SETTINGS = {
     # here: https://optimus.io/support/progressive-jpeg/
     'progressive_jpeg': False
 }
+    
+VERSATILEIMAGEFIELD_RENDITION_KEY_SETS = {
+    'image_gallery': [
+        ('gallery_large', 'crop__800x450'),
+        ('gallery_square_small', 'crop__50x50'),
+        ('social', 'thumbnail__50x50'),
+    ],
+}
