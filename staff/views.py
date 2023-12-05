@@ -14,3 +14,17 @@ def staff(request):
     
 
     return render(request, template, context)
+
+@check_user_is_staff
+def view_orders(request):
+    """ Display the staff only page. """
+    
+    
+    template = 'staff/view_orders.html'
+    context = {
+        # Order.objects.all()
+        }
+    
+    
+
+    return render(request, template, context)

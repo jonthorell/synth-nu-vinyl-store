@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}View All Orders{% endblock title %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'staff/css/news.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="container container-bottom">
+    <div class="row core-divs">
+        <div class="col-md text-center">
+            <h2 class="div-header-h2">View All Orders</h2>
+        </div>
+
+
+        <div class="text-right">
+            <div class="order-history table-responsive">
+                <div class="datatable" data-mdb-striped='false' data-mdb-borderless='true' data-mdb-hover='false'
+                     data-mdb-fixed-header='true' data-mdb-color='grey' data-mdb-full-pagination='false'
+                     data-mdb-max-width="1800">
+                    {% comment %}
+                    <!--the div class datatable is what makes the sorting magic happen -->
+                    {% endcomment %}
+                    <table class="table table-sm table-borderless">
+                        <thead>
+                            <tr>
+                                <th>Item #</th>
+                                <th>Customer</th>
+                                <th>Order Number</th>
+                                <th>Date</th>
+                                <th>Items</th>
+                                <th>Order Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                            <tr>
+                                <td>{{ forloop.counter }} </td>
+                                <td>{{ order.full_name }}</td>
+                                <td>
+                                    <a href="{% url 'order_history' order.order_number %}"
+                                       title="{{ order.order_number }}">
+                                        {{ order.order_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td>{{ order.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                        <li class="small">
+                                            {{ item.product.name }} x{{ item.quantity }}
+                                        </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>${{ order.grand_total }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            </div>
+        <div>&nbsp;</div>
+        <div class="gap-2 d-grid d-md-block text-center">
+            <a class="btn btn-outline-black rounded-0 rounded-pill text-capitalize no-overflow" href="/"><i class="fa-solid fa-house"></i> Home</a>
+        </div>
+    </div>
+    </div>
+
+     
+
+            {% endblock content %}

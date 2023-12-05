@@ -1,32 +1,32 @@
 # Synth.Nu
 
-The aim of this project to build an e-commerce site that aims to sell music on vinyl to lovers of a specific genre, namely synthmusic (and subgenres).
+![mockup-picture](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/01-landing-page.png?raw=true)
+
+# Overview
+
+The aim of this project was to build an fully working e-commerce site that aims to sell music on vinyl to lovers of a specific genre, namely synthmusic (and subgenres).
+
+The users are able to use free-text search to find the items they want to purchase as well as using drop-down menues to list products by genre or media type (album, single).
+Furthermore, they can add items to a shopping bag, pay for their purchases by credit-card, view past orders 
+(if they have created an account, which is not mandatory), and review products. If they do create an account, they can provide shipping details and payment details in their profile so they don't have to
+enter those details if they come back for another purchase.
+
+Staff-members can also add products, genres, & media types. They also have the ability to approve user reviews and handle support requests.
 
 The .nu top-level-domain means now in Swedish so if the site were to be deployed live it would be on a .nu domain. So the name of the site is literally
 Synth.now.
 
-The site is by its nature B2C centered.
+The site was developed using Django(python), HTML, CSS, MaterializeBootstrap, and javascript. The database is stored in a postgres
+database hosted at ElephantSQL.
 
 The project is live 
 [here](https://synth-vinyls-e3c70f9ba271.herokuapp.com/)
 
-![mockup-picture](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/01-landing-page.png?raw=true)
+# Buisness Case
 
-# Background and use-case
 
-The site is for all intentents and purposes a fully working e-commerce site although limited in scale.
-Customers can search for what they are interested in purchasing in a varierty of ways (full text search and drop-down menues
-for example), add said products to a shopping bag (and remove if they change their mind), and fullfill the purchase with the
-aid of stripe. If they want to, they can create an account for themselves although not mandatory. 
 
-If they do create an account, they can provide shipping details and payment details in their profile so they don't have to
-enter those details if they come back for another purchase.
-
-If logged in, the site will provide the prices in the currency the customer choses. Otherwise it defaults to USD.
-
-Staff-members can update stock, add new products, change descriptions, handle incoming questions from a contact-form and
-similar tasks without having to use the django-admin site. The only thing django-admin is required for is to change
-group-member ship of people (that is, if they should be considered staff or not).
+# User Interface
 
 The screen is divided into three parts.
 
@@ -45,7 +45,7 @@ you search. The shopping cart is a link to view what is in your bag, and it also
 are already in it.
 
 The padlock is the user-menu. It will look different depending on who is logged in (user can decide), and it provides
-links to among other things login, logout, create account, delete account, manage stock (for staff).
+links to among other things login, logout, create account, and administrative tasks (for staff).
 
 The middle looks like this:
 
@@ -86,31 +86,31 @@ And finally, at the bottom. A footer with copyright information.
 
 1. Since it is a django-project, configuation is done in settings.py, forms.py, & urls.py
 2. The project consists of several apps.
-Core: main-site, houses the landing page, contact page, and about page.
-bag: the shopping-bag the customers places their desired products in
-checkout: used by stripe etc to finalize a purchase
-newsletter: provides the ability to sign up for a newsletter
-staff: used to provide admin-functionality for staff. It is essentially an app that provides front-end pages to manipulate the backend from an administrative point of view, for example adding new products and maintaining stock.
-products: lists, sorts, and provides details on what the store is sellig
-profiles: provides a mean of providing the customer the ability to store shipping details as well as an order history
-about: credits and about-text
-
+* Core: main-site, houses the landing page, contact page, and about page.
+* bag: the shopping-bag the customers places their desired products in
+* checkout: used by stripe etc to finalize a purchase
+* newsletter: provides the ability to sign up for a newsletter
+* staff: used to provide admin-functionality for staff. It is essentially an app that provides front-end pages to manipulate the backend from an administrative point of view, for example adding new products and maintaining stock.
+* products: lists, sorts, and provides details on what the store is sellig
+* profiles: provides a mean of providing the customer the ability to store shipping details as well as an order history
+* about: credits and about-text
 
 Point one applies to the individual apps as well as on the project level.
+
 3. The main code is in views.py and "scattered" in the django template files as well such as the articles_by_author file. In the latter case it stuff like this:
 ```django
 {% if profile.user.is_active %}
 {% endif %
 ```
-4. The code also uses context processors to access variables and models across the site. This means the app are not completely abiding by the self-containment principle, but I decided
+4. The code also uses context processors to access variables and models across the site. This means the app is not completely abiding by the self-containment principle, but I decided
 it was more important to stick to the DRY principle in order to make it easier to not forget making changes in several places if need be. Besides, it would be hard to stick to
 self-containment in a site like this. With that I mean a checkout app will by necessity require a products app as well as a shopping bag app if you do not want to write the whole thing as a monolith.
-4. Comments are used in both the python code and the template files. In the latter case, it is html-comments surrounded by the django comment-tags. The purpose for doing it twice is that the html-comment sticks out color-wise in the code editor and the django-tags make sure commens are not visible in view source. I like having them invisible there since it makes it more "safe" to keep notes formyself in the code while developing.
-5. It uses a mix of class-based views and function-based, depending on what made most sense for the particular view. Helper-functins are function based.
-6. Custom javascript and custom css classes used only in one app or even on just one page of an app are stored in separate files rather than in a generic script.js and style.css and
+5. Comments are used in both the python code and the template files. In the latter case, it is html-comments surrounded by the django comment-tags. The purpose for doing it twice is that the html-comment sticks out color-wise in the code editor and the django-tags make sure commens are not visible in view source. I like having them invisible there since it makes it more "safe" to keep notes formyself in the code while developing.
+6. It uses a mix of class-based views and function-based, depending on what made most sense for the particular view. Helper-functins are function based.
+7. Custom javascript and custom css classes used only in one app or even on just one page of an app are stored in separate files rather than in a generic script.js and style.css and
 then "injected" into the template that needs it. The reason is to make it easier to locate the code in question should you need to change it, and lessen the risk of the "wrong"
 class being applied.
-7. In the folder synth (the project-level core-folder) contains a utils.py file. It contains some helper-classes that other apps are using. Those are imported in the other apps where applicable.
+8. In the folder synth (the project-level core-folder) contains a utils.py file. It contains some helper-classes that other apps are using. Those are imported in the other apps where applicable.
 This is mainly due to those classes are pretty static and a way to organize the code so you don't have to see them unless you really need to. 
 
 # Design considerations (user classes)
@@ -125,11 +125,10 @@ Every user belongs to one or more classes of user. This is implemented using dja
 # External APIs used
 
 1. Stripe for payment processing
-2. FreeCurrecnyAPI for online currency conversion
 
 # Deployment
 
-All coding takes place in Visual Studio and regularily pushed to the repo at GitHub. There are some "hidden" environmental variables in a file called env.py that is excluded from git
+All coding took place in Visual Studio and regularily pushed to the repo at GitHub. There are some "hidden" environmental variables in a file called env.py that is excluded from git
 pushes. Those variables are used when running locally. The variables in question are:
 
 * DATABASE_URL
@@ -144,7 +143,7 @@ pushes. Those variables are used when running locally. The variables in question
 * AWS_SECRET_ACCESS_KEY
 * CURRENCY_API_KEY
 
-# Deployment to Heroku
+## Deployment to Heroku
 
 In order to deploy something to Heroku, several steps needs to be taken care of.
 
@@ -186,6 +185,8 @@ color-coded in blue. They do not depend on anything and are self-contained.
 
 As can be seen, not all apps uses models of their own.
 
+ADD DESCRIPTION OF MODEL
+
 # Bugs encountered and fixed
 1. Navbar did not list genres for all pages at first. I had the same issue in the RetroLoversUnited project, but used a context-processor this time around instead of a mixin. This approach
 has the added benefit that it also works on function-based views such as the ones for allauth
@@ -203,7 +204,7 @@ in settings.py. Not sure what the problem was, since the code looks the same now
 9. Products page looked too cramped when in two columns. Fixed by removing some details and keeping that to the product_details page
 10. Fullname did not show up in user-menu. Forgot to make sure fname and lname is set on all accounts. Fixed by making a custom signup form
 11. Custom signup form was hard to get the fields in the order I wanted them. It took a while to find out you needed both the Meta class and field_order to make it work.
-12.The css to remove the bullet points from the li on the privacy page hit too wide. Fixed by altering the css.
+12. The css to remove the bullet points from the li on the privacy page hit too wide. Fixed by altering the css.
 13. Update/remove links in bag did not work. Turned out it did not load the js-file correctly. Fixed.
 14. Got a bunch of unbound errors when submitting the order into the database. I used the boutique ado code as a base but with some modifications. The problem was that in boutique ado the 
 model was named Products (capital P) but mine is called products (lowercase P). Python and/or Django got confused by this:
@@ -220,33 +221,31 @@ The solution was to replace the variable product with the shortened prod.
 15. The Add-staff link to menu did not work properly. Removed check if user is superuser. Superfluos since it is only the group membership that is important
 16. The new image field in profile model introduced an error in profile-view. Fixed by altering the form.
 17. Update in bag template should take current stock into consideration. Shouldn't be possible to add you want to buy 7 items if only 2 are in stock. Now prevented by some if-statements.
-18. Stripe input box is not rendered?? Silly mistake with an underscore in the block where it was supposed to go.
+18. Stripe input box was not rendered. Silly mistake with an underscore in the block where it was supposed to go.
 19. Profile view showed an generic "server error" if you were not logged in. Fixed by wrapping it in a decorator so the error is more meaningful
 20. When viewing bag-contents and one product does not contain an image, the site crashes with "The 'image' attribute has no file associated with it". The if-statement to check whether the product has an associated image was wrong.
 21. The "Shop some more" text in the button should not be underlined. Fixed. It was missing a class.
-22. The "sort by" needs to be styled to be more inline with the rest of the site. Fixed by applying the right classes.
+22. The "sort by" was not styled enough to be more inline with the rest of the site. Fixed by applying the right classes.
 23. The image field in the profile model is not being updated when a user tries to upload an image. The post method missed request.FILES, fixed.
 24. The add product, edit product, add genre, and add news item only used the left column. Fixed by aligning the divs and their classes properly
 25. Not necessarily a big bug but an annoyance. When viewing a past order, it still said thank you in the header which is not really appropriate. Fixed by adding a if-statement to check if the user comes from the profile or not
 26. Accidentally used static instead of MEDIA_URL to access default avatar images in menu. Fixed
 27. The ordernumber in the toast when successfully bought something flowed out of the toast on smaller devices such as mobile phones."Fixed" by removing that from the toast. The information is present in the page below anyway.
-28. Toasts are kinda cramped on mobile. Rewrote how big they are to rectify that.
-29. Text sometimes spilled out of the button on smaller resolutions. First noticed on the newsletter subscription form. Fixed by adding a no-overflow class that sets the property to hidden. Will be added to remaining buttons as well.
+28. Toasts were kinda cramped on mobile. Rewrote how big they are to rectify that.
+29. Text sometimes spilled out of the button on smaller resolutions. First noticed on the newsletter subscription form. Fixed by adding a no-overflow class that sets the property to hidden as well as a surrounding div that adjusts for screen resolution.
 30. The buttons on top of the all products view got a strange layout on lower resolutions. Fixed by adding so they are stacked on those resolutions. A bit of a tradeof when that happens so there is no wasted screen real estate on larger resolutions. Settled for d-md as the breaking point, and added some extra margin to the buttons as well for when the buttons are not stacked. Should be added elsewhere there are buttons present as well.
 31. Email confirmations were not sent upon completed purchase. Something was wrong in webhook_handler.py, although not quite sure which one of my changes did the trick. It does work now however.
 32. Webhooks did not work completely. Money was drawn, but order not processed all the way (i.e. not added to db). Same thing as 31, not sure which change made it work. It works.
 33. Search field yielded strange results. Turns out I had accidently made it search on name instead of friendly name, which means that a search for depeche (for example) as artist did not work since the name is shorthand. Fixed.
+34. Right column on product_details is "cut off" on mobile. Fixed by essentially re-writing the entire template, it was overly complex with both columns and tables.
 
 
 # Bugs encountered but not fixed
 
 1. Some app-specific css/js-files refuses to work from the app's static/css folder. Workaround: keep css-files in the global static/css folder
 2. The rating field on add/edit product should be limited between the values 1 to 5. Not fixed due to time restrains. Noticed it too late. However, it is not a big issue since the display only shows a max of 5 stars anyway. The rating is not entirely truthful though 
-3. Right column on product_details is "cut off" on mobile.
-4. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
+3. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
 more generic and work regardless of what genres are present in the db
-
-
 
 # To Do
 

@@ -143,6 +143,7 @@ TEMPLATES = [
                 'synth.context_processors.users_context',
                 'synth.context_processors.userprofiles_context',
                 'synth.context_processors.testimonials_context',
+                'synth.context_processors.orders_context',
                 # next line provides access to the bag contents across the site
                 'bag.contexts.bag_contents',
                 

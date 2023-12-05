@@ -66,7 +66,7 @@
                                         </a>
                                         {% else %}
                                         <a href="{% url 'product_detail' product.id %}">
-                                            <img class="card-img-top img-fluid" src="{% static 'images/noimage.webp' %}" alt="{{ product.name }}" with="120" height="120">
+                                            <img class="card-img-top img-fluid" src="{% static 'images/noimage.webp' %}" alt="{{ product.name }}" width="120" height="120">
                                         </a>
                                         {% endif %}
                                         {% comment %}
