@@ -62,11 +62,11 @@
                                     <div class="card h-100 border-0">
                                         {% if product.image %}
                                         <a href="{% url 'product_detail' product.id %}">
-                                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}" width="100" height="100">
+                                            <img class="card-img-top img-fluid" src="{{ product.image.thumbnail.120x120 }}" alt="{{ product.name }}" width="120" height="120">
                                         </a>
                                         {% else %}
                                         <a href="{% url 'product_detail' product.id %}">
-                                            <img class="card-img-top img-fluid" src="{% static 'images/noimage.webp' %}" alt="{{ product.name }}" with="100" height="200">
+                                            <img class="card-img-top img-fluid" src="{% static 'images/noimage.webp' %}" alt="{{ product.name }}" with="120" height="120">
                                         </a>
                                         {% endif %}
                                         {% comment %}
