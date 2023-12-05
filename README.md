@@ -149,6 +149,8 @@ access and not just any staff-member.
 If you are logged in as a staff-user you have access to a certain view (can be found under the user-avatar in the top-right) where
 you handle all of the day-to-day tasks of maintaining the site.
 
+![staff-admin](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/08-staff.png?raw=true)
+
 In the above image you can see what staff members can do from that view. The "Add" buttons should be self-explanatory (except news-item,
 that adds items to the right-hand column on the landing page). 
 

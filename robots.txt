@@ -2,3 +2,4 @@ User-agent: *
 Disallow: /accounts/
 Disallow: /checkout/
 Disallow: /staff/
+Sitemap: https://synth-vinyls-e3c70f9ba271.herokuapp.com/sitemap.xml
