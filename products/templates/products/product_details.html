@@ -16,9 +16,9 @@
         <div class="row justify-content-start">
             <div class="col-6">
                 {% if product.image %}
-                    <img src="{{ product.image.thumbnail.80x80 }}" alt="{{ product.name }}" width="80" height="80" />
+                    <img src="{{ product.image.thumbnail.120x120 }}" alt="{{ product.name }}" width="120" height="120" />
                 {% else %}
-                    <img src="{% static 'images/noimage.webp' %}" height="80" width="80" alt="No product image">
+                    <img src="{% static 'images/noimage.webp' %}" height="120" width="120" alt="No product image">
                 {% endif %}
                 <div>
                     {% comment %}
@@ -65,7 +65,8 @@
                                         </div>
                                     </div>
                                     <div class="gap-2 d-grid d-md-block">
-                                        <input type="submit" class="text-capitalize mt-2 btn btn-outline-black rounded-0 rounded-pill no-overflow" value="buy item">
+                                        <input type="submit" 
+                                               class="text-capitalize mt-2 btn btn-outline-black rounded-0 rounded-pill no-overflow" value="buy item">
                                         <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="mt-2 btn btn-outline-black rounded-0 rounded-pill text-decoration-none no-overflow">
                                             <span class="icon">
                                                 <i class="fa-solid fa-basket-shopping"></i>
