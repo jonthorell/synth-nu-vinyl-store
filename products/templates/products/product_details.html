@@ -16,9 +16,9 @@
         <div class="row justify-content-start">
             <div class="col-6">
                 {% if product.image %}
-                    <img src="{{ product.image.url }}" alt="{{ product.name }}" width="200" height="200" />
+                    <img src="{{ product.image.thumbnail.80x80 }}" alt="{{ product.name }}" width="80" height="80" />
                 {% else %}
-                    <img src="{% static 'images/noimage.webp' %}" width="200" height="200" alt="No product image">
+                    <img src="{% static 'images/noimage.webp' %}" height="80" width="80" alt="No product image">
                 {% endif %}
                 <div>
                     {% comment %}
