@@ -30,9 +30,9 @@
                     <div class="col-2 mb-1">
                         <a href="{% url 'product_detail' item.product.id %}">
                             {% if item.product.image %}
-                            <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
+                            <img class="w-100" src="{{ item.product.image.thumbnail.120x120 }}" alt="{{ item.product.name }}" width="120" height="120">
                             {% else %}
-                            <img class="w-100 "src="{% static 'images/noimage.webp' %}" alt="{{ item.product.name }}">
+                            <img class="w-100 "src="{% static 'images/noimage.webp' %}" alt="{{ item.product.name }}" width="120" height="120">
                             {% endif %}
                         </a>
                     </div>
