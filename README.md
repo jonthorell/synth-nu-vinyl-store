@@ -35,6 +35,11 @@ basis of a free-time e-commerce site if one does not want to go all the way.
 The code of the site is in my opinion quite flexible so it would not take much work to adapt it for other speciality-stores
 or even make it more generic if one wants to.
 
+# Marketing
+
+Marketing will take place online using among other things Facebook and an e-mail newsletter. Facebook in particular
+has a buisness page set up.
+
 # User Interface
 
 The screen is divided into three parts.
@@ -400,15 +405,19 @@ In order to not get complaints about Django-tags, the "view source" output for e
 
 I got the following result for the pages listed below (listed this way to make it more digestable).
 
+![no-lint-error](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/no-lint-error.png?raw=true)
 
+1. Landing-page
+2. Products
+3. Contact
+4. About
+5. Bag
+6. Checkout
+7. Privacy
+8. Newsletter
+9. Selected allauth pages
 
-Landing-page
-Products
-Contact
-About
-Bag
-Checkout
-
+Profile complains about a duplicate ID I can not find.
 
 
 
