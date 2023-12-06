@@ -44,7 +44,7 @@ class genre(models.Model):
         return self.friendly_name
 
 class product(models.Model):
-    '''Class used to create the genre model '''
+    '''Class used to create the product model '''
     # This class is based on, but modified, on the class from the boutique ado walkthru
     
     name = models.CharField(max_length=254)

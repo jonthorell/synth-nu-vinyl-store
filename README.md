@@ -40,6 +40,8 @@ or even make it more generic if one wants to.
 Marketing will take place online using among other things Facebook and an e-mail newsletter. Facebook in particular
 has a buisness page set up.
 
+![facebook](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/facebook.png?raw=true)
+
 # User Interface
 
 The screen is divided into three parts.
@@ -416,6 +418,7 @@ I got the following result for the pages listed below (listed this way to make i
 7. Privacy
 8. Newsletter
 9. Selected allauth pages
+10. Staff
 
 Profile complains about a duplicate ID I can not find.
 
@@ -456,5 +459,5 @@ As well as 4000002760003184 to test 3D Secure
 
 And my own real card (although without processing it)
 
-3. A non-logged in user or a non-staff user should not be able to access anything under /staff. Expected result: forbidden page
-4. 
+3. A non-logged in user or a non-staff user should not be able to access anything under /staff. Expected result: forbidden page, which works.
+4. Stripe should continue its work even if the user accidentally closes the browser. Tested, and money is drawn and the order is added to the database as it should

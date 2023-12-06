@@ -4,6 +4,9 @@ from .models import product, genre, testimonial
 
 
 class ProductForm(forms.ModelForm):
+    """
+        Product form
+        """
 
     class Meta:
         model = product

@@ -103,7 +103,7 @@ INTERNAL_IPS = [
     # ...
 ]
 
-# CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 SUMMERNOTE_THEME = 'bs4'
 
@@ -136,7 +136,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
-                # The five custom context processors below are used to make sure the header can retrieve the data needed from the database without
+                # The six custom context processors below are used to make sure the header can retrieve the data needed from the database without
                 # having to use a custom mixin for it. Means it also works for addons such as allauth that does not use class-based views
                 'synth.context_processors.genres_context',
                 'synth.context_processors.mediatypes_context',
@@ -219,10 +219,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 if 'USE_AWS' in os.environ:
     # Cache control
-    # AWS_S3_OBJECT_PARAMETERS = {
-    #     'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
-    #     'CacheControl': 'max-age=94608000',
-    # }
+    AWS_S3_OBJECT_PARAMETERS = {
+        'Expires': 'Thu, 31 Dec 2099 20:00:00 GMT',
+        'CacheControl': 'max-age=94608000',
+    }
     # Bucket Config
     AWS_STORAGE_BUCKET_NAME = 'synth-jt'
     AWS_S3_REGION_NAME = 'eu-north-1'

@@ -52,7 +52,7 @@ def all_products(request):
                 messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
             
-            # need to alter this so can search for artist name
+            
             queries = Q(name__icontains=query) | Q(description__icontains=query) | Q(artist__friendly_name__icontains=query)
             products = products.filter(queries)
             

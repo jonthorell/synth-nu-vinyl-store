@@ -66,7 +66,7 @@ class contact(View):
             return HttpResponseRedirect("/")
     def get(self, request, *args, **kwargs):
         # display form
-        # context = self.get_context_data()
+        
         form = ContactForm(request.POST)
         return render(
         request,
