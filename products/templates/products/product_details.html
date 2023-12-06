@@ -16,7 +16,7 @@
         <div class="row justify-content-start">
             <div class="col-6">
                 {% if product.image %}
-                    <img src="{{ product.image.thumbnail.120x120 }}" alt="{{ product.name }}" width="120" height="120" />
+                    <img src="{{ product.image.thumbnail.120x120 }}" alt="{{ product.name }}" width="120" height="120">
                 {% else %}
                     <img src="{% static 'images/noimage.webp' %}" height="120" width="120" alt="No product image">
                 {% endif %}
@@ -92,8 +92,8 @@
             <div class="col-6">
                 <p class="text-md-start">
                     Title: {{ product.name }}
-                    <br />Artist: {{ product.artist }}
-                    <br />Added: {{ product.created_on|date:"M j, Y" }}
+                    <br>Artist: {{ product.artist }}
+                    <br>Added: {{ product.created_on|date:"M j, Y" }}
                 </p>
                 <p class="text-md-start">
                     <small class="mb-0 font-weight-bold">
@@ -116,40 +116,40 @@
                 <small class="mb-0 text-left text-muted">No Rating</small>
                 {% endif %}
                 <small class="mb-0 text-left text-muted">
-                    <br />Genre:
+                    <br>Genre:
                     <a href="{% url 'products' %}?genre={{product.genre.name}}">
                         {{ product.genre }}
                     </a>
                 </small>
                 {% if product.stock > 0 %}
-                <small class="mb-0 text-left text-muted"><br />Stock: {{ product.stock }}</small>
+                <small class="mb-0 text-left text-muted"><br>Stock: {{ product.stock }}</small>
                 {% else %}
-                <small class="mb-0 text-left font-weight-bold"><br />Stock: Not in stock</small>
+                <small class="mb-0 text-left font-weight-bold"><br>Stock: Not in stock</small>
                 {% endif %}
-                <small class="mb-0 text-left text-muted"><br />Media Format: {{ product.media_format }}</small>
+                <small class="mb-0 text-left text-muted"><br>Media Format: {{ product.media_format }}</small>
                 {% if product.media_color == 0 %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Black</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Black</small>
                 {% elif product.media_color == 1 %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Gold</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Gold</small>
                 {% elif product.media_color == 2 %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Red</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Red</small>
                 {% elif product.media_color == 3 %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Green</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Green</small>
                 {% elif product.media_color == 4 %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Picture</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Picture</small>
                 {% elif product.media_color == 5 %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Transparant</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Transparant</small>
                 {% elif product.media_color == 6 %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Blue</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Blue</small>
                 {% else %}
-                <small class="mb-0 text-left text-muted"><br />Media Color: Other</small>
+                <small class="mb-0 text-left text-muted"><br>Media Color: Other</small>
                 {% endif %}
                 {% if product.new_old == 1 %}
-                <small class="mb-0 text-left text-muted"><br />Status: Second-hand</small>
+                <small class="mb-0 text-left text-muted"><br>Status: Second-hand</small>
                 {% else %}
-                <small class="mb-0 text-left text-muted"><br />Status: New</small>
+                <small class="mb-0 text-left text-muted"><br>Status: New</small>
                 {% endif %}
-                <small class="mb-0 text-left text-muted"><br />Testimonial(s), if any:</small>
+                <small class="mb-0 text-left text-muted"><br>Testimonial(s), if any:</small>
                 {% for testimonial in testimonials %}
 
                 {% if product.id == testimonial.article_id and testimonial.approved == True %}

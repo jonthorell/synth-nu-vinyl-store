@@ -400,6 +400,10 @@ In order to not get complaints about Django-tags, the "view source" output for e
 
 I got the following result for the pages listed below (listed this way to make it more digestable).
 
+Landing-page
+Products
+
+
 ## Manual Tests
 
 1. Adding procuts to the bag and adjusting items already in the bag should only accept values between 1 and whatever is in stock. 

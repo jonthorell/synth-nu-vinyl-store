@@ -82,7 +82,7 @@
                     </span>
                     {% endif %}
                     {% endfor %}
-                    <span class="published black-text"><br />Published: {{ newsfeed.created_on|date:"M j, Y" }}</span>
+                    <span class="published black-text"><br>Published: {{ newsfeed.created_on|date:"M j, Y" }}</span>
             </p>
             {% endfor %}
         </div>
@@ -110,5 +110,5 @@
 
 {% block onload_js %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'core/javascript/coreapp_index.js' %}"></script>
+<script src="{% static 'core/javascript/coreapp_index.js' %}"></script>
 {% endblock %}
