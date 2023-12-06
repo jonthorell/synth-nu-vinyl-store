@@ -68,6 +68,59 @@ above, it is not.
 
 And finally, at the bottom. A footer with copyright information.
 
+For some addtional details, 
+
+If one choses "All genres" in the top-menu, you get this:
+
+![all-genres](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/09-all-products.png?raw=true)
+
+The buttons at the top are linked to the specific sub-grenre for filtering.
+
+Likewise under media you get this:
+
+![all-media](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/10-all-media.png?raw=true)
+
+And you can go on to view just all singles for example.
+
+Under the sort menu, there are two options. By price or rating. Price is lowest price first and rating is highest first.
+
+![sort1](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/11-sort.png?raw=true)
+
+There are more detailed sort-options if you first select say media type "album". After that you can select sort by name.
+rating, price, name, or genre.
+
+The contact page looks like this:
+
+![contact](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/12-contact.png?raw=true)
+
+Everything is logged in the database, and staff-members can take the appropiate action.
+
+About is just some basic info about the site and credits.
+
+![about](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/13-about.png?raw=true
+
+The shopping cart shows the number of items selected for purchase with an overlaid number. If empty, there is no number.
+If one hovers over it you get a popup with the current value of the bag. If you click on the car you get either:
+
+![empty-bag](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/14-empty-bag.png?raw=true)
+
+or
+
+![non-empty-bag](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/15-non-empty-bag.png?raw=true)
+
+If the latter, you can proceed to checkout.
+
+![checkout](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/16-checkout.png?raw=true)
+
+You need to provide some credit card details to proceed.
+
+Apart from that, whenever you need to login, register an account and so on it is handled by the allauth django package.
+An example of how it might look is:
+
+![login](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/17-allauth.png?raw=true)
+
+Finally, there is a footer at the bottom with copyright information.
+
 ![footer](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/03-footer.png?raw=true)
 
 # Design considerations (visual).
@@ -314,21 +367,15 @@ of that sort but get the proper error message as expected.
 
 ## Lighthouse
 
-One Lighthouse screenshot per view. In All cases Lighthouse complains about missing explicit size-tags (not surprising since it is in a header.html that in turn is included in base.html). However,
-the error is misleading. The width and height attributes are set using css-classes which lighthouse does not pick up upon.
+One Lighthouse screenshot per view. In some cases it is not practical in providing one per view (i.e all_products, it should not matter whether I choose one genre or all so I settled for one)
 
-Lighthouse also complains about things I can not do much about without re-rewriting the front-end framework that is being used (Materialize bootstrap).
-
-In this example for instance.
-
-![lighthouse-error](https://github.com/jonthorell/RetroLoversUnited/blob/main/static/images/readme-files/lighthouse/error-lh.PNG?raw=true)
-
-The buttons are created on the fly by the classname added and the data-* fields needed for the class to work. In some cases there might be work-arounds for it, but not always.
+![light-house-index](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/01-landingpage.png?raw=true)
 
 
-As can be seen, the values from lighthouse are fairly consistant across the board. But see above for a partial explantion of what could potentially
-lower the scores. Some of them are, as far as I can tell, out of my control at this point. I could have found out about those issues earler on and
-found ways to fix it, but I did not spot the issues in time.
+
+As can be seen, the values from lighthouse are fairly consistant across the board. 
+
+Some, as in the profile, is out of my control since the error comes from the equivalent of bootstrap that causes it.
 
 
 ## HTML validation
