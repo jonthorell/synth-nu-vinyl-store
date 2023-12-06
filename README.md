@@ -292,8 +292,6 @@ color-coded in blue. They do not depend on anything and are self-contained.
 
 As can be seen, not all apps uses models of their own.
 
-ADD DESCRIPTION OF MODELS
-
 # Bugs encountered and fixed
 1. Navbar did not list genres for all pages at first. I had the same issue in the RetroLoversUnited project, but used a context-processor this time around instead of a mixin. This approach
 has the added benefit that it also works on function-based views such as the ones for allauth
