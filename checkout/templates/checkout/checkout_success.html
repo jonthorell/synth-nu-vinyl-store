@@ -197,9 +197,9 @@
                 </div>
             </div>
             <div class="col-lg" id="image-div">
-                <br />
+                <br>
 
-                <img src="{% static 'images/shopping_complete.webp' %}" class="text-center" alt="Shopping bag image" width="400" height="400" />
+                <img src="{% static 'images/shopping_complete.webp' %}" class="text-center" alt="Shopping bag image" width="400" height="400">
             </div>
             <div>
 
@@ -213,5 +213,5 @@
 
 {% block onload_js %}
 {{ block.super }}
-<script type="text/javascript" src="{% static 'checkout/javascript/checkout_success.js' %}"></script>
+<script src="{% static 'checkout/javascript/checkout_success.js' %}"></script>
 {% endblock %}

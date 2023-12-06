@@ -39,9 +39,9 @@
                     <tr>
                         <td class="p-3 w-25">
                             {% if item.product.image %}
-                                <img class="img-fluid rounded" src="{{ item.product.image.thumbnail.120x120 }}" width="120" height="120">
+                                <img class="img-fluid rounded" src="{{ item.product.image.thumbnail.120x120 }}" width="120" height="120" alt="{{item.product.name}}">
                             {% else %}
-                                <img class="img-fluid rounded" src="{% static 'images/noimage.webp' %}" width="120" height="120">
+                                <img class="img-fluid rounded" src="{% static 'images/noimage.webp' %}" width="120" height="120" alt="{{item.product.name}}">
                             {% endif %}
                         </td>
                         <td class="py-3">
@@ -93,7 +93,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td colspan="5" class="text-right">
+                        <td class="text-right">
                             <div class="gap-2 d-grid d-md-block">
                                 <a href="{% url 'products' %}?genre=classic,electronica,ebm,experimental,industry,spop" class="btn btn-outline-black rounded-0 rounded-pill no-overflow">
                                     <span class="icon">

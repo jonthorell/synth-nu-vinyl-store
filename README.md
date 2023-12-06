@@ -400,10 +400,15 @@ In order to not get complaints about Django-tags, the "view source" output for e
 
 I got the following result for the pages listed below (listed this way to make it more digestable).
 
+
+
 Landing-page
 Products
 Contact
 About
+Bag
+Checkout
+
 
 
 
@@ -442,4 +447,5 @@ As well as 4000002760003184 to test 3D Secure
 
 And my own real card (although without processing it)
 
-3. A non-logged in user or a non-staff user should not be able to access anything under /staff
+3. A non-logged in user or a non-staff user should not be able to access anything under /staff. Expected result: forbidden page
+4. 
