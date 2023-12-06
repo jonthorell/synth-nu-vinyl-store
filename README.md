@@ -402,6 +402,9 @@ I got the following result for the pages listed below (listed this way to make i
 
 Landing-page
 Products
+Contact
+About
+
 
 
 ## Manual Tests
@@ -413,7 +416,7 @@ Also, if the user enters a number manually the site should throw an error saying
 been unable to fool the site into adding more than what is possible. This does not apply to products that are out of stock since in that case you do not even get the 
 form in the first place. Works as intended.
 
-## Credit cards
+2. Stripe should only accept valid credit cards numbers. Expected result: error message beneath the input field.
 
 Has been tested with these two fake credit cards
 
@@ -436,3 +439,7 @@ Incorrect number decline	4242424242424241	incorrect_number	n/a
 Exceeding velocity limit decline	4000000000006975	card_declined	card_velocity_exceeded
 
 As well as 4000002760003184 to test 3D Secure
+
+And my own real card (although without processing it)
+
+3. A non-logged in user or a non-staff user should not be able to access anything under /staff
