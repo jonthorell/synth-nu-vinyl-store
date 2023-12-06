@@ -188,7 +188,7 @@
                              height="25"
                              width="25"
                              alt="Default user logo"
-                             loading="lazy" />
+                             loading="lazy">
                         {% endif %}
                         {% else %}
                         <img src="{{ MEDIA_URL }}avatars/not-logged-in.webp"
@@ -228,7 +228,7 @@
                         </li>
                         {% endif %}
                         {% endfor %}
-                        <li><hr class="dropdown-divider" /></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
                             <a class="dropdown-item" href="{% url 'profile' %}"><i class="fas fa-user-alt pe-2"></i>My Profile</a>
                         </li>
@@ -246,7 +246,7 @@
                             <a class="dropdown-item" href="/accounts/login"><i class="fas fa-door-open pe-2"></i>Login</a>
                         </li>
                         {% endif %}
-                        <li><hr class="dropdown-divider" /></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
                             <a class="dropdown-item" href="{% url 'view_bag' %}"><i class="fa-solid fa-bag-shopping"></i> Goto bag</a>
                         </li>
@@ -257,7 +257,7 @@
                             <a class="dropdown-item" href="{% url 'newsletter' %}"><i class="fa-regular fa-newspaper"></i> Newsletter</a>
                         </li>
 
-                        <li><hr class="dropdown-divider" /></li>
+                        <li><hr class="dropdown-divider"></li>
                         <li>
                             <a class="dropdown-item" href="/privacy"><i class="fa-solid fa-circle-exclamation pe-2"></i>View Privacy Policy</a>
                         </li>
