@@ -97,7 +97,7 @@ Everything is logged in the database, and staff-members can take the appropiate 
 
 About is just some basic info about the site and credits.
 
-![about](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/13-about.png?raw=true
+![about](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/13-about.png?raw=true)
 
 The shopping cart shows the number of items selected for purchase with an overlaid number. If empty, there is no number.
 If one hovers over it you get a popup with the current value of the bag. If you click on the car you get either:
@@ -347,10 +347,6 @@ The solution was to replace the variable product with the shortened prod.
 3. Whenever a genre is added, the view to products becomes wrong. The reason is I am using a ?genre= construct to show the shortcut buttons from many links. Need to find a way to make that
 more generic and work regardless of what genres are present in the db
 
-# To Do
-
-Update stock when an order has been completed
-
 # Things for the future
 
 The newsletter works fine given its limited scope. It is perfectly possible to add oneself to the mailing list and remove oneself again. However, since it is a non-vital
@@ -370,12 +366,28 @@ of that sort but get the proper error message as expected.
 One Lighthouse screenshot per view. In some cases it is not practical in providing one per view (i.e all_products, it should not matter whether I choose one genre or all so I settled for one)
 
 ![light-house-index](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/01-landingpage.png?raw=true)
+![light-house-contact](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/02-contact.png)
+![light-house-about](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/03-about.png?raw=true)
+![light-house-products](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/04-products.png?raw=true)
+![light-house-profiles](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/05-profiles.png?raw=true)
+![light-house-checkout](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/07-checkout.png?raw=true)
+![light-house-newsletter](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/08-newsletter.png?raw=true)
+![light-house-privacy](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/09-privacy.png?raw=true)
+![light-house-staff](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/10-staff.png?raw=true)
+![light-house-add-product](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/11-add-product.png?raw=true)
+![light-house-bag](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/12-bag.png?raw=true)
+![light-house-addgenre](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/13-addgenre.png?raw=true)
+![light-house-addnews](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/13-addnews.png?raw=true)
+![light-house-approve-review](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/14-approvereview.png?raw=true)
+![light-house-all-orders](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/16-allorders.png?raw=true)
 
 
 
 As can be seen, the values from lighthouse are fairly consistant across the board. 
 
 Some, as in the profile, is out of my control since the error comes from the equivalent of bootstrap that causes it.
+
+![light-house-error](https://synth-jt.s3.eu-north-1.amazonaws.com/static/images/readmes/lighthouse/06-profiles-error.png)?raw=true)
 
 
 ## HTML validation
